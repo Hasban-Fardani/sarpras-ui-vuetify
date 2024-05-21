@@ -55,6 +55,7 @@ const customTheme = {
 const vuetify = createVuetify({
   components,
   directives,
+  ssr: false,
   theme: {
     defaultTheme: 'customTheme',
     themes: {
