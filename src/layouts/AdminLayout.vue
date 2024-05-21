@@ -5,7 +5,7 @@ import { useDisplay } from 'vuetify';
 
 const display = useDisplay()
 const drawer = ref(!display.mobile.value)
-const rail = ref(false)
+const rail = ref(!display.mobile.value)
 const route = useRoute()
 const routeList = route.path.split('/').splice(1)
 
@@ -30,12 +30,22 @@ const toggle = () => {
             <v-navigation-drawer width="200" color="primary" v-model="drawer" :rail="rail"
                 :permanent="!$vuetify.display.mobile" :location="$vuetify.display.mobile ? 'bottom' : undefined">
                 <v-list density="compact" nav>
-                    <v-list-item class="d-flex justify-center align-center gap-2"><img src="/logo/icon.svg"
-                            :width="rail ? 25 : 50"></v-list-item>
-                    <v-list-item prepend-icon="mdi-view-dashboard" title="Dashboard" value="dashboard" />
-                    <v-list-item prepend-icon="mdi-package-variant-closed" title="Barang" value="barang" />
-                    <v-list-item prepend-icon="mdi-account-group-outline" title="User" value="users" />
+                    <v-list-item class="d-flex justify-center align-center gap-2" v-show="!display.mobile"><img
+                            src="/logo/icon.svg" :width="rail ? 25 : 50"></v-list-item>
+                    <v-list-item prepend-icon="mdi-view-dashboard" title="Dashboard" value="dashboard"
+                        to="/admin/dashboard" />
+                    <v-list-item prepend-icon="mdi-package-variant-closed" title="Barang" value="barang"
+                        to="/admin/items" />
+                    <v-list-item prepend-icon="mdi-package-variant-closed" title="Pengajuan" value="pengajuan"
+                        to="/admin/pengajuan" />
+                    <v-list-item prepend-icon="mdi-package-variant-closed" title="Permintaan" value="permintaan"
+                        to="/admin/permintaan" />
+                    <v-list-item prepend-icon="mdi-account-group-outline" title="User" value="users"
+                        to="/admin/users" />
                 </v-list>
+                <template v-slot:append>
+
+                </template>
             </v-navigation-drawer>
 
             <v-app-bar :order="1" elevation="1" flat>
@@ -46,7 +56,26 @@ const toggle = () => {
                     Sarana Prasarana
                 </v-app-bar-title>
                 <template v-slot:append>
+                    <v-menu transition="scale-transition">
+                        <template v-slot:activator="{ props }">
+                            <v-btn color="primary" v-bind="props" icon="mdi-account"></v-btn>
+                        </template>
 
+                        <v-list>
+                            <v-list-item>
+                                Hello Sarpras
+                            </v-list-item>
+                            <v-divider />
+                            <v-list-item>
+                                Akun
+                            </v-list-item>
+                            <v-list-item>
+                                <v-btn>
+                                    Logout
+                                </v-btn>
+                            </v-list-item>
+                        </v-list>
+                    </v-menu>
                 </template>
             </v-app-bar>
             <v-main>

@@ -3,6 +3,6 @@ import AdminLayout from '@/layouts/AdminLayout.vue';
 </script>
 <template>
   <AdminLayout>
-    helo
+
   </AdminLayout>
 </template>

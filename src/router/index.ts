@@ -32,6 +32,26 @@ const router = createRouter({
       name: 'admin-dashboard',
       component: () => import('../views/admin/DashboardView.vue')
     },
+    {
+      path: '/admin/items',
+      name: 'admin-item-list',
+      component: () => import('../views/admin/ItemListView.vue')
+    },
+    {
+      path: '/admin/pengajuan',
+      name: 'admin-pengajuan-list',
+      component: () => import('../views/admin/SubmissionListView.vue')
+    },
+    {
+      path: '/admin/permintaan',
+      name: 'admin-permintaan-list',
+      component: () => import('../views/admin/RequestListView.vue')
+    },
+    {
+      path: '/admin/users',
+      name: 'admin-user-list',
+      component: () => import('../views/admin/UserListView.vue')
+    },
 
     // === Exceptions ===
     {
