@@ -22,26 +22,26 @@ const chartDataPie = {
 <template>
     <AdminLayout>
         <VRow>
-            <VCol>
+            <VCol sm="6" md="3">
                 <VCard class="mx-auto" color="surface-variant" max-width="350" subtitle="Transaksi" title="100K" />
             </VCol>
-            <VCol>
+            <VCol sm="6" md="3">
                 <VCard class="mx-auto" color="surface-variant" max-width="350" subtitle="Barang" title="320" />
             </VCol>
-            <VCol>
+            <VCol sm="6" md="3">
                 <VCard class="mx-auto" color="surface-variant" max-width="350" subtitle="Akun" title="50" />
             </VCol>
-            <VCol>
+            <VCol sm="6" md="3">
                 <VCard class="mx-auto" color="surface-variant" max-width="350" subtitle="Transaksi" title="100K" />
             </VCol>
         </VRow>
 
         <VRow no-gutters class="mt-8">
             <VCol>
-                <Bar :data="chartDataBar" :style="{ width: '100%' }" />
+                <Bar :data="chartDataBar" />
             </VCol>
             <VCol class="d-flex justify-center">
-                <Pie :data="chartDataPie" :options="{ responsive: true }" :style="{ width: '300px', height: 'auto' }" />
+                <Pie :data="chartDataPie" :style="{ width: '300px', height: 'auto' }" />
             </VCol>
         </VRow>
     </AdminLayout>

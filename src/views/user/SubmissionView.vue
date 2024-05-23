@@ -1,5 +1,8 @@
-<script lang="ts" setup>
+<script setup lang="ts">
+import UserLayout from '@/layouts/UserLayout.vue';
 </script>
 <template>
-    Todo: submission form user
+    <UserLayout>
+
+    </UserLayout>
 </template>

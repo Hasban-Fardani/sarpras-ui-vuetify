@@ -1,8 +1,11 @@
 <script setup lang="ts">
-import AdminLayout from '@/layouts/AdminLayout.vue';
+import { useUserStore } from '@/stores/user';
+
+const user = useUserStore()
 </script>
 <template>
-  <AdminLayout>
-
-  </AdminLayout>
+  <div>
+    Todo: Landing page
+  </div>
+  <p v-if="user.isLogin">You loggen in as {{ user.data.name }}</p>
 </template>

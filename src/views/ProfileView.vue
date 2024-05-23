@@ -1,0 +1,3 @@
+<template>
+    Todo: profile
+</template>
