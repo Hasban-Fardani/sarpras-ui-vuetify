@@ -25,7 +25,7 @@ onMounted(() => {
                 </div>
             </template>
             <template v-slot:item.harga="{ item }">
-                <p>{{ toIDR(item.harga) }}</p>
+                <p>{{ toIDR(parseInt(item.harga.toString())) }}</p>
             </template>
             <template v-slot:item.id="{ item }">
                 <v-btn icon="mdi-square-edit-outline" color="yellow" />
