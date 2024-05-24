@@ -78,11 +78,11 @@ const router = createRouter({
     // === User ===
     {
       path: '/user',
-      redirect: '/user/dashboard'
+      redirect: '/user/home'
     },
     {
       path: '/user/home',
-      name: 'user-dashbaord',
+      name: 'user-home',
       component: () => import('../views/user/HomeView.vue'),
       meta: {
         auth: true,
