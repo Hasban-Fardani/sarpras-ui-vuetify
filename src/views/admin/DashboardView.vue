@@ -21,18 +21,19 @@ const chartDataPie = {
 </script>
 <template>
     <AdminLayout>
-        <VRow>
-            <VCol sm="6" md="3">
-                <VCard class="mx-auto" color="surface-variant" max-width="350" subtitle="Transaksi" title="100K" />
-            </VCol>
-            <VCol sm="6" md="3">
+        <VRow align="center">
+            <VCol>
                 <VCard class="mx-auto" color="surface-variant" max-width="350" subtitle="Barang" title="320" />
             </VCol>
-            <VCol sm="6" md="3">
+            <VCol>
                 <VCard class="mx-auto" color="surface-variant" max-width="350" subtitle="Akun" title="50" />
             </VCol>
-            <VCol sm="6" md="3">
-                <VCard class="mx-auto" color="surface-variant" max-width="350" subtitle="Transaksi" title="100K" />
+            <v-responsive width="100%" v-if="$vuetify.display.mobile"></v-responsive>
+            <VCol>
+                <VCard class="mx-auto" color="surface-variant" max-width="350" subtitle="Pengajuan" title="120" />
+            </VCol>
+            <VCol>
+                <VCard class="mx-auto" color="surface-variant" max-width="350" subtitle="Permintaan" title="300" />
             </VCol>
         </VRow>
 

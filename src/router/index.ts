@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
 import { useUserStore } from '@/stores/user'
 
 const router = createRouter({
@@ -7,15 +6,17 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: HomeView
+      redirect: '/auth/login'
     },
 
     // === Auth ===
     {
       path: '/auth/login',
       name: 'login',
-      component: () => import('../views/auth/LoginView.vue')
+      component: () => import('../views/auth/LoginView.vue'),
+      meta: {
+        auth: false
+      }
     },
     {
       path: '/auth/reset-password',
@@ -80,9 +81,9 @@ const router = createRouter({
       redirect: '/user/dashboard'
     },
     {
-      path: '/user/dashboard',
+      path: '/user/home',
       name: 'user-dashbaord',
-      component: () => import('../views/user/DashboardView.vue'),
+      component: () => import('../views/user/HomeView.vue'),
       meta: {
         auth: true,
         role: 'user'
@@ -138,6 +139,10 @@ router.beforeEach(async (to, from, next) => {
 
   if (to.meta.auth && !user.isLogin) {
     return next({ path: '/auth/login' })
+  }
+
+  if (!to.meta.auth && user.isLogin) {
+    next({ path: '/' + user.data.role })
   }
 
   if (to.meta.role && to.meta.role != user.data.role) {

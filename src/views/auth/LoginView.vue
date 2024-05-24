@@ -1,9 +1,11 @@
 <script lang="ts" setup>
 import router from '@/router';
 import { useUserStore } from '@/stores/user';
-import type { Credentials } from '@/types/credential';
 import { ref } from 'vue';
+import type { Credentials } from '@/types/credential';
 
+const alertMessage = ref('')
+const showAlert = ref(false)
 const valid = ref(false)
 const data = ref<Credentials>({
     username: '',
@@ -27,16 +29,28 @@ const rules = {
 }
 
 const user = useUserStore()
-
 const login = async () => {
-    let isLogin = await user.loginTMP(data.value)
-    if (isLogin) {
+    let message = await user.loginTMP(data.value)
+    if (message == 'login success') {
+        console.log('sini', user.data);
+
         router.push('/' + user.data.role)
+        location.reload()
+        return
     }
+    // show and hide alert
+    showAlert.value = true
+    alertMessage.value = message
+    setTimeout(() => {
+        alertMessage.value = ''
+        showAlert.value = false
+    }, 3000)
     return
 }
 </script>
 <template>
+    <v-alert :text="alertMessage" v-model="showAlert" transition="slide-y-transition" type="error" closable
+        class="position-absolute top-0 w-100"></v-alert>
     <div class="w-100 d-flex justify-center align-center h-screen">
         <div class="w-100 w-md-50 d-flex flex-column justify-center align-center">
             <img src="/logo/icon.svg" width="100" alt="logo sarpras">

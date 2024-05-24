@@ -50,9 +50,9 @@ export const useUserStore = defineStore('user', () => {
         value: JSON.stringify(data.value)
       })
 
-      return true
+      return 'login success'
     }
-    return false
+    return 'wrong username/password'
   }
 
   async function clear() {
