@@ -5,6 +5,7 @@ type Item = {
   kategori: String
   stok: number
   harga: number
+  updated_at: string
 }
 
 export type { Item }
