@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { defineStore } from 'pinia'
-import { computed, ref, type Ref } from 'vue'
+import { computed, ref } from 'vue'
 import { useUserStore } from './user'
 import type { Item } from '@/types/item'
 import { items as fakeItem } from './fake/item'
@@ -34,11 +34,16 @@ export const useItemStore = defineStore('item', () => {
   const headers = [
     {
       title: 'Gambar',
-      key: 'gambar'
+      key: 'gambar',
+      sortable: false
     },
     {
       title: 'Nama',
       key: 'nama'
+    },
+    {
+      title: 'Kategori',
+      key: 'kategori'
     },
     {
       title: 'Harga',
@@ -50,7 +55,8 @@ export const useItemStore = defineStore('item', () => {
     },
     {
       title: 'Action',
-      key: 'id'
+      key: 'id',
+      sortable: false
     }
   ]
 

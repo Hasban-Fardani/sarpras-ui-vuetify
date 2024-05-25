@@ -74,7 +74,7 @@ const logout = async () => {
                             Hello {{ user.data.name }}
                         </v-list-item>
                         <v-divider />
-                        <v-list-item>
+                        <v-list-item to="/profile">
                             Akun
                         </v-list-item>
                         <v-list-item @click="logout()">

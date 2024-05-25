@@ -112,7 +112,10 @@ const router = createRouter({
     {
       path: '/profile',
       name: 'profile',
-      component: () => import('../views/ProfileView.vue')
+      component: () => import('../views/ProfileView.vue'),
+      meta: {
+        auth: true
+      }
     },
 
     // === Exceptions ===
@@ -152,4 +155,7 @@ router.beforeEach(async (to, from, next) => {
   return next()
 })
 
+router.onError((err) => {
+  console.log(err)
+})
 export default router

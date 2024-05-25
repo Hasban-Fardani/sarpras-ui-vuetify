@@ -19,7 +19,6 @@ export const useUserStore = defineStore('user', () => {
     const ret = await Preferences.get({ key: 'user' })
 
     if (ret.value == null) {
-      console.log('tidak ada user')
       return
     }
 

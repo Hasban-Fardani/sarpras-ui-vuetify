@@ -1,7 +1,16 @@
 <script setup lang="ts">
 import router from '@/router';
 import { useUserStore } from '@/stores/user';
+import { useRoute } from 'vue-router';
 
+const route = useRoute()
+const routeList = route.path.split('/').splice(1)
+const breadcrumbItems = routeList.map((r, i) => {
+    return {
+        title: r,
+        href: '/' + routeList.slice(0, i + 1).join('/')
+    }
+})
 
 const user = useUserStore()
 const logout = async () => {
@@ -19,10 +28,9 @@ const logout = async () => {
             </v-app-bar-title>
             <div class="v-app-bar-center d-none d-md-flex">
                 <div class="nav-item">
-                    <v-btn to="/user">Home</v-btn>
-                    <v-btn to="/user">Pengajuan</v-btn>
-                    <v-btn to="/user">Permintaan</v-btn>
-                    <v-btn to="/user">Histori</v-btn>
+                    <v-btn to="/user/home">Home</v-btn>
+                    <v-btn to="/user/pengajuan">Pengajuan</v-btn>
+                    <v-btn to="/user/permintaan">Permintaan</v-btn>
                 </div>
             </div>
             <template v-slot:append>
@@ -47,15 +55,21 @@ const logout = async () => {
             </template>
             <template v-slot:extension v-if="$vuetify.display.mobile">
                 <v-tabs align-tabs="center">
-                    <v-tab to="/user">Home</v-tab>
-                    <v-tab to="/user">Pengajuan</v-tab>
-                    <v-tab to="/user">Permintaan</v-tab>
-                    <v-tab to="/user">Histori</v-tab>
+                    <v-tab to="/user/home">Home</v-tab>
+                    <v-tab to="/user/pengajuan">Pengajuan</v-tab>
+                    <v-tab to="/user/permintaan">Permintaan</v-tab>
                 </v-tabs>
             </template>
         </v-app-bar>
         <v-main>
-            <slot />
+            <v-breadcrumbs :items="breadcrumbItems">
+                <template v-slot:divider>
+                    <v-icon icon="mdi-chevron-right"></v-icon>
+                </template>
+            </v-breadcrumbs>
+            <div class="px-4">
+                <slot />
+            </div>
         </v-main>
     </v-layout>
 </template>

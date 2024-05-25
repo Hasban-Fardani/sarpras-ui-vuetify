@@ -14,8 +14,16 @@ onMounted(() => {
 </script>
 <template>
     <AdminLayout>
-        <v-text-field v-model="item.searchName" class="ma-2" density="compact" placeholder="Search name..."
-            hide-details></v-text-field>
+        <div class="d-flex w-100 justify-space-between">
+            <div class="w-50">
+                <v-text-field v-model="item.searchName" class="ma-2" density="compact" placeholder="Search name..."
+                    hide-details />
+            </div>
+            <div class="d-flex flex-column ga-2">
+                <v-btn size="small">Import</v-btn>
+                <v-btn size="small">Export</v-btn>
+            </div>
+        </div>
         <v-data-table-server v-model:items-per-page="item.perPage" :headers="item.headers" :items="item.filtered"
             :items-length="item.total" :loading="loading" :search="item.searchName" item-value="name"
             @update:options="item.updateTable">
@@ -28,8 +36,11 @@ onMounted(() => {
                 <p>{{ toIDR(parseInt(item.harga.toString())) }}</p>
             </template>
             <template v-slot:item.id="{ item }">
-                <v-btn icon="mdi-square-edit-outline" color="yellow" />
-                <v-btn icon="mdi-delete" color="red" />
+                <div class="d-flex ga-2">
+                    <v-btn icon="mdi-playlist-edit" color="green" />
+                    <v-btn icon="mdi-square-edit-outline" color="yellow" />
+                    <v-btn icon="mdi-delete" color="red" />
+                </div>
             </template>
         </v-data-table-server>
     </AdminLayout>

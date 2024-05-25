@@ -1,9 +1,10 @@
 type Item = {
-  id: Number
+  id: number
   gambar: String
   nama: String
-  stok: Number
-  harga: Number
+  kategori: String
+  stok: number
+  harga: number
 }
 
 export type { Item }
