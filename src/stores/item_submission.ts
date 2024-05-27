@@ -2,12 +2,13 @@ import axios from 'axios'
 import { defineStore } from 'pinia'
 import { computed, ref } from 'vue'
 import { useUserStore } from './user'
-import { items as fakeItem } from './fake/item'
-import type { CreateItem, Item } from '@/types/item'
+import { itemSubmissions } from './fake/item_submission'
+import type { CreateItem } from '@/types/item'
 import type { UpdateTableArgs } from '@/types/table'
+import type { ItemSubmission } from '@/types/item_submission'
 
 export const useItemSubmissionStore = defineStore('item-submission', () => {
-  const items = ref<Item[]>([])
+  const items = ref<ItemSubmission[]>([])
   const total = computed(() => items.value?.length)
   const perPage = ref(5)
   const page = ref(1)
@@ -16,7 +17,7 @@ export const useItemSubmissionStore = defineStore('item-submission', () => {
     let res = []
     if (searchName.value) {
       res = items.value.filter(
-        (i) => i.nama.toLocaleLowerCase().search(searchName.value.toLocaleLowerCase()) != -1
+        (i) => i.nama_unit.toLocaleLowerCase().search(searchName.value.toLocaleLowerCase()) != -1
       )
     } else {
       res = items.value
@@ -28,29 +29,16 @@ export const useItemSubmissionStore = defineStore('item-submission', () => {
   const totalFiltered = computed(() => filtered.value!.length)
   const headers = [
     {
-      title: 'Gambar',
-      key: 'gambar',
-      sortable: false
-    },
-    {
       title: 'Nama',
-      key: 'nama'
+      key: 'nama_unit'
     },
     {
-      title: 'Kategori',
-      key: 'kategori.nama'
+      title: 'Jumlah',
+      key: 'jumlah_ajuan'
     },
     {
-      title: 'Harga',
-      key: 'harga'
-    },
-    {
-      title: 'Stok',
-      key: 'stok'
-    },
-    {
-      title: 'Diupdate',
-      key: 'updated_at'
+      title: 'Tanggal',
+      key: 'tanggal'
     },
     {
       title: 'Action',
@@ -69,7 +57,7 @@ export const useItemSubmissionStore = defineStore('item-submission', () => {
   }
 
   function tmpData() {
-    items.value = fakeItem
+    items.value = itemSubmissions
   }
 
   function updateTable(args: UpdateTableArgs) {

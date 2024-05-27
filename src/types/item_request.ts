@@ -1,6 +1,8 @@
 type ItemRequest = {
   id_unit: number
+  nama_unit: string
   jumlah_permintaan: number
+  tanggal: string
 }
 
 type ItemRequestDetail = {

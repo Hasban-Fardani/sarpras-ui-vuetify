@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import UserLayout from '@/layouts/UserLayout.vue';
 import { useUserStore } from '@/stores/user';
-import { VCard, VLayout } from 'vuetify/components';
+import { VCard } from 'vuetify/components';
 
 const user = useUserStore()
 </script>

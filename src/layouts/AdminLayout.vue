@@ -1,13 +1,14 @@
 <script setup lang="ts">
 import router from '@/router';
 import { useUserStore } from '@/stores/user';
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
 import { useRoute } from 'vue-router';
 import { useDisplay } from 'vuetify';
 
 const display = useDisplay()
 const drawer = ref(!display.mobile.value)
 const rail = ref(!display.mobile.value)
+const groupBarang = ref(false)
 const route = useRoute()
 const routeList = route.path.split('/').splice(1)
 const user = useUserStore()
@@ -37,7 +38,7 @@ const logout = async () => {
 
 <template>
     <v-layout>
-        <v-navigation-drawer width="200" color="primary" v-model="drawer" :rail="rail"
+        <v-navigation-drawer width="250" color="primary" v-model="drawer" :rail="rail"
             :permanent="!$vuetify.display.mobile" :location="$vuetify.display.mobile ? 'bottom' : undefined">
             <v-list density="compact" nav>
                 <v-list-item class="d-flex justify-center align-center gap-2" v-show="!display.mobile" to="/"><img
@@ -46,27 +47,22 @@ const logout = async () => {
                     to="/admin/dashboard" />
                 <v-list-item prepend-icon="mdi-tag-multiple" title="Kategori" value="kategori" to="/admin/kategori" />
 
-                <v-list-group value="barang" prepend-icon="mdi-package-variant-closed">
-                    <template v-slot:activator="{ props }">
-                        <v-list-item v-bind="props" prepend-icon="mdi-package-variant-closed"
-                            title="Barang"></v-list-item>
-                    </template>
-                    <v-list-item to="/admin/items" prepend-icon="mdi-view-list">
-                        <v-list-item-content>
-                            <v-list-item-title>List Barang</v-list-item-title>
-                        </v-list-item-content>
-                    </v-list-item>
-                    <v-list-item to="/admin/items/item-in" prepend-icon="mdi-arrow-down-bold-hexagon-outline">
-                        <v-list-item-content>
-                            <v-list-item-title>Barang Masuk</v-list-item-title>
-                        </v-list-item-content>
-                    </v-list-item>
-                    <v-list-item to="/admin/items/item-out" prepend-icon="mdi-logout">
-                        <v-list-item-content>
-                            <v-list-item-title>Barang Keluar</v-list-item-title>
-                        </v-list-item-content>
-                    </v-list-item>
-                </v-list-group>
+
+                <v-list-item to="/admin/items" prepend-icon="mdi-view-list">
+                    <v-list-item-content>
+                        <v-list-item-title>List Barang</v-list-item-title>
+                    </v-list-item-content>
+                </v-list-item>
+                <v-list-item to="/admin/items/item-in" prepend-icon="mdi-arrow-down-bold-hexagon-outline">
+                    <v-list-item-content>
+                        <v-list-item-title>Barang Masuk</v-list-item-title>
+                    </v-list-item-content>
+                </v-list-item>
+                <v-list-item to="/admin/items/item-out" prepend-icon="mdi-logout">
+                    <v-list-item-content>
+                        <v-list-item-title>Barang Keluar</v-list-item-title>
+                    </v-list-item-content>
+                </v-list-item>
 
                 <v-list-item prepend-icon="mdi-package-variant-closed" title="Pengajuan" value="pengajuan"
                     to="/admin/pengajuan" />
@@ -123,5 +119,10 @@ const logout = async () => {
 <style>
 .v-main {
     min-height: 100vh;
+}
+
+.no-indent {
+    --indent-padding: -8px;
+    padding-inline-start: 0;
 }
 </style>

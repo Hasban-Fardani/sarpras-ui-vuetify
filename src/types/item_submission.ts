@@ -1,6 +1,8 @@
 type ItemSubmission = {
   id_unit: number
+  nama_unit: string
   jumlah_ajuan: number
+  tanggal: string
 }
 
 type ItemSubmissionDetail = {
