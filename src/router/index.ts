@@ -145,7 +145,7 @@ const router = createRouter({
 })
 
 // Login middleware
-router.beforeEach(async (to, from, next) => {
+router.beforeEach(async (to, _, next) => {
   const user = useUserStore()
   await user.load()
 
@@ -153,8 +153,8 @@ router.beforeEach(async (to, from, next) => {
     return next({ path: '/auth/login' })
   }
 
-  if (!to.meta.auth && user.isLogin) {
-    next({ path: '/' + user.data.role })
+  if (to.name == 'login' && user.isLogin) {
+    return next({ path: '/' + user.data.role })
   }
 
   if (to.meta.role && to.meta.role != user.data.role) {

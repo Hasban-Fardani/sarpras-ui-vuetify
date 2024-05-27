@@ -2,14 +2,9 @@ import axios from 'axios'
 import { defineStore } from 'pinia'
 import { computed, ref } from 'vue'
 import { useUserStore } from './user'
-import type { Item } from '@/types/item'
 import { items as fakeItem } from './fake/item'
-
-interface UpdateTableArgs {
-  page: number
-  itemsPerPage: number
-  shortBy: Array<Object> | null
-}
+import type { CreateItem, Item } from '@/types/item'
+import type { UpdateTableArgs } from '@/types/table'
 
 export const useItemStore = defineStore('item', () => {
   const items = ref<Item[]>([])
@@ -43,7 +38,7 @@ export const useItemStore = defineStore('item', () => {
     },
     {
       title: 'Kategori',
-      key: 'kategori'
+      key: 'kategori.nama'
     },
     {
       title: 'Harga',
@@ -52,6 +47,10 @@ export const useItemStore = defineStore('item', () => {
     {
       title: 'Stok',
       key: 'stok'
+    },
+    {
+      title: 'Diupdate',
+      key: 'updated_at'
     },
     {
       title: 'Action',
@@ -76,10 +75,16 @@ export const useItemStore = defineStore('item', () => {
   function updateTable(args: UpdateTableArgs) {
     page.value = args.page
     perPage.value = args.itemsPerPage
-    console.log('update')
   }
 
-  function addItem() {}
+  function addItem(item: CreateItem) {
+    const data = new FormData()
+    data.append('nama', item.nama)
+    data.append('gambar', item.gambar)
+    data.append('kategori_id', item.kategori_id.toString())
+    data.append('stok', item.stok.toString())
+    data.append('harga', item.harga.toString())
+  }
 
   function updateItem() {}
 
