@@ -4,6 +4,7 @@ type User = {
   unit: String
   // role: 'admin' | 'user' | 'kepala sekolah'
   role: String
+  password?: string
 }
 
 export type { User }

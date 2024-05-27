@@ -1,12 +1,18 @@
-export const users = [
+import type { User } from '@/types/user'
+
+export const users: User[] = [
   {
-    username: 'admin',
+    name: 'admin',
     role: 'admin',
+    token: 'random token',
+    unit: 'sarpras',
     password: 'password'
   },
   {
-    username: 'user',
+    name: 'user',
     role: 'user',
+    token: 'random token',
+    unit: 'RPL',
     password: 'password'
   }
 ]

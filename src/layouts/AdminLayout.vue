@@ -64,10 +64,9 @@ const logout = async () => {
                     </v-list-item-content>
                 </v-list-item>
 
-                <v-list-item prepend-icon="mdi-package-variant-closed" title="Pengajuan" value="pengajuan"
+                <v-list-item prepend-icon="mdi-playlist-edit" title="Pengajuan" value="pengajuan"
                     to="/admin/pengajuan" />
-                <v-list-item prepend-icon="mdi-package-variant-closed" title="Permintaan" value="permintaan"
-                    to="/admin/permintaan" />
+                <v-list-item prepend-icon="mdi-forum" title="Permintaan" value="permintaan" to="/admin/permintaan" />
                 <v-list-item prepend-icon="mdi-account-group-outline" title="User" value="users" to="/admin/users" />
             </v-list>
             <template v-slot:append>

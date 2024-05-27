@@ -36,10 +36,10 @@ export const useUserStore = defineStore('user', () => {
 
   async function loginTMP(credential: Credentials) {
     const userFind = users.find(
-      (usr) => usr.username == credential.username && usr.password == credential.password
+      (usr) => usr.name == credential.username && usr.password == credential.password
     )
     if (userFind) {
-      data.value.name = userFind.username
+      data.value.name = userFind.name
       data.value.role = userFind.role
       data.value.unit = userFind.role
       data.value.token = 'random token'

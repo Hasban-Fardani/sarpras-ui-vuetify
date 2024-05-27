@@ -2,25 +2,24 @@ import axios from 'axios'
 import { defineStore } from 'pinia'
 import { computed, ref } from 'vue'
 import { useUserStore } from './user'
-import { itemRequests } from './fake/item_request'
-import type { CreateItem } from '@/types/item'
+import { users as fakeUser } from './fake/user'
 import type { UpdateTableArgs } from '@/types/table'
-import type { ItemRequest } from '@/types/item_request'
+import type { User } from '@/types/user'
 
-export const useItemRequestStore = defineStore('item_request', () => {
-  const items = ref<ItemRequest[]>([])
-  const total = computed(() => items.value?.length)
+export const useUserTableStore = defineStore('userTable', () => {
+  const users = ref<User[]>([])
+  const total = computed(() => users.value?.length)
   const perPage = ref(5)
   const page = ref(1)
   const searchName = ref('')
   const filtered = computed(() => {
     let res = []
     if (searchName.value) {
-      res = items.value.filter(
-        (i) => i.nama_unit.toLocaleLowerCase().search(searchName.value.toLocaleLowerCase()) != -1
+      res = users.value.filter(
+        (i) => i.name.toLocaleLowerCase().search(searchName.value.toLocaleLowerCase()) != -1
       )
     } else {
-      res = items.value
+      res = users.value
     }
     const start = page.value - 1 > 0 ? (page.value - 1) * perPage.value : 0
     const end = start + perPage.value
@@ -30,15 +29,15 @@ export const useItemRequestStore = defineStore('item_request', () => {
   const headers = [
     {
       title: 'Nama',
-      key: 'nama_unit'
+      key: 'name'
     },
     {
-      title: 'Jumlah',
-      key: 'jumlah_permintaan'
+      title: 'Role',
+      key: 'role'
     },
     {
-      title: 'Tanggal',
-      key: 'tanggal'
+      title: 'Unit',
+      key: 'unit'
     },
     {
       title: 'Action',
@@ -49,7 +48,7 @@ export const useItemRequestStore = defineStore('item_request', () => {
 
   function getAll() {
     const user = useUserStore()
-    return axios.get('/item-requests', {
+    return axios.get('/users', {
       headers: {
         Authorization: 'Bearer ' + user.data.token
       }
@@ -57,7 +56,7 @@ export const useItemRequestStore = defineStore('item_request', () => {
   }
 
   function tmpData() {
-    items.value = itemRequests
+    users.value = fakeUser
   }
 
   function updateTable(args: UpdateTableArgs) {
@@ -65,21 +64,17 @@ export const useItemRequestStore = defineStore('item_request', () => {
     perPage.value = args.itemsPerPage
   }
 
-  function addItem(item: CreateItem) {
-    const data = new FormData()
-    data.append('nama', item.nama)
-    data.append('gambar', item.gambar)
-    data.append('kategori_id', item.kategori_id.toString())
-    data.append('stok', item.stok.toString())
-    data.append('harga', item.harga.toString())
+  function addUser() {
+    // const data = new FormData()
+    // data.append('nama', item.nama)
   }
 
-  function updateRequest() {}
+  function updateCategory() {}
 
-  function deleteReqest() {}
+  function deleteCategory() {}
 
   return {
-    items,
+    users,
     filtered,
     total,
     totalFiltered,
@@ -90,8 +85,8 @@ export const useItemRequestStore = defineStore('item_request', () => {
     getAll,
     tmpData,
     updateTable,
-    deleteReqest,
-    updateRequest,
-    addItem
+    deleteCategory,
+    updateCategory,
+    addUser
   }
 })
