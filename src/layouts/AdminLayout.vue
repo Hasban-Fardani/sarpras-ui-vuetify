@@ -34,6 +34,7 @@ const logout = async () => {
     router.push('/auth/login')
 }
 </script>
+
 <template>
     <v-layout>
         <v-navigation-drawer width="200" color="primary" v-model="drawer" :rail="rail"
@@ -44,8 +45,29 @@ const logout = async () => {
                 <v-list-item prepend-icon="mdi-view-dashboard" title="Dashboard" value="dashboard"
                     to="/admin/dashboard" />
                 <v-list-item prepend-icon="mdi-tag-multiple" title="Kategori" value="kategori" to="/admin/kategori" />
-                <v-list-item prepend-icon="mdi-package-variant-closed" title="Barang" value="barang"
-                    to="/admin/items" />
+
+                <v-list-group value="barang" prepend-icon="mdi-package-variant-closed">
+                    <template v-slot:activator="{ props }">
+                        <v-list-item v-bind="props" prepend-icon="mdi-package-variant-closed"
+                            title="Barang"></v-list-item>
+                    </template>
+                    <v-list-item to="/admin/items" prepend-icon="mdi-view-list">
+                        <v-list-item-content>
+                            <v-list-item-title>List Barang</v-list-item-title>
+                        </v-list-item-content>
+                    </v-list-item>
+                    <v-list-item to="/admin/items/item-in" prepend-icon="mdi-arrow-down-bold-hexagon-outline">
+                        <v-list-item-content>
+                            <v-list-item-title>Barang Masuk</v-list-item-title>
+                        </v-list-item-content>
+                    </v-list-item>
+                    <v-list-item to="/admin/items/item-out" prepend-icon="mdi-logout">
+                        <v-list-item-content>
+                            <v-list-item-title>Barang Keluar</v-list-item-title>
+                        </v-list-item-content>
+                    </v-list-item>
+                </v-list-group>
+
                 <v-list-item prepend-icon="mdi-package-variant-closed" title="Pengajuan" value="pengajuan"
                     to="/admin/pengajuan" />
                 <v-list-item prepend-icon="mdi-package-variant-closed" title="Permintaan" value="permintaan"
@@ -97,6 +119,7 @@ const logout = async () => {
         </v-main>
     </v-layout>
 </template>
+
 <style>
 .v-main {
     min-height: 100vh;

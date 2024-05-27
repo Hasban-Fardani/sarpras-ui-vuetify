@@ -41,7 +41,7 @@ const router = createRouter({
     {
       path: '/admin/kategori',
       name: 'admin-kategori',
-      component: () => import('../views/admin/KategoriView.vue'),
+      component: () => import('../views/admin/CategoryListView.vue'),
       meta: {
         auth: true,
         role: 'admin'
@@ -51,6 +51,24 @@ const router = createRouter({
       path: '/admin/items',
       name: 'admin-item-list',
       component: () => import('../views/admin/ItemListView.vue'),
+      meta: {
+        auth: true,
+        role: 'admin'
+      }
+    },
+    {
+      path: '/admin/items/item-in',
+      name: 'admin-item-in',
+      component: () => import('../views/admin/ItemInListView.vue'),
+      meta: {
+        auth: true,
+        role: 'admin'
+      }
+    },
+    {
+      path: '/admin/items/item-out',
+      name: 'admin-item-out',
+      component: () => import('../views/admin/ItemOutListView.vue'),
       meta: {
         auth: true,
         role: 'admin'
