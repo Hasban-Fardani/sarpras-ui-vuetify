@@ -1,16 +1,6 @@
 <script setup lang="ts">
 import router from '@/router';
 import { useUserStore } from '@/stores/user';
-import { useRoute } from 'vue-router';
-
-const route = useRoute()
-const routeList = route.path.split('/').splice(1)
-const breadcrumbItems = routeList.map((r, i) => {
-    return {
-        title: r,
-        href: '/' + routeList.slice(0, i + 1).join('/')
-    }
-})
 
 const user = useUserStore()
 const logout = async () => {
@@ -62,11 +52,6 @@ const logout = async () => {
             </template>
         </v-app-bar>
         <v-main>
-            <v-breadcrumbs :items="breadcrumbItems">
-                <template v-slot:divider>
-                    <v-icon icon="mdi-chevron-right"></v-icon>
-                </template>
-            </v-breadcrumbs>
             <div class="px-4">
                 <slot />
             </div>
