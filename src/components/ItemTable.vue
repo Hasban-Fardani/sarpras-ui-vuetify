@@ -1,7 +1,7 @@
 <!-- eslint-disable vue/valid-v-slot -->
 <script setup lang="ts">
 import ItemEditDialog from '@/components/ItemEditDialog.vue';
-import ItemDeleteDialog from '@/components/ItemDeleteDialog.vue';
+import DeleteDialog from '@/components/DeleteDialog.vue';
 import { onMounted, ref } from 'vue';
 import { useItemStore } from '@/stores/item';
 import type { Item } from '@/types/item';
@@ -21,10 +21,15 @@ const editItem = (itemEdite: Item) => {
     selectedEditItem.value = itemEdite
 }
 
-const deleteITem = (id: number, nama: string) => {
+const confirmDeleteITem = (id: number, nama: string) => {
     deleteItemDialog.value = true
     selectedDeleteName.value = nama
     selectedDeleteId.value = id
+}
+
+const deleteItem = (id: number) => {
+    console.log('Do delete item with id: ', id);
+
 }
 
 onMounted(() => {
@@ -35,8 +40,8 @@ onMounted(() => {
     <item-edit-dialog :item-prop="selectedEditItem" :is-active="editItemDialog"
         @close-dialog="editItemDialog = false" />
 
-    <item-delete-dialog :id="selectedDeleteId" :nama="selectedDeleteName" :is-active="deleteItemDialog"
-        @close-dialog="deleteItemDialog = false" />
+    <delete-dialog type="Barang" :id="selectedDeleteId" :nama="selectedDeleteName" :is-active="deleteItemDialog"
+        @close-dialog="deleteItemDialog = false" @delete="deleteItem" />
 
     <v-data-table-server v-model:items-per-page="item.perPage" :headers="item.headers" :items="item.filtered"
         :items-length="item.total" :loading="loading" :search="item.searchName" item-value="name"
@@ -53,7 +58,7 @@ onMounted(() => {
             <div class="d-flex ga-2">
                 <v-btn icon="mdi-playlist-edit" color="green" />
                 <v-btn icon="mdi-square-edit-outline" color="yellow" @click="editItem(item)" />
-                <v-btn icon="mdi-delete" color="red" @click="deleteITem(item.id, item.nama.toString())" />
+                <v-btn icon="mdi-delete" color="red" @click="confirmDeleteITem(item.id, item.nama.toString())" />
             </div>
         </template>
     </v-data-table-server>

@@ -29,7 +29,7 @@ export const useUserTableStore = defineStore('userTable', () => {
   const headers = [
     {
       title: 'Nama',
-      key: 'name'
+      key: 'nama'
     },
     {
       title: 'Role',
