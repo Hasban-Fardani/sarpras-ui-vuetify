@@ -5,7 +5,7 @@ import CategoryTable from '@/components/CategoryTable.vue';
 </script>
 <template>
     <AdminLayout>
-        <VBtn color="primary">
+        <VBtn color="primary" append-icon="mdi-plus">
             Tambah
             <CategoryAddDialog />
         </VBtn>

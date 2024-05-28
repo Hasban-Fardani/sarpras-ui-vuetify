@@ -3,7 +3,7 @@ import type { ItemRequest, ItemRequestDetail } from '@/types/item_request'
 const itemRequests: ItemRequest[] = [
   {
     id: 1,
-    status: 'diprosess',
+    status: 'diproses',
     id_unit: 1,
     unit: {
       id: 1,
@@ -14,7 +14,7 @@ const itemRequests: ItemRequest[] = [
   },
   {
     id: 2,
-    status: 'diprosess',
+    status: 'diproses',
     id_unit: 2,
     unit: {
       id: 2,
@@ -25,7 +25,7 @@ const itemRequests: ItemRequest[] = [
   },
   {
     id: 3,
-    status: 'diprosess',
+    status: 'diproses',
     id_unit: 3,
     unit: {
       id: 3,
@@ -36,7 +36,7 @@ const itemRequests: ItemRequest[] = [
   },
   {
     id: 4,
-    status: 'diprosess',
+    status: 'diproses',
     id_unit: 4,
     unit: {
       id: 4,
@@ -47,7 +47,7 @@ const itemRequests: ItemRequest[] = [
   },
   {
     id: 5,
-    status: 'diprosess',
+    status: 'diproses',
     id_unit: 5,
     unit: {
       id: 5,
@@ -58,7 +58,7 @@ const itemRequests: ItemRequest[] = [
   },
   {
     id: 6,
-    status: 'diprosess',
+    status: 'diproses',
     id_unit: 6,
     unit: {
       id: 6,
@@ -69,7 +69,7 @@ const itemRequests: ItemRequest[] = [
   },
   {
     id: 7,
-    status: 'diprosess',
+    status: 'diproses',
     id_unit: 7,
     unit: {
       id: 7,
@@ -80,7 +80,7 @@ const itemRequests: ItemRequest[] = [
   },
   {
     id: 8,
-    status: 'diprosess',
+    status: 'diproses',
     id_unit: 8,
     unit: {
       id: 8,
@@ -91,7 +91,7 @@ const itemRequests: ItemRequest[] = [
   },
   {
     id: 9,
-    status: 'diprosess',
+    status: 'diproses',
     id_unit: 9,
     unit: {
       id: 9,
@@ -102,7 +102,7 @@ const itemRequests: ItemRequest[] = [
   },
   {
     id: 10,
-    status: 'diprosess',
+    status: 'diproses',
     id_unit: 10,
     unit: {
       id: 10,

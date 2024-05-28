@@ -37,6 +37,10 @@ export const useItemRequestStore = defineStore('item_request', () => {
       key: 'jumlah_permintaan'
     },
     {
+      title: 'Status',
+      key: 'status'
+    },
+    {
       title: 'Tanggal',
       key: 'tanggal'
     },

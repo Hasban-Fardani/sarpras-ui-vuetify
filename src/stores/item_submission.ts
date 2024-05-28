@@ -37,6 +37,10 @@ export const useItemSubmissionStore = defineStore('item-submission', () => {
       key: 'jumlah_ajuan'
     },
     {
+      title: 'Status',
+      key: 'status'
+    },
+    {
       title: 'Tanggal',
       key: 'tanggal'
     },

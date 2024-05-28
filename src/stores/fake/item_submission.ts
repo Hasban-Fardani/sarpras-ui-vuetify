@@ -9,7 +9,7 @@ const itemSubmissions: ItemSubmission[] = [
       nama: 'BK'
     },
     jumlah_ajuan: 4,
-    status: 'diprosess',
+    status: 'diproses',
     tanggal: '2024-05-11'
   },
   {
@@ -20,7 +20,7 @@ const itemSubmissions: ItemSubmission[] = [
       nama: 'MTK'
     },
     jumlah_ajuan: 9,
-    status: 'diprosess',
+    status: 'diproses',
     tanggal: '2024-05-12'
   },
   {
@@ -31,7 +31,7 @@ const itemSubmissions: ItemSubmission[] = [
       nama: 'RPL'
     },
     jumlah_ajuan: 6,
-    status: 'diprosess',
+    status: 'diproses',
     tanggal: '2024-05-13'
   },
   {
@@ -42,7 +42,7 @@ const itemSubmissions: ItemSubmission[] = [
       nama: 'PJOK'
     },
     jumlah_ajuan: 14,
-    status: 'diprosess',
+    status: 'diproses',
     tanggal: '2024-05-14'
   },
   {
@@ -53,7 +53,7 @@ const itemSubmissions: ItemSubmission[] = [
       nama: 'Bahasa Inggris'
     },
     jumlah_ajuan: 8,
-    status: 'diprosess',
+    status: 'diproses',
     tanggal: '2024-05-15'
   },
   {
@@ -64,7 +64,7 @@ const itemSubmissions: ItemSubmission[] = [
       nama: 'Bahasa Indonesia'
     },
     jumlah_ajuan: 3,
-    status: 'diprosess',
+    status: 'diproses',
     tanggal: '2024-05-16'
   },
   {
@@ -75,7 +75,7 @@ const itemSubmissions: ItemSubmission[] = [
       nama: 'RPL'
     },
     jumlah_ajuan: 13,
-    status: 'diprosess',
+    status: 'diproses',
     tanggal: '2024-05-17'
   },
   {
@@ -86,7 +86,7 @@ const itemSubmissions: ItemSubmission[] = [
       nama: 'DKV'
     },
     jumlah_ajuan: 7,
-    status: 'diprosess',
+    status: 'diproses',
     tanggal: '2024-05-18'
   },
   {
@@ -97,7 +97,7 @@ const itemSubmissions: ItemSubmission[] = [
       nama: 'Sejarah'
     },
     jumlah_ajuan: 10,
-    status: 'diprosess',
+    status: 'diproses',
     tanggal: '2024-05-19'
   },
   {
@@ -108,7 +108,7 @@ const itemSubmissions: ItemSubmission[] = [
       nama: 'Pemasaran'
     },
     jumlah_ajuan: 5,
-    status: 'diprosess',
+    status: 'diproses',
     tanggal: '2024-05-20'
   }
 ]

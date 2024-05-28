@@ -1,12 +1,19 @@
 type ItemOut = {
+  id: number
   id_unit: number
+  unit: {
+    id?: number
+    nama: string
+  }
   tanggal: string
 }
 
 type ItemOutDetail = {
   id_barang: number
-  id_unit: number
-  id_supplier: number
+  barang: {
+    id?: number
+    nama: string
+  }
   jumlah: number
 }
 
