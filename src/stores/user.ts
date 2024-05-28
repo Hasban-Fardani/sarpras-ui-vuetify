@@ -8,7 +8,7 @@ import type { User } from '@/types/user'
 
 export const useUserStore = defineStore('user', () => {
   const data = ref<User>({
-    name: '',
+    nama: '',
     role: 'user',
     token: '',
     unit: 'sarpras'
@@ -36,10 +36,10 @@ export const useUserStore = defineStore('user', () => {
 
   async function loginTMP(credential: Credentials) {
     const userFind = users.find(
-      (usr) => usr.name == credential.username && usr.password == credential.password
+      (usr) => usr.nama == credential.username && usr.password == credential.password
     )
     if (userFind) {
-      data.value.name = userFind.name
+      data.value.nama = userFind.nama
       data.value.role = userFind.role
       data.value.unit = userFind.role
       data.value.token = 'random token'
@@ -51,12 +51,12 @@ export const useUserStore = defineStore('user', () => {
 
       return 'login success'
     }
-    return 'wrong username/password'
+    return 'wrong usernama/password'
   }
 
   async function clear() {
     data.value = {
-      name: '',
+      nama: '',
       role: '',
       token: '',
       unit: ''

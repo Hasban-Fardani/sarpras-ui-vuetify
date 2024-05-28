@@ -1,6 +1,7 @@
 <template>
-
-  <RouterView />
+  <VNoSsr>
+    <RouterView />
+  </VNoSsr>
 </template>
 <style>
 .v-main {

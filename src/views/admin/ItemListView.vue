@@ -22,7 +22,7 @@ onMounted(() => {
                 <v-menu>
                     <template v-slot:activator="{ props }">
                         <v-btn color="primary" append-icon="mdi-plus" dark v-bind="props">
-                            add
+                            Tambah
                         </v-btn>
                     </template>
                     <v-list>

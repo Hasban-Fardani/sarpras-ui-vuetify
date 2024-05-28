@@ -15,8 +15,7 @@ onMounted(() => {
         :search="itemRequest.searchName" item-value="name" @update:options="itemRequest.updateTable">
         <template v-slot:item.id="{ item }">
             <div class="d-flex ga-2">
-                <v-btn icon="mdi-eye" color="primary" />
-                <v-btn icon="mdi-square-edit-outline" color="yellow" />
+                <v-btn icon="mdi-eye" color="primary" :to="`/admin/pengajuan/${item.id}`" />
                 <v-btn icon="mdi-delete" color="red" />
             </div>
         </template>

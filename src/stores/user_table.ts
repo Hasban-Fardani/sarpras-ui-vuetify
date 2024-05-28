@@ -16,7 +16,7 @@ export const useUserTableStore = defineStore('userTable', () => {
     let res = []
     if (searchName.value) {
       res = users.value.filter(
-        (i) => i.name.toLocaleLowerCase().search(searchName.value.toLocaleLowerCase()) != -1
+        (i) => i.nama.toLocaleLowerCase().search(searchName.value.toLocaleLowerCase()) != -1
       )
     } else {
       res = users.value

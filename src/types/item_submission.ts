@@ -1,7 +1,12 @@
+import type { Item } from './item'
+import type { User } from './user'
+
 type ItemSubmission = {
+  id: number
   id_unit: number
-  nama_unit: string
+  unit: User
   jumlah_ajuan: number
+  status: 'disetujui' | 'diprosess' | 'ditolak'
   tanggal: string
 }
 
@@ -9,8 +14,9 @@ type ItemSubmissionDetail = {
   id: number
   id_pengajuan: number
   id_barang: number
+  barang?: Item
   jumlah: number
-  jumlah_acc: number
+  jumlah_acc?: number
 }
 
 export type { ItemSubmission, ItemSubmissionDetail }

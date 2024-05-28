@@ -1,9 +1,8 @@
 <template>
-    <div class="d-flex flex-column justify-center align-center h-screen w-100">
-        <h1>403</h1>
-        <h2>Forbidden</h2>
-        <v-btn class="mt-2" @click="$router.go(-1)">
-            Back
-        </v-btn>
+    <div class="d-flex flex-column w-100 h-screen justify-center align-center">
+        <v-empty-state headline="Forbidden, 403" title="Tidak Memiliki Akses"
+            text="anda tidak memiliki akses untuk halaman yang anda tuju" image="/logo/icon-192x192.png">
+            <v-btn @click="$router.go(-1)">Kembali</v-btn>
+        </v-empty-state>
     </div>
 </template>

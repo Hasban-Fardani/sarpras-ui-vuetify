@@ -2,14 +2,14 @@ import type { User } from '@/types/user'
 
 export const users: User[] = [
   {
-    name: 'admin',
+    nama: 'admin',
     role: 'admin',
     token: 'random token',
     unit: 'sarpras',
     password: 'password'
   },
   {
-    name: 'user',
+    nama: 'user',
     role: 'user',
     token: 'random token',
     unit: 'RPL',

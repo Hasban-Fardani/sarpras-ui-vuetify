@@ -11,6 +11,7 @@ export const items: Item[] = [
       nama: 'Alat Tulis'
     },
     stok: 20,
+    satuan: 'unit',
     harga: 10000,
     updated_at: '2024-05-22T00:00:00Z'
   },
@@ -24,6 +25,7 @@ export const items: Item[] = [
       nama: 'Alat Tulis'
     },
     stok: 20,
+    satuan: 'unit',
     harga: 2000,
     updated_at: '2024-05-22T00:00:00Z'
   },
@@ -37,6 +39,7 @@ export const items: Item[] = [
       nama: 'Alat Tulis'
     },
     stok: 30,
+    satuan: 'unit',
     harga: 1000,
     updated_at: '2024-05-22T00:00:00Z'
   },
@@ -50,6 +53,7 @@ export const items: Item[] = [
       nama: 'Alat Tulis'
     },
     stok: 50,
+    satuan: 'unit',
     harga: 1500,
     updated_at: '2024-05-22T00:00:00Z'
   },
@@ -63,6 +67,7 @@ export const items: Item[] = [
       nama: 'Kertas'
     },
     stok: 500,
+    satuan: 'unit',
     harga: 5000,
     updated_at: '2024-05-22T00:00:00Z'
   },
@@ -76,6 +81,7 @@ export const items: Item[] = [
       nama: 'Buku'
     },
     stok: 100,
+    satuan: 'buah',
     harga: 3000,
     updated_at: '2024-05-22T00:00:00Z'
   },
@@ -89,6 +95,7 @@ export const items: Item[] = [
       nama: 'Organisasi File'
     },
     stok: 75,
+    satuan: 'unit',
     harga: 2500,
     updated_at: '2024-05-22T00:00:00Z'
   },
@@ -102,6 +109,7 @@ export const items: Item[] = [
       nama: 'Label'
     },
     stok: 200,
+    satuan: 'unit',
     harga: 3500,
     updated_at: '2024-05-22T00:00:00Z'
   },
@@ -115,6 +123,7 @@ export const items: Item[] = [
       nama: 'Aksesoris Printer'
     },
     stok: 10,
+    satuan: 'unit',
     harga: 12000,
     updated_at: '2024-05-22T00:00:00Z'
   },
@@ -128,6 +137,7 @@ export const items: Item[] = [
       nama: 'Pengikat Kertas'
     },
     stok: 150,
+    satuan: 'unit',
     harga: 4000,
     updated_at: '2024-05-22T00:00:00Z'
   },
@@ -141,6 +151,7 @@ export const items: Item[] = [
       nama: 'Alat Tulis'
     },
     stok: 80,
+    satuan: 'unit',
     harga: 6000,
     updated_at: '2024-05-22T00:00:00Z'
   },
@@ -154,6 +165,7 @@ export const items: Item[] = [
       nama: 'Alat Koreksi'
     },
     stok: 60,
+    satuan: 'unit',
     harga: 2500,
     updated_at: '2024-05-22T00:00:00Z'
   },
@@ -167,6 +179,7 @@ export const items: Item[] = [
       nama: 'Pengikat Kertas'
     },
     stok: 300,
+    satuan: 'unit',
     harga: 4500,
     updated_at: '2024-05-22T00:00:00Z'
   },
@@ -180,6 +193,7 @@ export const items: Item[] = [
       nama: 'Kertas'
     },
     stok: 100,
+    satuan: 'unit',
     harga: 7000,
     updated_at: '2024-05-22T00:00:00Z'
   },
@@ -193,6 +207,7 @@ export const items: Item[] = [
       nama: 'Kertas'
     },
     stok: 50,
+    satuan: 'unit',
     harga: 20000,
     updated_at: '2024-05-22T00:00:00Z'
   },
@@ -206,6 +221,7 @@ export const items: Item[] = [
       nama: 'Kertas'
     },
     stok: 150,
+    satuan: 'unit',
     harga: 8000,
     updated_at: '2024-05-22T00:00:00Z'
   },
@@ -219,6 +235,7 @@ export const items: Item[] = [
       nama: 'Kertas'
     },
     stok: 250,
+    satuan: 'unit',
     harga: 500,
     updated_at: '2024-05-22T00:00:00Z'
   },
@@ -232,6 +249,7 @@ export const items: Item[] = [
       nama: 'Alat Pengikat'
     },
     stok: 200,
+    satuan: 'unit',
     harga: 3000,
     updated_at: '2024-05-22T00:00:00Z'
   },
@@ -245,6 +263,7 @@ export const items: Item[] = [
       nama: 'Alat Pengikat'
     },
     stok: 100,
+    satuan: 'unit',
     harga: 4000,
     updated_at: '2024-05-22T00:00:00Z'
   },
@@ -258,6 +277,7 @@ export const items: Item[] = [
       nama: 'Kertas'
     },
     stok: 500,
+    satuan: 'unit',
     harga: 15000,
     updated_at: '2024-05-22T00:00:00Z'
   }

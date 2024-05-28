@@ -84,9 +84,27 @@ const router = createRouter({
       }
     },
     {
+      path: '/admin/pengajuan/:id',
+      name: 'admin-pengajuan-detail',
+      component: () => import('../views/admin/SubmissionDetailView.vue'),
+      meta: {
+        auth: true,
+        role: 'admin'
+      }
+    },
+    {
       path: '/admin/permintaan',
       name: 'admin-permintaan-list',
       component: () => import('../views/admin/RequestListView.vue'),
+      meta: {
+        auth: true,
+        role: 'admin'
+      }
+    },
+    {
+      path: '/admin/permintaan/:id',
+      name: 'admin-permintaan-detail',
+      component: () => import('../views/admin/RequestDetailView.vue'),
       meta: {
         auth: true,
         role: 'admin'

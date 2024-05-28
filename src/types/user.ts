@@ -1,9 +1,10 @@
 type User = {
-  name: String
-  token: String
-  unit: String
+  id?: number
+  nama: string
+  token?: string
+  unit?: string
   // role: 'admin' | 'user' | 'kepala sekolah'
-  role: String
+  role?: string
   password?: string
 }
 

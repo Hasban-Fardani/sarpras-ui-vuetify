@@ -68,6 +68,10 @@ export const useItemStore = defineStore('item', () => {
     })
   }
 
+  function get(id: number) {
+    return items.value.find((i) => i.id === id)
+  }
+
   function tmpData() {
     items.value = fakeItem
   }
@@ -99,6 +103,7 @@ export const useItemStore = defineStore('item', () => {
     perPage,
     page,
     searchName,
+    get,
     getAll,
     tmpData,
     updateTable,

@@ -43,11 +43,11 @@ onMounted(() => {
         @update:options="item.updateTable">
         <template v-slot:item.gambar="{ item }">
             <div class="d-flex justify-center w-100">
-                <img :src="item.gambar.toString()" alt="gambar" width="50">
+                <img :src="item.gambar?.toString()" alt="gambar" width="50">
             </div>
         </template>
         <template v-slot:item.harga="{ item }">
-            <p>{{ toIDR(parseInt(item.harga.toString())) }}</p>
+            <p>{{ toIDR(parseInt(item.harga!.toString())) }}</p>
         </template>
         <template v-slot:item.id="{ item }">
             <div class="d-flex ga-2">

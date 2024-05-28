@@ -17,7 +17,7 @@ export const useItemSubmissionStore = defineStore('item-submission', () => {
     let res = []
     if (searchName.value) {
       res = items.value.filter(
-        (i) => i.nama_unit.toLocaleLowerCase().search(searchName.value.toLocaleLowerCase()) != -1
+        (i) => i.unit.nama.toLocaleLowerCase().search(searchName.value.toLocaleLowerCase()) != -1
       )
     } else {
       res = items.value
@@ -30,7 +30,7 @@ export const useItemSubmissionStore = defineStore('item-submission', () => {
   const headers = [
     {
       title: 'Nama',
-      key: 'nama_unit'
+      key: 'unit.nama'
     },
     {
       title: 'Jumlah',
@@ -54,6 +54,9 @@ export const useItemSubmissionStore = defineStore('item-submission', () => {
         Authorization: 'Bearer ' + user.data.token
       }
     })
+  }
+  function get(id: number) {
+    return items.value.find((i) => i.id === id)
   }
 
   function tmpData() {
@@ -87,6 +90,7 @@ export const useItemSubmissionStore = defineStore('item-submission', () => {
     perPage,
     page,
     searchName,
+    get,
     getAll,
     tmpData,
     updateTable,
