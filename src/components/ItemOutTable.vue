@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import DeleteDialog from '@/components/DeleteDialog.vue';
 import { onMounted, ref } from 'vue';
 import { useItemOutStore } from '@/stores/item_out';
 
@@ -16,7 +17,6 @@ onMounted(() => {
         <template v-slot:item.id="{ item }">
             <div class="d-flex ga-2">
                 <v-btn icon="mdi-eye" color="primary" />
-                <v-btn icon="mdi-square-edit-outline" color="yellow" />
                 <v-btn icon="mdi-delete" color="red" />
             </div>
         </template>

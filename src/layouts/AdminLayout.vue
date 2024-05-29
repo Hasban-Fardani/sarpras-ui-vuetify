@@ -32,6 +32,7 @@ const logout = async () => {
     await user.clear()
 
     router.push('/auth/login')
+    location.reload()
 }
 </script>
 

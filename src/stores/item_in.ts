@@ -16,7 +16,7 @@ export const useItemInStore = defineStore('item_in', () => {
     let res = []
     if (searchName.value) {
       res = items.value.filter(
-        (i) => i.unit.nama.toLocaleLowerCase().search(searchName.value.toLocaleLowerCase()) != -1
+        (i) => i.unit!.nama.toLocaleLowerCase().search(searchName.value.toLocaleLowerCase()) != -1
       )
     } else {
       res = items.value
@@ -28,8 +28,8 @@ export const useItemInStore = defineStore('item_in', () => {
   const totalFiltered = computed(() => filtered.value!.length)
   const headers = [
     {
-      title: 'Unit',
-      key: 'unit.nama'
+      title: 'Pesan',
+      key: 'pesan'
     },
     {
       title: 'Supplier',

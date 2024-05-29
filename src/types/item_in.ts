@@ -1,15 +1,16 @@
 type ItemIn = {
   id: number
   id_unit: number
-  unit: {
+  unit?: {
     id?: number
     nama: string
   }
   id_supplier: number
-  supplier: {
+  supplier?: {
     id?: number
     nama: string
   }
+  pesan: string
   tanggal: string
 }
 
