@@ -47,8 +47,8 @@ onMounted(() => {
 
     <div class="d-flex w-100 justify-space-between">
         <div class="w-50">
-            <v-text-field v-model="item.searchName" class="ma-2" density="compact" placeholder="Search name..."
-                hide-details />
+            <v-text-field v-model="item.searchName" class="ma-2" label="cari" variant="outlined" density="comfortable"
+                placeholder="Cari nama..." append-inner-icon="mdi-magnify" hide-details />
         </div>
         <div class="d-flex ga-2">
             <v-menu>

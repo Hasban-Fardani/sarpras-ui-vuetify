@@ -26,22 +26,34 @@ const headers = [
     {
         title: 'Jumlah Acc',
         key: 'jumlah_acc'
+    },
+    {
+        title: 'aksi',
+        key: 'id'
     }
 ]
 </script>
 <template>
     <AdminLayout>
+
         <div class="d-flex ga-2">
             <h2>Detail Permintaan #{{ id }}</h2>
-            <VChip size="small">{{ item?.status }}</VChip>
+            <VChip size="small" append-icon="mdi-pencil" @click="null">{{ item?.status }}</VChip>
         </div>
-        <div class="d-flex ga-2 my-3">
-            <v-avatar color="brown">
-                <span class="text-h5">{{ item?.unit.nama[0] }}</span>
-            </v-avatar>
-            <div>
-                <p>{{ item?.unit.nama }}</p>
-                <p class="font-weight-bold text-caption">{{ item?.tanggal }}</p>
+
+        <div class="w-100 d-flex justify-space-between align-end my-3">
+            <div class="d-flex ga-2 my-3">
+                <v-avatar color="brown">
+                    <span class="text-h5">{{ item?.unit.nama[0] }}</span>
+                </v-avatar>
+                <div>
+                    <p>{{ item?.unit.nama }}</p>
+                    <p class="font-weight-bold text-caption">{{ item?.tanggal }}</p>
+                </div>
+            </div>
+            <div class="w-50">
+                <v-text-field label="cari" variant="outlined" density="compact"
+                    append-inner-icon="mdi-magnify"></v-text-field>
             </div>
         </div>
         <div class="d-flex">
@@ -50,6 +62,9 @@ const headers = [
                     <VDataTable :items="detailRequest" :headers="headers">
                         <template v-slot:item.barang.gambar="{ item }">
                             <img :src="item.barang.gambar" alt="" width="100px" height="100px">
+                        </template>
+                        <template v-slot:item.id="{ item }">
+                            <v-btn icon="mdi-pencil" color="yellow"></v-btn>
                         </template>
                     </VDataTable>
                 </VCardText>

@@ -1,9 +1,24 @@
 <script setup lang="ts">
+import DeleteDialog from '@/components/DeleteDialog.vue';
 import { onMounted, ref } from 'vue';
 import { useItemSubmissionStore } from '@/stores/item_submission';
 
 const itemRequest = useItemSubmissionStore()
 const loading = ref(false)
+
+
+const confirmDeleteDialog = ref(false)
+const selectedDeleteName = ref('')
+const selectedDeleteId = ref(0)
+const confirmDelete = (id: number, nama: string) => {
+    confirmDeleteDialog.value = true
+    selectedDeleteName.value = nama
+    selectedDeleteId.value = id
+}
+
+const deleteItemSubmission = () => {
+
+}
 
 const getColor = (status: string) => {
     if (status == 'diproses') {
@@ -20,6 +35,8 @@ onMounted(() => {
 })
 </script>
 <template>
+    <delete-dialog type="Pengajuan" :id="selectedDeleteId" :nama="selectedDeleteName" :is-active="confirmDeleteDialog"
+        @close-dialog="confirmDeleteDialog = false" @delete="deleteItemSubmission" />
     <v-data-table-server v-model:items-per-page="itemRequest.perPage" :headers="itemRequest.headers"
         :items="itemRequest.filtered" :items-length="itemRequest.total" :loading="loading"
         :search="itemRequest.searchName" item-value="name" @update:options="itemRequest.updateTable">
@@ -29,7 +46,8 @@ onMounted(() => {
         <template v-slot:item.id="{ item }">
             <div class="d-flex ga-2">
                 <v-btn icon="mdi-eye" color="primary" :to="`/admin/pengajuan/${item.id}`" />
-                <v-btn icon="mdi-delete" color="red" />
+                <v-btn icon="mdi-delete" color="red"
+                    @click="confirmDelete(item.id, 'pengajuan tanggal ' + item.tanggal)" />
             </div>
         </template>
     </v-data-table-server>

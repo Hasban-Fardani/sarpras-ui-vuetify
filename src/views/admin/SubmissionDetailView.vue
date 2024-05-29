@@ -33,7 +33,7 @@ const headers = [
     <AdminLayout>
         <div class="d-flex ga-2">
             <h2>Detail Pengajuan #{{ id }}</h2>
-            <VChip size="small">{{ item?.status }}</VChip>
+            <VChip size="small" append-icon="mdi-pencil" @click="null">{{ item?.status }}</VChip>
         </div>
         <div class="d-flex ga-2 my-3">
             <v-avatar color="brown">

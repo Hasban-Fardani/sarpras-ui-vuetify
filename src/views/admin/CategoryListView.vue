@@ -5,10 +5,13 @@ import CategoryTable from '@/components/CategoryTable.vue';
 </script>
 <template>
     <AdminLayout>
-        <VBtn color="primary" append-icon="mdi-plus">
-            Tambah
-            <CategoryAddDialog />
-        </VBtn>
+        <div class="d-flex ga-2">
+            <h2>Kategori</h2>
+            <VChip color="primary" append-icon="mdi-plus" size="small" @click="null">
+                Tambah
+                <CategoryAddDialog />
+            </VChip>
+        </div>
         <CategoryTable />
     </AdminLayout>
 </template>

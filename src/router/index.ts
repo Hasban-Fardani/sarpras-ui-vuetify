@@ -66,9 +66,27 @@ const router = createRouter({
       }
     },
     {
+      path: '/admin/items/item-in/:id',
+      name: 'admin-item-in-detail',
+      component: () => import('../views/admin/ItemInDetailView.vue'),
+      meta: {
+        auth: true,
+        role: 'admin'
+      }
+    },
+    {
       path: '/admin/items/item-out',
       name: 'admin-item-out',
       component: () => import('../views/admin/ItemOutListView.vue'),
+      meta: {
+        auth: true,
+        role: 'admin'
+      }
+    },
+    {
+      path: '/admin/items/item-out',
+      name: 'admin-item-out-detail',
+      component: () => import('../views/admin/ItemOutDetailView.vue'),
       meta: {
         auth: true,
         role: 'admin'

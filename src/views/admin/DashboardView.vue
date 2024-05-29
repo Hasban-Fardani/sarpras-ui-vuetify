@@ -21,7 +21,8 @@ const chartDataPie = {
 </script>
 <template>
     <AdminLayout>
-        <VRow align="center">
+        <h2>Dashboard</h2>
+        <VRow align="center" class="mt-1">
             <VCol>
                 <VCard class="mx-auto" color="surface-variant" max-width="350" subtitle="Barang" title="320" />
             </VCol>

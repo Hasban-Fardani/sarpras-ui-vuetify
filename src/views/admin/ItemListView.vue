@@ -11,6 +11,7 @@ onMounted(() => {
 </script>
 <template>
     <AdminLayout>
+        <h2>Daftar Barang</h2>
         <ItemTable />
     </AdminLayout>
 </template>
