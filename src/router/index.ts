@@ -203,4 +203,5 @@ router.beforeEach(async (to, _, next) => {
 router.onError((err) => {
   console.log(err)
 })
+
 export default router

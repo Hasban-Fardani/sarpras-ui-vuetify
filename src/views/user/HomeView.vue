@@ -17,5 +17,8 @@ const user = useUserStore()
             <VCard title="Transaksi Selesai!" color="primary" class="w-100 border"
                 prepend-icon="mdi-numeric-3-circle-outline" elevation="1"></VCard>
         </div>
+        <div>
+
+        </div>
     </UserLayout>
 </template>

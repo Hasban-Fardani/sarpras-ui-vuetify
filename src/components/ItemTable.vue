@@ -2,6 +2,8 @@
 <script setup lang="ts">
 import ItemEditDialog from '@/components/ItemEditDialog.vue';
 import DeleteDialog from '@/components/DeleteDialog.vue';
+import ItemAddDialog from '@/components/ItemAddDialog.vue'
+import ItemImportDialog from '@/components/ItemImportDialog.vue'
 import { onMounted, ref } from 'vue';
 import { useItemStore } from '@/stores/item';
 import type { Item } from '@/types/item';
@@ -11,7 +13,7 @@ const loading = ref(false)
 const toIDR = (num: number) => new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format(num)
 
 const editItemDialog = ref(false)
-const selectedEditItem = ref<Item>(<Item>{})
+const selectedEditItem = ref<Item>({} as Item)
 
 const deleteItemDialog = ref(false)
 const selectedDeleteName = ref('')
@@ -43,6 +45,34 @@ onMounted(() => {
     <delete-dialog type="Barang" :id="selectedDeleteId" :nama="selectedDeleteName" :is-active="deleteItemDialog"
         @close-dialog="deleteItemDialog = false" @delete="deleteItem" />
 
+    <div class="d-flex w-100 justify-space-between">
+        <div class="w-50">
+            <v-text-field v-model="item.searchName" class="ma-2" density="compact" placeholder="Search name..."
+                hide-details />
+        </div>
+        <div class="d-flex ga-2">
+            <v-menu>
+                <template v-slot:activator="{ props }">
+                    <v-btn color="primary" append-icon="mdi-plus" dark v-bind="props">
+                        Tambah
+                    </v-btn>
+                </template>
+                <v-list>
+                    <v-list-item append-icon="mdi-pencil-plus-outline" @click="null">
+                        <ItemAddDialog />
+                        input
+                    </v-list-item>
+                    <v-list-item append-icon="mdi-import" @click="null">
+                        <ItemImportDialog />
+                        import
+                    </v-list-item>
+                    <v-list-item append-icon="mdi-export">
+                        export
+                    </v-list-item>
+                </v-list>
+            </v-menu>
+        </div>
+    </div>
     <v-data-table-server v-model:items-per-page="item.perPage" :headers="item.headers" :items="item.filtered"
         :items-length="item.total" :loading="loading" :search="item.searchName" item-value="name"
         @update:options="item.updateTable">

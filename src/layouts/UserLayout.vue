@@ -8,6 +8,7 @@ const logout = async () => {
     await user.clear()
 
     router.push('/auth/login')
+    location.reload()
 }
 </script>
 <template>
@@ -52,7 +53,7 @@ const logout = async () => {
             </template>
         </v-app-bar>
         <v-main>
-            <div class="px-4">
+            <div class="pa-4">
                 <slot />
             </div>
         </v-main>
