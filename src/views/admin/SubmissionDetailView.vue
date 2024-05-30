@@ -33,16 +33,19 @@ const headers = [
     <AdminLayout>
         <div class="d-flex ga-2">
             <h2>Detail Pengajuan #{{ id }}</h2>
-            <VChip size="small" append-icon="mdi-pencil" @click="null">{{ item?.status }}</VChip>
+            <VChip size="small">{{ item?.status }}</VChip>
         </div>
-        <div class="d-flex ga-2 my-3">
-            <v-avatar color="brown">
-                <span class="text-h5">{{ item?.unit.nama[0] }}</span>
-            </v-avatar>
-            <div>
-                <p>{{ item?.unit.nama }}</p>
-                <p class="font-weight-bold text-caption">{{ item?.tanggal }}</p>
+        <div class="d-flex justify-space-between w-100">
+            <div class="d-flex ga-2 my-3">
+                <v-avatar color="brown">
+                    <span class="text-h5">{{ item?.unit.nama[0] }}</span>
+                </v-avatar>
+                <div>
+                    <p>{{ item?.unit.nama }}</p>
+                    <p class="font-weight-bold text-caption">{{ item?.tanggal }}</p>
+                </div>
             </div>
+            <v-btn color="yellow" append-icon="mdi-pencil">Edit</v-btn>
         </div>
         <div class="d-flex">
             <VCard class="w-100">

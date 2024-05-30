@@ -10,9 +10,9 @@ const item = itemOut.find((i) => i.id === parseInt(id.toString()))
 <template>
     <AdminLayout>
         <div class="d-flex ga-2">
-            <h2>Detail Barang Masuk #{{ id }}</h2>
+            <h2>Detail Barang Keluar #{{ id }}</h2>
         </div>
-        <div class="d-flex ga-2 mt-3">
+        <div class="d-flex ga-2 my-3">
             <v-avatar color="brown">
                 <span class="text-h5">{{ item?.unit?.nama[0] }}</span>
             </v-avatar>

@@ -1,0 +1,7 @@
+{
+  "name": "frontend-vuetify",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "custom"
+}

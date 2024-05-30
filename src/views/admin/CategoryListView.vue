@@ -7,7 +7,7 @@ import CategoryTable from '@/components/CategoryTable.vue';
     <AdminLayout>
         <div class="d-flex ga-2">
             <h2>Kategori</h2>
-            <VChip color="primary" append-icon="mdi-plus" @click="null">
+            <VChip color="primary" variant="flat" append-icon="mdi-plus" @click="null">
                 Tambah
                 <CategoryAddDialog />
             </VChip>

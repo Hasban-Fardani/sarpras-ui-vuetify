@@ -11,7 +11,7 @@ const props = defineProps<{
 // const image = ref<File | null>(null);
 // const imageUrl = ref<string | null>(null);
 
-const data = ref<User>({} as Item);
+const data = ref<User>({} as User);
 
 watch(() => props.isActive, (newVal) => {
     if (newVal) {
@@ -31,8 +31,8 @@ watch(() => props.isActive, (newVal) => {
 //     }
 // };
 
-const saveItem = () => {
-    // Implement save logic here
+const saveUser = () => {
+    // Todo: save user logic
 };
 </script>
 
@@ -45,7 +45,7 @@ const saveItem = () => {
                 <v-text-field label="Role" v-model="data.role"></v-text-field>
             </v-card-text>
             <template v-slot:actions>
-                <v-btn class="ml-auto" text="Save" @click="saveItem" color="primary">Save</v-btn>
+                <v-btn class="ml-auto" text="Save" @click="saveUser" color="primary">Save</v-btn>
                 <v-btn text="Close" @click="$emit('closeDialog')" color="error">Close</v-btn>
             </template>
         </v-card>

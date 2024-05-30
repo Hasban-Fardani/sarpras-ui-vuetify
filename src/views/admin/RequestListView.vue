@@ -7,7 +7,7 @@ import RequestForm from '@/components/RequestForm.vue';
     <AdminLayout>
         <div class="d-flex ga-2">
             <h2>Permintaan</h2>
-            <VChip color="primary" append-icon="mdi-plus" @click="null">
+            <VChip color="primary" append-icon="mdi-plus" variant="flat" @click="null">
                 Buat
                 <RequestForm />
             </VChip>

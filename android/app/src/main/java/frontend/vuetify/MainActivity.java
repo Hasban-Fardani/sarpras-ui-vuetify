@@ -1,4 +1,4 @@
-package com.saprasSebelas.app;
+package frontend.vuetify;
 
 import com.getcapacitor.BridgeActivity;
 

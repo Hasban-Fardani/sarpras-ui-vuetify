@@ -17,7 +17,7 @@ onMounted(() => {
             <h2>Daftar Barang</h2>
             <v-menu>
                 <template v-slot:activator="{ props }">
-                    <v-chip color="primary" append-icon="mdi-plus" dark v-bind="props">
+                    <v-chip color="primary" append-icon="mdi-plus" variant="flat" v-bind="props">
                         Tambah
                     </v-chip>
                 </template>

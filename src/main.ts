@@ -13,7 +13,6 @@ import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
 import { VNumberInput } from 'vuetify/labs/VNumberInput'
 
-
 import '@mdi/font/css/materialdesignicons.css'
 
 const customTheme = {
@@ -60,7 +59,7 @@ const vuetify = createVuetify({
     VNumberInput
   },
   directives,
-  ssr: false,
+  ssr: true,
   theme: {
     defaultTheme: 'customTheme',
     themes: {

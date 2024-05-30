@@ -6,7 +6,12 @@ import ItemOutTable from '@/components/ItemOutTable.vue'
 </script>
 <template>
     <AdminLayout>
-        <h2>Barang Keluar</h2>
+        <div class="d-flex ga-2">
+            <h2>Barang Keluar</h2>
+            <VChip color="primary" append-icon="mdi-plus" variant="flat" @click="null">
+                Tambah
+            </VChip>
+        </div>
         <ItemOutTable />
     </AdminLayout>
 </template>
