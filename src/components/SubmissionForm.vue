@@ -57,69 +57,66 @@ watch(() => selected.value, (newVal) => {
 })
 </script>
 <template>
-    <v-btn color="primary">
-        Buat Pengajuan
-        <v-dialog activator="parent">
-            <template v-slot:default="{ isActive }">
-                <v-stepper :items="['Isi Data', 'Jumlah Barang', '3. Review']" v-model="step">
-                    <template v-slot:item.1>
-                        <v-card title="Isi Data" subtitle="setiap form wajib diisi" flat>
-                            <v-card-text>
-                                <v-text-field label="Unit" v-model="unit" required></v-text-field>
-                                <v-text-field label="Pesan" v-model="pesan"></v-text-field>
 
-                                <v-autocomplete chips label="Barang" item-title="nama" item-value="id" :items="items"
-                                    v-model="selected" multiple closable-chips required>
-                                    <template v-slot:chip="{ props, item }">
-                                        <v-chip v-bind="props" :text="item.raw.nama"
-                                            :prepend-avatar="item.raw.gambar" />
-                                    </template>
-                                    <template v-slot:item="{ props, item }">
-                                        <v-list-item v-bind="props" :title="item.raw.nama" />
-                                    </template>
-                                </v-autocomplete>
-                            </v-card-text>
-                        </v-card>
-                    </template>
+    <v-dialog activator="parent">
+        <template v-slot:default="{ isActive }">
+            <v-stepper :items="['Isi Data', 'Jumlah Barang', '3. Review']" v-model="step">
+                <template v-slot:item.1>
+                    <v-card title="Isi Data" subtitle="setiap form wajib diisi" flat>
+                        <v-card-text>
+                            <v-text-field label="Unit" v-model="unit" required></v-text-field>
+                            <v-text-field label="Pesan" v-model="pesan"></v-text-field>
 
-                    <template v-slot:item.2>
-                        <v-card title="Jumlah Barang" subtitle="masukkan jumlah untuk setiap barang" flat>
-                            <v-card-text>
-                                <div class="d-flex flex-wrap justify-start align-start">
-                                    <v-col v-for="item in selectedItem" :key="item.id">
+                            <v-autocomplete chips label="Barang" item-title="nama" item-value="id" :items="items"
+                                v-model="selected" multiple closable-chips required>
+                                <template v-slot:chip="{ props, item }">
+                                    <v-chip v-bind="props" :text="item.raw.nama" :prepend-avatar="item.raw.gambar" />
+                                </template>
+                                <template v-slot:item="{ props, item }">
+                                    <v-list-item v-bind="props" :title="item.raw.nama" />
+                                </template>
+                            </v-autocomplete>
+                        </v-card-text>
+                    </v-card>
+                </template>
 
-                                        <v-number-input :reverse="false" controlVariant="split" :label="item.nama"
-                                            :hideInput="false" variant="outlined" class="input-number"
-                                            v-model="item.jumlah" :min="1" required>
-                                        </v-number-input>
-                                    </v-col>
-                                </div>
-                            </v-card-text>
-                        </v-card>
-                    </template>
+                <template v-slot:item.2>
+                    <v-card title="Jumlah Barang" subtitle="masukkan jumlah untuk setiap barang" flat>
+                        <v-card-text>
+                            <div class="d-flex flex-wrap justify-start align-start">
+                                <v-col v-for="item in selectedItem" :key="item.id">
 
-                    <template v-slot:item.3>
-                        <v-card flat>
-                            <p class="text-subtitle">Pesan:</p>
-                            <p class="text-caption">{{ pesan }}</p>
-                            <v-card-text>
-                                <h3>Data</h3>
-                                <v-data-table :items="selectedItem">
+                                    <v-number-input :reverse="false" controlVariant="split" :label="item.nama"
+                                        :hideInput="false" variant="outlined" class="input-number" v-model="item.jumlah"
+                                        :min="1" required>
+                                    </v-number-input>
+                                </v-col>
+                            </div>
+                        </v-card-text>
+                    </v-card>
+                </template>
 
-                                </v-data-table>
-                            </v-card-text>
-                        </v-card>
-                    </template>
+                <template v-slot:item.3>
+                    <v-card flat>
+                        <p class="text-subtitle">Pesan:</p>
+                        <p class="text-caption">{{ pesan }}</p>
+                        <v-card-text>
+                            <h3>Data</h3>
+                            <v-data-table :items="selectedItem">
 
-                    <template v-slot:actions>
-                        <v-stepper-actions :disabled="disable" @click:next="next" @click:prev="prev"
-                            :nextText="nextText" prevText="kembali"></v-stepper-actions>
-                    </template>
-                </v-stepper>
+                            </v-data-table>
+                        </v-card-text>
+                    </v-card>
+                </template>
 
-            </template>
-        </v-dialog>
-    </v-btn>
+                <template v-slot:actions>
+                    <v-stepper-actions :disabled="disable" @click:next="next" @click:prev="prev" :nextText="nextText"
+                        prevText="kembali"></v-stepper-actions>
+                </template>
+            </v-stepper>
+
+        </template>
+    </v-dialog>
 </template>
 <style scoped>
 .input-number {

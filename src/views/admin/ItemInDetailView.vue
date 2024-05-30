@@ -21,6 +21,11 @@ const item = itemIn.find((i) => i.id === parseInt(id.toString()))
                 <p class="font-weight-bold text-caption">{{ item?.tanggal }}</p>
             </div>
         </div>
-
+        <VCard class="w-100">
+            <VCardText>
+                <VDataTable>
+                </VDataTable>
+            </VCardText>
+        </VCard>
     </AdminLayout>
 </template>

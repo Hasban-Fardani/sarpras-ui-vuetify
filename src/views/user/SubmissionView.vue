@@ -5,7 +5,10 @@ import SubmissionForm from '@/components/SubmissionForm.vue';
 </script>
 <template>
     <UserLayout>
-        <SubmissionForm />
+        <v-btn prepend-icon="mdi-plus" color="primary">
+            Form Pengajuan
+            <SubmissionForm />
+        </v-btn>
         <h3 class="mt-3">History Pengajuan</h3>
         <v-data-table class="mt-3">
 

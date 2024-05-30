@@ -2,8 +2,6 @@
 <script setup lang="ts">
 import ItemEditDialog from '@/components/ItemEditDialog.vue';
 import DeleteDialog from '@/components/DeleteDialog.vue';
-import ItemAddDialog from '@/components/ItemAddDialog.vue'
-import ItemImportDialog from '@/components/ItemImportDialog.vue'
 import { onMounted, ref } from 'vue';
 import { useItemStore } from '@/stores/item';
 import type { Item } from '@/types/item';
@@ -49,28 +47,6 @@ onMounted(() => {
         <div class="w-50">
             <v-text-field v-model="item.searchName" class="ma-2" label="cari" variant="outlined" density="comfortable"
                 placeholder="Cari nama..." append-inner-icon="mdi-magnify" hide-details />
-        </div>
-        <div class="d-flex ga-2">
-            <v-menu>
-                <template v-slot:activator="{ props }">
-                    <v-btn color="primary" append-icon="mdi-plus" dark v-bind="props">
-                        Tambah
-                    </v-btn>
-                </template>
-                <v-list>
-                    <v-list-item append-icon="mdi-pencil-plus-outline" @click="null">
-                        <ItemAddDialog />
-                        input
-                    </v-list-item>
-                    <v-list-item append-icon="mdi-import" @click="null">
-                        <ItemImportDialog />
-                        import
-                    </v-list-item>
-                    <v-list-item append-icon="mdi-export">
-                        export
-                    </v-list-item>
-                </v-list>
-            </v-menu>
         </div>
     </div>
     <v-data-table-server v-model:items-per-page="item.perPage" :headers="item.headers" :items="item.filtered"

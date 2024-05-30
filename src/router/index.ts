@@ -84,7 +84,7 @@ const router = createRouter({
       }
     },
     {
-      path: '/admin/items/item-out',
+      path: '/admin/items/item-out/:id',
       name: 'admin-item-out-detail',
       component: () => import('../views/admin/ItemOutDetailView.vue'),
       meta: {

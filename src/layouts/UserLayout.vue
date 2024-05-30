@@ -19,9 +19,9 @@ const logout = async () => {
             </v-app-bar-title>
             <div class="v-app-bar-center d-none d-md-flex">
                 <div class="nav-item">
-                    <v-btn to="/user/home">Home</v-btn>
-                    <v-btn to="/user/pengajuan">Pengajuan</v-btn>
-                    <v-btn to="/user/permintaan">Permintaan</v-btn>
+                    <v-btn to="/user/home" prepend-icon="mdi-home">Home</v-btn>
+                    <v-btn to="/user/pengajuan" prepend-icon="mdi-playlist-edit">Pengajuan</v-btn>
+                    <v-btn to="/user/permintaan" prepend-icon="mdi-forum">Permintaan</v-btn>
                 </div>
             </div>
             <template v-slot:append>
@@ -46,9 +46,9 @@ const logout = async () => {
             </template>
             <template v-slot:extension v-if="$vuetify.display.mobile">
                 <v-tabs align-tabs="center">
-                    <v-tab to="/user/home">Home</v-tab>
-                    <v-tab to="/user/pengajuan">Pengajuan</v-tab>
-                    <v-tab to="/user/permintaan">Permintaan</v-tab>
+                    <v-tab to="/user/home" prepend-icon="mdi-home">Home</v-tab>
+                    <v-tab to="/user/pengajuan" prepend-icon="mdi-playlist-edit">Pengajuan</v-tab>
+                    <v-tab to="/user/permintaan" prepend-icon="mdi-forum">Permintaan</v-tab>
                 </v-tabs>
             </template>
         </v-app-bar>

@@ -16,7 +16,7 @@ onMounted(() => {
         @update:options="itemIn.updateTable">
         <template v-slot:item.id="{ item }">
             <div class="d-flex ga-2">
-                <v-btn icon="mdi-eye" color="primary" />
+                <v-btn icon="mdi-eye" color="primary" :to="`/admin/items/item-out/${item.id}`" />
                 <v-btn icon="mdi-delete" color="red" />
             </div>
         </template>
