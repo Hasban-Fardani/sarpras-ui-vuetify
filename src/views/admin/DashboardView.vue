@@ -6,15 +6,17 @@ import { Chart as ChartJS, ArcElement, Title, Tooltip, Legend, BarElement, Categ
 ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale, ArcElement)
 const chartDataBar = {
     labels: ['January', 'February', 'March'],
-    datasets: [{ data: [40, 20, 12] }]
+    datasets: [
+        { label: 'Permintaan', data: [40, 20, 12] }
+    ]
 }
 
 const chartDataPie = {
-    labels: ['VueJs', 'EmberJs', 'ReactJs', 'AngularJs'],
+    labels: ['Penghapus Papan Tulis', 'Tinta Spidol', 'Spidol'],
     datasets: [
         {
-            backgroundColor: ['#41B883', '#E46651', '#00D8FF', '#DD1B16'],
-            data: [40, 20, 80, 10]
+            backgroundColor: ['#41B883', '#E46651', '#00D8FF'],
+            data: [40, 20, 80]
         }
     ]
 }
@@ -31,7 +33,7 @@ const chartDataPie = {
             </VCol>
             <v-responsive width="100%" v-if="$vuetify.display.mobile"></v-responsive>
             <VCol>
-                <VCard class="mx-auto" color="surface-variant" max-width="350" subtitle="Pengajuan" title="120" />
+                <VCard class="mx-auto" color="surface-variant" max-width="350" subtitle="Pengadaan" title="120" />
             </VCol>
             <VCol>
                 <VCard class="mx-auto" color="surface-variant" max-width="350" subtitle="Permintaan" title="300" />

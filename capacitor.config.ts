@@ -1,13 +1,9 @@
 import type { CapacitorConfig } from '@capacitor/cli'
 
 const config: CapacitorConfig = {
-  appId: 'frontend.vuetify',
+  appId: 'com.sarpras.app',
   appName: 'Sarana Prasarana',
-  webDir: './dist',
-  bundledWebRuntime: false,
-  server: {
-    cleartext: true
-  }
+  webDir: './dist'
 }
 
 export default config

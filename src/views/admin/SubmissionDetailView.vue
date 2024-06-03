@@ -32,7 +32,7 @@ const headers = [
 <template>
     <AdminLayout>
         <div class="d-flex ga-2">
-            <h2>Detail Pengajuan #{{ id }}</h2>
+            <h2>Detail Pengadaan #{{ id }}</h2>
             <VChip size="small">{{ item?.status }}</VChip>
         </div>
         <div class="d-flex justify-space-between w-100">

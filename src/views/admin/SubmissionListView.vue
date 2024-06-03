@@ -7,7 +7,7 @@ import SubmissionForm from '@/components/SubmissionForm.vue';
 <template>
     <AdminLayout>
         <div class="d-flex ga-2">
-            <h2>Pengajuan</h2>
+            <h2>Pengadaan</h2>
             <VChip color="primary" append-icon="mdi-plus" variant="flat" @click="null">
                 Buat
                 <SubmissionForm />

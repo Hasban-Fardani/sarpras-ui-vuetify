@@ -5,7 +5,7 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '/',
+      path: '',
       redirect: '/auth/login'
     },
 
@@ -93,8 +93,8 @@ const router = createRouter({
       }
     },
     {
-      path: '/admin/pengajuan',
-      name: 'admin-pengajuan-list',
+      path: '/admin/pengadaan',
+      name: 'admin-pengadaan-list',
       component: () => import('../views/admin/SubmissionListView.vue'),
       meta: {
         auth: true,
@@ -102,8 +102,8 @@ const router = createRouter({
       }
     },
     {
-      path: '/admin/pengajuan/:id',
-      name: 'admin-pengajuan-detail',
+      path: '/admin/pengadaan/:id',
+      name: 'admin-pengadaan-detail',
       component: () => import('../views/admin/SubmissionDetailView.vue'),
       meta: {
         auth: true,
@@ -162,8 +162,8 @@ const router = createRouter({
       }
     },
     {
-      path: '/user/pengajuan',
-      name: 'user-pengajuan',
+      path: '/user/pengadaan',
+      name: 'user-pengadaan',
       component: () => import('../views/user/SubmissionView.vue'),
       meta: {
         auth: true,

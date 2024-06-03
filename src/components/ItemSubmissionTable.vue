@@ -35,7 +35,7 @@ onMounted(() => {
 })
 </script>
 <template>
-    <delete-dialog type="Pengajuan" :id="selectedDeleteId" :nama="selectedDeleteName" :is-active="confirmDeleteDialog"
+    <delete-dialog type="Pengadaan" :id="selectedDeleteId" :nama="selectedDeleteName" :is-active="confirmDeleteDialog"
         @close-dialog="confirmDeleteDialog = false" @delete="deleteItemSubmission" />
     <v-data-table-server v-model:items-per-page="itemRequest.perPage" :headers="itemRequest.headers"
         :items="itemRequest.filtered" :items-length="itemRequest.total" :loading="loading"
@@ -45,9 +45,9 @@ onMounted(() => {
         </template>
         <template v-slot:item.id="{ item }">
             <div class="d-flex ga-2">
-                <v-btn icon="mdi-eye" color="primary" :to="`/admin/pengajuan/${item.id}`" />
+                <v-btn icon="mdi-eye" color="primary" :to="`/admin/pengadaan/${item.id}`" />
                 <v-btn icon="mdi-delete" color="red"
-                    @click="confirmDelete(item.id, 'pengajuan tanggal ' + item.tanggal)" />
+                    @click="confirmDelete(item.id, 'pengadaan tanggal ' + item.tanggal)" />
             </div>
         </template>
     </v-data-table-server>
