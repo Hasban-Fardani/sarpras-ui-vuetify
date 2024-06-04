@@ -45,7 +45,10 @@ const headers = [
                     <p class="font-weight-bold text-caption">{{ item?.tanggal }}</p>
                 </div>
             </div>
-            <v-btn color="yellow" append-icon="mdi-pencil">Edit</v-btn>
+            <div class="d-flex ga-2">
+                <v-btn color="green">Setujui</v-btn>
+                <v-btn color="red">Tolak</v-btn>
+            </div>
         </div>
         <div class="d-flex">
             <VCard class="w-100">
@@ -53,6 +56,9 @@ const headers = [
                     <VDataTable :items="detailRequest" :headers="headers">
                         <template v-slot:item.barang.gambar="{ item }">
                             <img :src="item.barang!.gambar" alt="" width="100px" height="100px">
+                        </template>
+                        <template v-slot:item.jumlah_acc="{ item }">
+                            <v-number-input v-model="item.jumlah_acc" controlVariant="split" variant="outlined"></v-number-input>
                         </template>
                     </VDataTable>
                 </VCardText>

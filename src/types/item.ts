@@ -17,6 +17,7 @@ type CreateItem = {
   nama: string
   kategori_id: number
   stok: number
+  satuan: string
   harga: number
   gambar: File
 }

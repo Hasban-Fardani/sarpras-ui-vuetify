@@ -14,7 +14,7 @@ const itemIn: ItemIn[] = [
       nama: 'Supplier X'
     },
     tanggal: '2024-01-01',
-    pesan: 'Barang masuk dari...'
+    deskripsi: 'Barang masuk dari...'
   },
   {
     id: 2,
@@ -29,7 +29,7 @@ const itemIn: ItemIn[] = [
       nama: 'Supplier Y'
     },
     tanggal: '2024-01-02',
-    pesan: 'Barang masuk dari...'
+    deskripsi: 'Barang masuk dari...'
   },
   {
     id: 3,
@@ -44,7 +44,7 @@ const itemIn: ItemIn[] = [
       nama: 'Supplier Z'
     },
     tanggal: '2024-01-03',
-    pesan: 'Barang masuk dari...'
+    deskripsi: 'Barang masuk dari...'
   },
   {
     id: 4,
@@ -59,7 +59,7 @@ const itemIn: ItemIn[] = [
       nama: 'Supplier W'
     },
     tanggal: '2024-01-04',
-    pesan: 'Barang masuk dari...'
+    deskripsi: 'Barang masuk dari...'
   },
   {
     id: 5,
@@ -74,7 +74,7 @@ const itemIn: ItemIn[] = [
       nama: 'Supplier V'
     },
     tanggal: '2024-01-05',
-    pesan: 'Barang masuk dari...'
+    deskripsi: 'Barang masuk dari...'
   },
   {
     id: 6,
@@ -89,7 +89,7 @@ const itemIn: ItemIn[] = [
       nama: 'Supplier U'
     },
     tanggal: '2024-01-06',
-    pesan: 'Barang masuk dari...'
+    deskripsi: 'Barang masuk dari...'
   },
   {
     id: 7,
@@ -104,7 +104,7 @@ const itemIn: ItemIn[] = [
       nama: 'Supplier T'
     },
     tanggal: '2024-01-07',
-    pesan: 'Barang masuk dari...'
+    deskripsi: 'Barang masuk dari...'
   },
   {
     id: 8,
@@ -119,7 +119,7 @@ const itemIn: ItemIn[] = [
       nama: 'Supplier S'
     },
     tanggal: '2024-01-08',
-    pesan: 'Barang masuk dari...'
+    deskripsi: 'Barang masuk dari...'
   },
   {
     id: 9,
@@ -134,7 +134,7 @@ const itemIn: ItemIn[] = [
       nama: 'Supplier R'
     },
     tanggal: '2024-01-09',
-    pesan: 'Barang masuk dari...'
+    deskripsi: 'Barang masuk dari...'
   },
   {
     id: 10,
@@ -149,7 +149,7 @@ const itemIn: ItemIn[] = [
       nama: 'Supplier Q'
     },
     tanggal: '2024-01-10',
-    pesan: 'Barang masuk dari...'
+    deskripsi: 'Barang masuk dari...'
   }
 ]
 

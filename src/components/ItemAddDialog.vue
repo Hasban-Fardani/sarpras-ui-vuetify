@@ -7,7 +7,8 @@ const imageUrl = ref<string | null>(null)
 const data = ref<CreateItem>({
     nama: '',
     gambar: new File([], ''),
-    stok: 0,
+    stok: 1,
+    satuan: '',
     harga: 0,
     kategori_id: 0
 })
@@ -22,7 +23,6 @@ const uploadImage = (event: Event) => {
         };
         reader.readAsDataURL(image.value);
     }
-    console.log("==== Update ====");
 }
 </script>
 <template>
@@ -31,9 +31,14 @@ const uploadImage = (event: Event) => {
             <v-card title="Tambah Barang" prepend-icon="mdi-plus">
                 <v-card-text>
                     <img ref="imagePreview" v-if="imageUrl" :src="imageUrl" alt="Preview Image" class="img-preview" />
-                    <v-file-input label="input file" ref="image" @change="uploadImage"></v-file-input>
+                    <v-file-input label="input gambar" ref="image" @change="uploadImage"></v-file-input>
                     <v-text-field label="Name" v-model="data.nama"></v-text-field>
-                    <v-text-field label="Stok" v-model="data.stok"></v-text-field>
+                    <div class="d-flex ga-3">
+                        <v-text-field label="Stok" v-model="data.stok"></v-text-field>
+                        <v-select label="Satuan"
+                            :items="['Unit', 'buat']"
+                        v-model="data.satuan"></v-select>
+                    </div>
                     <v-text-field label="Harga" v-model="data.harga"></v-text-field>
                 </v-card-text>
                 <template v-slot:actions>

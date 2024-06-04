@@ -28,8 +28,8 @@ export const useItemInStore = defineStore('item_in', () => {
   const totalFiltered = computed(() => filtered.value!.length)
   const headers = [
     {
-      title: 'Pesan',
-      key: 'pesan'
+      title: 'Deskripsi',
+      key: 'deskripsi'
     },
     {
       title: 'Supplier',

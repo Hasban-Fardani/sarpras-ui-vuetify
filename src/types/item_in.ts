@@ -10,7 +10,7 @@ type ItemIn = {
     id?: number
     nama: string
   }
-  pesan: string
+  deskripsi: string
   tanggal: string
 }
 

@@ -1,6 +1,6 @@
 <!-- eslint-disable vue/no-mutating-props -->
 <script setup lang="ts">
-import { ref, defineProps, watch } from 'vue';
+import { ref,  watch } from 'vue';
 import type { Item } from '@/types/item';
 
 const props = defineProps<{
