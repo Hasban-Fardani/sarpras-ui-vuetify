@@ -17,22 +17,7 @@ const saveItemIn = () => {
                         barang baru?
                         <item-add-dialog/>
                     </v-btn>
-
-                        <v-autocomplete
-                        label="Barang"
-                        :items="fakeItem"
-                        v-model="selectedItem"
-                        item-title="nama" 
-                        item-value="id">
-                            <template v-slot:item="{ props, item }">
-                                <v-list-item v-bind="props" :title="item.raw.nama" />
-                            </template>
-                        </v-autocomplete>
-
-                    <v-number-input controlVariant="split" label="Jumlah"></v-number-input>
-
-                    <v-select label="Sumber dana"></v-select>
-
+                    <v-file-input label="input dokumen berita acara" class="mt-2"/>
                     <v-textarea label="deskripsi"></v-textarea>
                 </v-card-text>
                 <template v-slot:actions>

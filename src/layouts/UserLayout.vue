@@ -45,7 +45,7 @@ const logout = async () => {
                 </v-menu>
             </template>
             <template v-slot:extension v-if="$vuetify.display.mobile">
-                <v-tabs align-tabs="center">
+                <v-tabs align-tabs="center" center-active>
                     <v-tab to="/user/home" prepend-icon="mdi-home">Home</v-tab>
                     <v-tab to="/user/pengadaan" prepend-icon="mdi-playlist-edit">Pengadaan</v-tab>
                     <v-tab to="/user/permintaan" prepend-icon="mdi-forum">Permintaan</v-tab>

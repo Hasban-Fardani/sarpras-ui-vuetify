@@ -168,8 +168,18 @@ const router = createRouter({
       meta: {
         auth: true,
         role: 'user'
-      }
+      },
     },
+    {
+      path: '/user/pengadaan/tambah',
+      name: 'user-pengadaan-add',
+      component: () => import('../views/user/SubmissionAddView.vue'),
+      meta: {
+        auth: true,
+        role: 'user'
+      },
+    },
+
 
     // === account profile ===
     {

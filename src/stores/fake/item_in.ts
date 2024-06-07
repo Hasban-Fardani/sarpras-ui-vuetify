@@ -167,7 +167,8 @@ const itemInDetails: ItemInDetail[] = [
       nama: 'Unit A'
     },
     id_supplier: 1,
-    jumlah: 10
+    jumlah: 10,
+    sumber_dana: 'BOS'
   },
   {
     id_barang_masuk: 1,
@@ -182,7 +183,8 @@ const itemInDetails: ItemInDetail[] = [
       nama: 'Unit B'
     },
     id_supplier: 2,
-    jumlah: 10
+    jumlah: 10,
+    sumber_dana: 'SPP'
   },
   {
     id_barang_masuk: 1,
@@ -197,7 +199,8 @@ const itemInDetails: ItemInDetail[] = [
       nama: 'Unit C'
     },
     id_supplier: 3,
-    jumlah: 10
+    jumlah: 10,
+    sumber_dana: 'BOS'
   },
   {
     id_barang_masuk: 1,
@@ -212,7 +215,8 @@ const itemInDetails: ItemInDetail[] = [
       nama: 'Unit D'
     },
     id_supplier: 4,
-    jumlah: 10
+    jumlah: 10,
+    sumber_dana: 'SPP'
   },
   {
     id_barang_masuk: 1,
@@ -227,7 +231,8 @@ const itemInDetails: ItemInDetail[] = [
       nama: 'Unit E'
     },
     id_supplier: 5,
-    jumlah: 10
+    jumlah: 10,
+    sumber_dana: 'BOS'
   },
   {
     id_barang_masuk: 1,
@@ -242,7 +247,8 @@ const itemInDetails: ItemInDetail[] = [
       nama: 'Unit F'
     },
     id_supplier: 6,
-    jumlah: 10
+    jumlah: 10,
+    sumber_dana: 'SPP'
   },
   {
     id_barang_masuk: 1,
@@ -257,7 +263,8 @@ const itemInDetails: ItemInDetail[] = [
       nama: 'Unit G'
     },
     id_supplier: 7,
-    jumlah: 10
+    jumlah: 10,
+    sumber_dana: 'BOS'
   },
   {
     id_barang_masuk: 1,
@@ -272,7 +279,8 @@ const itemInDetails: ItemInDetail[] = [
       nama: 'Unit H'
     },
     id_supplier: 8,
-    jumlah: 10
+    jumlah: 10,
+    sumber_dana: 'SPP'
   },
   {
     id_barang_masuk: 1,
@@ -287,7 +295,8 @@ const itemInDetails: ItemInDetail[] = [
       nama: 'Unit I'
     },
     id_supplier: 9,
-    jumlah: 10
+    jumlah: 10,
+    sumber_dana: 'BOS'
   },
   {
     id_barang_masuk: 1,
@@ -302,7 +311,8 @@ const itemInDetails: ItemInDetail[] = [
       nama: 'Unit J'
     },
     id_supplier: 10,
-    jumlah: 10
+    jumlah: 10,
+    sumber_dana: 'SPP'
   },
   {
     id_barang_masuk: 2,
@@ -317,7 +327,8 @@ const itemInDetails: ItemInDetail[] = [
       nama: 'Unit A'
     },
     id_supplier: 1,
-    jumlah: 10
+    jumlah: 10,
+    sumber_dana: 'BOS'
   },
   {
     id_barang_masuk: 2,
@@ -332,7 +343,8 @@ const itemInDetails: ItemInDetail[] = [
       nama: 'Unit B'
     },
     id_supplier: 2,
-    jumlah: 10
+    jumlah: 10,
+    sumber_dana: 'SPP'
   },
   {
     id_barang_masuk: 2,
@@ -347,7 +359,8 @@ const itemInDetails: ItemInDetail[] = [
       nama: 'Unit C'
     },
     id_supplier: 3,
-    jumlah: 10
+    jumlah: 10,
+    sumber_dana: 'BOS'
   },
   {
     id_barang_masuk: 2,
@@ -362,7 +375,8 @@ const itemInDetails: ItemInDetail[] = [
       nama: 'Unit D'
     },
     id_supplier: 4,
-    jumlah: 10
+    jumlah: 10,
+    sumber_dana: 'SPP'
   },
   {
     id_barang_masuk: 2,
@@ -377,7 +391,8 @@ const itemInDetails: ItemInDetail[] = [
       nama: 'Unit E'
     },
     id_supplier: 5,
-    jumlah: 10
+    jumlah: 10,
+    sumber_dana: 'BOS'
   },
   {
     id_barang_masuk: 2,
@@ -392,7 +407,8 @@ const itemInDetails: ItemInDetail[] = [
       nama: 'Unit F'
     },
     id_supplier: 6,
-    jumlah: 10
+    jumlah: 10,
+    sumber_dana: 'SPP'
   },
   {
     id_barang_masuk: 2,
@@ -407,7 +423,8 @@ const itemInDetails: ItemInDetail[] = [
       nama: 'Unit G'
     },
     id_supplier: 7,
-    jumlah: 10
+    jumlah: 10,
+    sumber_dana: 'BOS'
   },
   {
     id_barang_masuk: 2,
@@ -422,7 +439,8 @@ const itemInDetails: ItemInDetail[] = [
       nama: 'Unit H'
     },
     id_supplier: 8,
-    jumlah: 10
+    jumlah: 10,
+    sumber_dana: 'SPP'
   },
   {
     id_barang_masuk: 2,
@@ -437,7 +455,8 @@ const itemInDetails: ItemInDetail[] = [
       nama: 'Unit I'
     },
     id_supplier: 10,
-    jumlah: 12
+    jumlah: 12,
+    sumber_dana: 'BOS'
   },
   {
     id_barang_masuk: 2,
@@ -452,7 +471,8 @@ const itemInDetails: ItemInDetail[] = [
       nama: 'Unit J'
     },
     id_supplier: 10,
-    jumlah: 10
+    jumlah: 10,
+    sumber_dana: 'SPP'
   },
   {
     id_barang_masuk: 3,
@@ -467,7 +487,8 @@ const itemInDetails: ItemInDetail[] = [
       nama: 'Unit A'
     },
     id_supplier: 1,
-    jumlah: 10
+    jumlah: 10,
+    sumber_dana: 'BOS'
   },
   {
     id_barang_masuk: 3,
@@ -482,7 +503,8 @@ const itemInDetails: ItemInDetail[] = [
       nama: 'Unit B'
     },
     id_supplier: 2,
-    jumlah: 10
+    jumlah: 10,
+    sumber_dana: 'SPP'
   },
   {
     id_barang_masuk: 3,
@@ -494,10 +516,11 @@ const itemInDetails: ItemInDetail[] = [
     id_unit: 3,
     unit: {
       id: 3,
-      nama: 'Unit C'
+      nama: 'Unit C',
     },
     id_supplier: 3,
-    jumlah: 10
+    sumber_dana: 'BOS',
+    jumlah: 10,
   },
   {
     id_barang_masuk: 3,
@@ -512,7 +535,8 @@ const itemInDetails: ItemInDetail[] = [
       nama: 'Unit D'
     },
     id_supplier: 4,
-    jumlah: 10
+    jumlah: 10,
+    sumber_dana: 'SPP'
   },
   {
     id_barang_masuk: 3,
@@ -527,7 +551,8 @@ const itemInDetails: ItemInDetail[] = [
       nama: 'Unit E'
     },
     id_supplier: 5,
-    jumlah: 10
+    jumlah: 10,
+    sumber_dana: 'BOS'
   },
   {
     id_barang_masuk: 3,
@@ -542,7 +567,8 @@ const itemInDetails: ItemInDetail[] = [
       nama: 'Unit F'
     },
     id_supplier: 6,
-    jumlah: 10
+    jumlah: 10,
+    sumber_dana: 'SPP'
   },
   {
     id_barang_masuk: 3,
@@ -557,7 +583,8 @@ const itemInDetails: ItemInDetail[] = [
       nama: 'Unit G'
     },
     id_supplier: 7,
-    jumlah: 10
+    jumlah: 10,
+    sumber_dana: 'BOS'
   },
   {
     id_barang_masuk: 3,
@@ -572,7 +599,8 @@ const itemInDetails: ItemInDetail[] = [
       nama: 'Unit H'
     },
     id_supplier: 8,
-    jumlah: 10
+    jumlah: 10,
+    sumber_dana: 'SPP'
   },
   {
     id_barang_masuk: 3,
@@ -587,7 +615,8 @@ const itemInDetails: ItemInDetail[] = [
       nama: 'Unit I'
     },
     id_supplier: 9,
-    jumlah: 10
+    jumlah: 10,
+    sumber_dana: 'BOS'
   },
   {
     id_barang_masuk: 3,
@@ -602,7 +631,8 @@ const itemInDetails: ItemInDetail[] = [
       nama: 'Unit J'
     },
     id_supplier: 10,
-    jumlah: 10
+    jumlah: 10,
+    sumber_dana: 'SPP'
   }
 ]
 

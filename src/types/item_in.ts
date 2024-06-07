@@ -27,6 +27,7 @@ type ItemInDetail = {
     nama: string
   }
   id_supplier: number
+  sumber_dana: string
   jumlah: number
 }
 
