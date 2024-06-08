@@ -3,6 +3,7 @@ import ItemAddDialog from './ItemAddDialog.vue';
 import { items as fakeItem } from '@/stores/fake/item'
 import { ref } from 'vue';
 
+const suppliers = ['supplier 1', 'supplier 2', 'supplier 3', 'supplier 4']
 const selectedItem = ref('')
 const saveItemIn = () => {
     // Todo: save item in
@@ -18,6 +19,7 @@ const saveItemIn = () => {
                         <item-add-dialog/>
                     </v-btn>
                     <v-file-input label="input dokumen berita acara" class="mt-2"/>
+                    <v-select :items="suppliers" label="supplier"></v-select>
                     <v-textarea label="deskripsi"></v-textarea>
                 </v-card-text>
                 <template v-slot:actions>

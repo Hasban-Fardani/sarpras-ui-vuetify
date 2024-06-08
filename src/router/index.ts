@@ -102,6 +102,15 @@ const router = createRouter({
       }
     },
     {
+      path: '/admin/pengadaan/tambah',
+      name: 'admin-pengadaan-add',
+      component: () => import('../views/admin/SubmissionAddView.vue'),
+      meta: {
+        auth: true,
+        role: 'admin'
+      }
+    },
+    {
       path: '/admin/pengadaan/:id',
       name: 'admin-pengadaan-detail',
       component: () => import('../views/admin/SubmissionDetailView.vue'),

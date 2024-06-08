@@ -10,6 +10,7 @@ const selected = ref(null)
 const selectedItems = ref<Item[]>([])
 const items = ref(fakeItem)
 const unit = ref(user.data.unit)
+const nama = ref(user.data.nama)
 const pesan = ref('')
 const addItem = () => {
     let i = items.value.filter((i) => i.id === selected?.value)[0]
@@ -36,6 +37,7 @@ const removeItem = (item: Item) => {
         <p class="text-h5">Form Pengadaan Barang</p>
         <div>
             <p class="text-subtitle-1 font-weight-bold">Data Pemohon</p>
+            <v-text-field label="Nama" v-model="nama" required></v-text-field>
             <v-text-field label="Unit" v-model="unit" required></v-text-field>
             <v-text-field label="Pesan" v-model="pesan"></v-text-field>
             <v-divider :thickness="8" class="color-black"/>

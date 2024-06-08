@@ -5,6 +5,7 @@ type User = {
   unit?: string
   // role: 'admin' | 'user' | 'kepala sekolah'
   role?: string
+  nip?: number
   password?: string
 }
 

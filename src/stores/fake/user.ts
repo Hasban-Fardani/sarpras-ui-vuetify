@@ -7,7 +7,8 @@ export const users: User[] = [
     role: 'admin',
     token: 'random token',
     unit: 'sarpras',
-    password: 'password'
+    password: 'password',
+    nip: 1212312
   },
   {
     id: 2,
@@ -15,6 +16,7 @@ export const users: User[] = [
     role: 'user',
     token: 'random token',
     unit: 'RPL',
-    password: 'password'
+    password: 'password',
+    nip: 1231231
   }
 ]
