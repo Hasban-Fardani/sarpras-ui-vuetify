@@ -2,6 +2,7 @@
 import AdminLayout from '@/layouts/AdminLayout.vue';
 import { itemRequestDetail } from '@/stores/fake/item_request';
 import { useItemRequestStore } from '@/stores/item_request';
+import { ref } from 'vue';
 import { useRoute } from 'vue-router';
 
 const route = useRoute()
@@ -27,11 +28,9 @@ const headers = [
         title: 'Jumlah Acc',
         key: 'jumlah_acc'
     },
-    {
-        title: 'aksi',
-        key: 'id'
-    }
 ]
+
+const isDone = item?.status === 'selesai' || item?.status === 'ditolak'
 </script>
 <template>
     <AdminLayout>
@@ -51,9 +50,9 @@ const headers = [
                     <p class="font-weight-bold text-caption">{{ item?.tanggal }}</p>
                 </div>
             </div>
-            <div class="w-50">
-                <v-text-field label="cari" variant="outlined" density="compact"
-                    append-inner-icon="mdi-magnify"></v-text-field>
+            <div class="d-flex ga-2" v-if="!isDone">
+                <v-btn color="green" append-icon="mdi-check">Setujui</v-btn>
+                <v-btn color="red" append-icon="mdi-close">Tolak</v-btn>
             </div>
         </div>
         <div class="d-flex">
@@ -63,8 +62,8 @@ const headers = [
                         <template v-slot:item.barang.gambar="{ item }">
                             <img :src="item.barang.gambar" alt="" width="100px" height="100px">
                         </template>
-                        <template v-slot:item.id="{ item }">
-                            <v-btn icon="mdi-pencil" color="yellow"></v-btn>
+                        <template v-slot:item.jumlah_acc="{ item }">
+                            <v-number-input v-model="item.jumlah_acc" controlVariant="split" variant="outlined" :disabled="isDone"></v-number-input>
                         </template>
                     </VDataTable>
                 </VCardText>

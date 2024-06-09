@@ -33,12 +33,15 @@ onMounted(() => {
                 placeholder="Cari nama..." append-inner-icon="mdi-magnify" hide-details />
         </div>
         <div>
-            <v-btn>
+            <v-btn color="primary">
                 Filter
                 <v-dialog activator="parent" >
                     <template v-slot:default="{ isActive }">
                         <v-card>
-                            <v-date-picker/>
+                            <div class="d-flex ga-2 w-100">
+                                <v-date-picker title="Tanggal Awal"/>
+                                <v-date-picker title="Tanggal Akhir"/>
+                            </div>
                             <template v-slot:actions>
                                 <v-btn class="ml-auto" text="Close" @click="isActive.value = false"></v-btn>
                             </template>

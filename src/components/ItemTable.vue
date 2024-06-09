@@ -51,6 +51,7 @@ onMounted(() => {
     <delete-dialog type="Barang" :id="selectedDeleteId" :nama="selectedDeleteName" :is-active="deleteItemDialog"
         @close-dialog="deleteItemDialog = false" @delete="deleteItem" />
     <s-o-add-dialog :item-prop="selectedEditItem" :is-active="soItemDialog" @close-dialog="soItemDialog = false"/>
+    
     <div class="d-flex w-100 justify-space-between">
         <div class="w-50">
             <v-text-field v-model="item.searchName" class="ma-2" label="cari" variant="outlined" density="comfortable"

@@ -28,12 +28,24 @@ const headers = [
         key: 'jumlah_acc'
     }
 ]
+
+const isDone = item?.status === 'selesai' || item?.status === 'ditolak'
+
+const getColor = (status: string) => {
+    if (status == 'diproses') {
+        return 'warning'
+    } else if (status == 'ditolak') {
+        return 'error'
+    } else {
+        return 'success'
+    }
+}
 </script>
 <template>
     <AdminLayout>
         <div class="d-flex ga-2">
             <h2>Detail Pengadaan #{{ id }}</h2>
-            <VChip size="small">{{ item?.status }}</VChip>
+            <VChip size="small" :color="getColor(item!.status)">{{ item?.status }}</VChip>
         </div>
         <div class="d-flex justify-space-between w-100">
             <div class="d-flex ga-2 my-3">
@@ -45,9 +57,9 @@ const headers = [
                     <p class="font-weight-bold text-caption">{{ item?.tanggal }}</p>
                 </div>
             </div>
-            <div class="d-flex ga-2">
-                <v-btn color="green">Setujui</v-btn>
-                <v-btn color="red">Tolak</v-btn>
+            <div class="d-flex ga-2" v-if="!isDone">
+                <v-btn color="green" append-icon="mdi-check">Setujui</v-btn>
+                <v-btn color="red" append-icon="mdi-close">Tolak</v-btn>
             </div>
         </div>
         <div class="d-flex">
@@ -58,7 +70,7 @@ const headers = [
                             <img :src="item.barang!.gambar" alt="" width="100px" height="100px">
                         </template>
                         <template v-slot:item.jumlah_acc="{ item }">
-                            <v-number-input v-model="item.jumlah_acc" controlVariant="split" variant="outlined"></v-number-input>
+                            <v-number-input v-model="item.jumlah_acc" controlVariant="split" variant="outlined" :disabled="isDone"></v-number-input>
                         </template>
                     </VDataTable>
                 </VCardText>

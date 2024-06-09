@@ -31,7 +31,7 @@ const itemSubmissions: ItemSubmission[] = [
       nama: 'RPL'
     },
     jumlah_ajuan: 6,
-    status: 'diproses',
+    status: 'selesai',
     tanggal: '2024-05-13'
   },
   {
@@ -42,7 +42,7 @@ const itemSubmissions: ItemSubmission[] = [
       nama: 'PJOK'
     },
     jumlah_ajuan: 14,
-    status: 'diproses',
+    status: 'selesai',
     tanggal: '2024-05-14'
   },
   {
@@ -53,7 +53,7 @@ const itemSubmissions: ItemSubmission[] = [
       nama: 'Bahasa Inggris'
     },
     jumlah_ajuan: 8,
-    status: 'diproses',
+    status: 'ditolak',
     tanggal: '2024-05-15'
   },
   {
@@ -64,7 +64,7 @@ const itemSubmissions: ItemSubmission[] = [
       nama: 'Bahasa Indonesia'
     },
     jumlah_ajuan: 3,
-    status: 'diproses',
+    status: 'ditolak',
     tanggal: '2024-05-16'
   },
   {
