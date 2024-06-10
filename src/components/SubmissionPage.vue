@@ -13,6 +13,8 @@ const unit = ref(user.data.unit)
 const nama = ref(user.data.nama)
 const pesan = ref('')
 const addItem = () => {
+    
+    if (selected.value == null || selected.value == undefined) return
     let i = items.value.filter((i) => i.id === selected?.value)[0]
 
     // check if selected item is not already in the list

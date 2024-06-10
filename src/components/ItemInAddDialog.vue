@@ -2,18 +2,34 @@
 import ItemAddDialog from './ItemAddDialog.vue';
 import { items as fakeItem } from '@/stores/fake/item'
 import type { Item } from '@/types/item';
-import { ref, watch } from 'vue';
+import { ref } from 'vue';
 
 const items = ref(fakeItem)
 const suppliers = ['supplier 1', 'supplier 2', 'supplier 3', 'supplier 4']
 const selected = ref(null)
 const selectedItems = ref<Item[]>([])
+const headers = [
+    {
+        title: 'Gambar',
+        key: 'gambar',
+    },
+    {
+        title: 'Barang',
+        key: 'nama'
+    },
+    {
+        title: 'Jumlah',
+        key: 'jumlah'
+    }
+]
 const step = ref(1)
 const saveItemIn = () => {
     // Todo: save item in
 }
 
 const addItem = () => {
+    if (selected.value == null || selected.value == undefined) return
+
     let i = items.value.filter((i) => i.id === selected?.value)[0]
 
     // check if selected item is not already in the list
@@ -35,22 +51,23 @@ const removeItem = (item: Item) => {
 }
 </script>
 <template>
-    <v-dialog activator="parent">
+    <v-dialog activator="parent" max-width="500">
         <v-stepper :items="['Isi Data', 'Input barang', 'Review']" v-model="step">
             <template v-slot:item.1>
                 <v-card title="Tambah Barang Masuk" prepend-icon="mdi-plus">
                     <v-card-text>
-                        <v-btn color="primary" size="small" class="mb-2">
-                            barang baru?
-                            <item-add-dialog/>
-                        </v-btn>
-                        <v-file-input label="input dokumen berita acara" class="mt-2"/>
+                        <v-file-input label="dokumen pemeriksaan" class="mt-2"/>
+                        <v-file-input label="dokumen berita acara serah terima" class="mt-2"/>
                         <v-select :items="suppliers" label="supplier"></v-select>
                         <v-textarea label="deskripsi"></v-textarea>
                     </v-card-text>
                 </v-card>
             </template>
             <template v-slot:item.2>    
+                <v-btn color="primary" size="small" class="mb-2">
+                    barang baru?
+                    <item-add-dialog/>
+                </v-btn>
                 <div class="d-flex flex-wrap justify-start align-center mt-1">
                 <div class="w-100" v-for="item in selectedItems" :key="item.nama">
                     <div class="d-flex ga-2 w-100 justify-space-between mt-5">
@@ -72,7 +89,13 @@ const removeItem = (item: Item) => {
             </div>
             </template>
             <template v-slot:item.3>    
-                
+                <v-card-text>
+                    <v-data-table :items="selectedItems" :headers="headers">
+                        <template v-slot:item.gambar="{ item }">
+                            <img :src="item.gambar?.toString()" alt="gambar" width="50">
+                        </template>
+                    </v-data-table>
+                </v-card-text>
             </template>
         </v-stepper>
     </v-dialog>

@@ -35,7 +35,7 @@ onMounted(() => {
         <div>
             <v-btn color="primary">
                 Filter
-                <v-dialog activator="parent" >
+                <v-dialog activator="parent" max-width="500">
                     <template v-slot:default="{ isActive }">
                         <v-card>
                             <div class="d-flex flex-wrap ga-2 w-100">

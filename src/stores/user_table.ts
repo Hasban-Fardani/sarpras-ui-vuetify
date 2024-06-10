@@ -40,6 +40,10 @@ export const useUserTableStore = defineStore('userTable', () => {
       key: 'unit'
     },
     {
+      title: 'NIP',
+      key: 'nip'
+    },
+    {
       title: 'Action',
       key: 'id',
       sortable: false

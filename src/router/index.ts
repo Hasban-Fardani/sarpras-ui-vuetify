@@ -93,6 +93,15 @@ const router = createRouter({
       }
     },
     {
+      path: '/admin/items/so',
+      name: 'admin-item-so',
+      component: () => import('../views/admin/StockOpnameListView.vue'),
+      meta: {
+        auth: true,
+        role: 'admin'
+      }
+    },
+    {
       path: '/admin/pengadaan',
       name: 'admin-pengadaan-list',
       component: () => import('../views/admin/SubmissionListView.vue'),

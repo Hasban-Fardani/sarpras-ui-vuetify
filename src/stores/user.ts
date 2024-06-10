@@ -42,6 +42,7 @@ export const useUserStore = defineStore('user', () => {
       data.value.nama = userFind.nama
       data.value.role = userFind.role
       data.value.unit = userFind.role
+      data.value.nip = userFind.nip
       data.value.token = 'random token'
 
       await Preferences.set({
