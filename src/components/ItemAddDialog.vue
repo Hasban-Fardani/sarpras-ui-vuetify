@@ -27,7 +27,7 @@ const uploadImage = (event: Event) => {
 }
 </script>
 <template>
-    <v-dialog activator="parent" max-width="340">
+    <v-dialog activator="parent" max-width="400">
         <template v-slot:default="{ isActive }">
             <v-card title="Tambah Barang" prepend-icon="mdi-plus">
                 <v-card-text>

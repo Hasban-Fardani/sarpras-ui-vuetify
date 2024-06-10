@@ -1,7 +1,6 @@
 <!-- eslint-disable vue/valid-v-slot -->
 <script setup lang="ts">
 import ItemEditDialog from '@/components/ItemEditDialog.vue';
-import SOAddDialog from '@/components/SOAddDialog.vue';
 import DeleteDialog from '@/components/DeleteDialog.vue';
 import { onMounted, ref } from 'vue';
 import { useItemStore } from '@/stores/item';
@@ -13,8 +12,6 @@ const toIDR = (num: number) => new Intl.NumberFormat('id-ID', { style: 'currency
 
 const editItemDialog = ref(false)
 const selectedEditItem = ref<Item>({} as Item)
-const soItemDialog = ref(false)
-const selectedSOItem = ref<Item>({} as Item)
 
 const deleteItemDialog = ref(false)
 const selectedDeleteName = ref('')
@@ -35,11 +32,6 @@ const deleteItem = (id: number) => {
 
 }
 
-const soItem = (itemSO: Item) => {
-    soItemDialog.value = true
-    selectedSOItem.value = itemSO
-}
-
 onMounted(() => {
     item.tmpData()
 })
@@ -50,8 +42,7 @@ onMounted(() => {
 
     <delete-dialog type="Barang" :id="selectedDeleteId" :nama="selectedDeleteName" :is-active="deleteItemDialog"
         @close-dialog="deleteItemDialog = false" @delete="deleteItem" />
-    <s-o-add-dialog :item-prop="selectedEditItem" :is-active="soItemDialog" @close-dialog="soItemDialog = false"/>
-    
+
     <div class="d-flex w-100 justify-space-between">
         <div class="w-50">
             <v-text-field v-model="item.searchName" class="ma-2" label="cari" variant="outlined" density="comfortable"
@@ -71,7 +62,6 @@ onMounted(() => {
         </template>
         <template v-slot:item.id="{ item }">
             <div class="d-flex ga-2">
-                <v-btn icon="mdi-playlist-edit" color="green" @click="soItem(item)" />
                 <v-btn icon="mdi-square-edit-outline" color="yellow" @click="editItem(item)" />
                 <v-btn icon="mdi-delete" color="red" @click="confirmDeleteITem(item.id, item.nama.toString())" />
             </div>

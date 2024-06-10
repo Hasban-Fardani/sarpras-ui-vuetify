@@ -20,15 +20,20 @@ const CLayout = user.data.role === 'admin' ? AdminLayout : UserLayout
                         <v-text-field label="Name" v-model="user.data.nama"></v-text-field>
                     </v-col>
                     <v-col>
-                        <v-text-field label="Password" type="password" value="*****" disabled></v-text-field>
+                        <v-text-field label="NIP" v-model="user.data.nip"></v-text-field>
                     </v-col>
                 </v-row>
                 <v-row>
                     <v-col>
-                        <v-text-field label="Role" disabled></v-text-field>
+                        <v-text-field label="Role" disabled v-model="user.data.role"></v-text-field>
                     </v-col>
                     <v-col>
-                        <v-text-field label="Unit" disabled></v-text-field>
+                        <v-text-field label="Unit" disabled v-model="user.data.unit"></v-text-field>
+                    </v-col>
+                </v-row>
+                <v-row>
+                    <v-col>
+                        <v-text-field label="Password" type="password" value="*****" disabled></v-text-field>    
                     </v-col>
                 </v-row>
                 <v-btn color="primary">

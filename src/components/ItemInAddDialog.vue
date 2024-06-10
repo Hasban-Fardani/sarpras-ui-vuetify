@@ -1,32 +1,79 @@
 <script setup lang="ts">
 import ItemAddDialog from './ItemAddDialog.vue';
 import { items as fakeItem } from '@/stores/fake/item'
-import { ref } from 'vue';
+import type { Item } from '@/types/item';
+import { ref, watch } from 'vue';
 
+const items = ref(fakeItem)
 const suppliers = ['supplier 1', 'supplier 2', 'supplier 3', 'supplier 4']
-const selectedItem = ref('')
+const selected = ref(null)
+const selectedItems = ref<Item[]>([])
+const step = ref(1)
 const saveItemIn = () => {
     // Todo: save item in
 }
+
+const addItem = () => {
+    let i = items.value.filter((i) => i.id === selected?.value)[0]
+
+    // check if selected item is not already in the list
+    if (!selectedItems.value.includes(i)) {
+        selectedItems.value.push(i)
+    } else {
+        console.log("udah ada");           
+    }
+
+    // remove items from the list
+    items.value.splice(items.value.indexOf(i), 1)
+
+    selected.value = null
+}
+
+const removeItem = (item: Item) => {
+    selectedItems.value.splice(selectedItems.value.indexOf(item), 1)
+    items.value.push(item)
+}
 </script>
 <template>
-    <v-dialog activator="parent" max-width="340">
-        <template v-slot:default="{ isActive }">
-            <v-card title="Tambah Barang Masuk" prepend-icon="mdi-plus">
-                <v-card-text>
-                    <v-btn color="primary" size="small" class="mb-2">
-                        barang baru?
-                        <item-add-dialog/>
-                    </v-btn>
-                    <v-file-input label="input dokumen berita acara" class="mt-2"/>
-                    <v-select :items="suppliers" label="supplier"></v-select>
-                    <v-textarea label="deskripsi"></v-textarea>
-                </v-card-text>
-                <template v-slot:actions>
-                    <v-btn class="ml-auto" text="Save" @click="saveItemIn" color="primary"></v-btn>
-                    <v-btn text="Close" @click="isActive.value = false;" color="error"></v-btn>
-                </template>
-            </v-card>
-        </template>
+    <v-dialog activator="parent">
+        <v-stepper :items="['Isi Data', 'Input barang', 'Review']" v-model="step">
+            <template v-slot:item.1>
+                <v-card title="Tambah Barang Masuk" prepend-icon="mdi-plus">
+                    <v-card-text>
+                        <v-btn color="primary" size="small" class="mb-2">
+                            barang baru?
+                            <item-add-dialog/>
+                        </v-btn>
+                        <v-file-input label="input dokumen berita acara" class="mt-2"/>
+                        <v-select :items="suppliers" label="supplier"></v-select>
+                        <v-textarea label="deskripsi"></v-textarea>
+                    </v-card-text>
+                </v-card>
+            </template>
+            <template v-slot:item.2>    
+                <div class="d-flex flex-wrap justify-start align-center mt-1">
+                <div class="w-100" v-for="item in selectedItems" :key="item.nama">
+                    <div class="d-flex ga-2 w-100 justify-space-between mt-5">
+                        <p class="w-50 mt-4">{{ item.nama }}</p>
+                        <v-number-input placeholder="jumlah" variant="outlined" controlVariant="stacked" class="w-50" v-model="item.jumlah" inset required></v-number-input>
+                        <v-btn icon="mdi-delete" color="red" size="small" class="mt-2" @click="removeItem(item)"></v-btn>
+                    </div>
+                    <v-divider :thickness="2"/>
+                </div>
+                <div class="d-flex ga-2 w-100 mt-4">
+                    <v-autocomplete label="tambah barang" item-title="nama" item-value="id"
+                        :items="items" v-model="selected">
+                        <template v-slot:item="{ props, item }">
+                            <v-list-item v-bind="props" :title="item.raw.nama" />
+                        </template>
+                    </v-autocomplete>
+                    <v-btn icon="mdi-plus" color="green" class="mt-2" @click="addItem" size="small"></v-btn>
+                </div>
+            </div>
+            </template>
+            <template v-slot:item.3>    
+                
+            </template>
+        </v-stepper>
     </v-dialog>
 </template>

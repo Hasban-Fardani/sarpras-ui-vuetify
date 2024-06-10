@@ -1,3 +1,5 @@
+import type { Item } from "./item"
+
 type ItemOut = {
   id: number
   id_unit: number
@@ -9,11 +11,9 @@ type ItemOut = {
 }
 
 type ItemOutDetail = {
+  id_barang_keluar: number
   id_barang: number
-  barang: {
-    id?: number
-    nama: string
-  }
+  barang: Item
   jumlah: number
 }
 

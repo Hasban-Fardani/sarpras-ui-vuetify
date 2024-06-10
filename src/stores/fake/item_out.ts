@@ -95,6 +95,7 @@ const itemOut: ItemOut[] = [
 
 const itemOutDetail: ItemOutDetail[] = [
   {
+    id_barang_keluar: 1,
     id_barang: 1,
     barang: {
       id: 1,
@@ -103,6 +104,7 @@ const itemOutDetail: ItemOutDetail[] = [
     jumlah: 10
   },
   {
+    id_barang_keluar: 2,
     id_barang: 2,
     barang: {
       id: 2,
@@ -111,6 +113,7 @@ const itemOutDetail: ItemOutDetail[] = [
     jumlah: 20
   },
   {
+    id_barang_keluar: 3,
     id_barang: 3,
     barang: {
       id: 3,
@@ -119,6 +122,7 @@ const itemOutDetail: ItemOutDetail[] = [
     jumlah: 30
   },
   {
+    id_barang_keluar: 4,
     id_barang: 4,
     barang: {
       id: 4,
@@ -127,6 +131,7 @@ const itemOutDetail: ItemOutDetail[] = [
     jumlah: 40
   },
   {
+    id_barang_keluar: 5,
     id_barang: 5,
     barang: {
       id: 5,
@@ -135,6 +140,7 @@ const itemOutDetail: ItemOutDetail[] = [
     jumlah: 50
   },
   {
+    id_barang_keluar: 6,
     id_barang: 6,
     barang: {
       id: 6,
@@ -143,6 +149,7 @@ const itemOutDetail: ItemOutDetail[] = [
     jumlah: 60
   },
   {
+    id_barang_keluar: 7,
     id_barang: 7,
     barang: {
       id: 7,
@@ -151,6 +158,7 @@ const itemOutDetail: ItemOutDetail[] = [
     jumlah: 70
   },
   {
+    id_barang_keluar: 8,
     id_barang: 8,
     barang: {
       id: 8,
@@ -159,6 +167,7 @@ const itemOutDetail: ItemOutDetail[] = [
     jumlah: 80
   },
   {
+    id_barang_keluar: 9,
     id_barang: 9,
     barang: {
       id: 9,
@@ -167,6 +176,7 @@ const itemOutDetail: ItemOutDetail[] = [
     jumlah: 90
   },
   {
+    id_barang_keluar: 10,
     id_barang: 10,
     barang: {
       id: 10,
@@ -175,6 +185,7 @@ const itemOutDetail: ItemOutDetail[] = [
     jumlah: 100
   },
   {
+    id_barang_keluar: 1,
     id_barang: 11,
     barang: {
       id: 11,
@@ -183,6 +194,7 @@ const itemOutDetail: ItemOutDetail[] = [
     jumlah: 110
   },
   {
+    id_barang_keluar: 2,
     id_barang: 12,
     barang: {
       id: 12,
@@ -191,6 +203,7 @@ const itemOutDetail: ItemOutDetail[] = [
     jumlah: 120
   },
   {
+    id_barang_keluar: 3,
     id_barang: 13,
     barang: {
       id: 13,
@@ -199,6 +212,7 @@ const itemOutDetail: ItemOutDetail[] = [
     jumlah: 130
   },
   {
+    id_barang_keluar: 4,
     id_barang: 14,
     barang: {
       id: 14,
@@ -207,6 +221,7 @@ const itemOutDetail: ItemOutDetail[] = [
     jumlah: 140
   },
   {
+    id_barang_keluar: 5,
     id_barang: 15,
     barang: {
       id: 15,
@@ -215,6 +230,7 @@ const itemOutDetail: ItemOutDetail[] = [
     jumlah: 150
   },
   {
+    id_barang_keluar: 6,
     id_barang: 16,
     barang: {
       id: 16,
@@ -223,6 +239,7 @@ const itemOutDetail: ItemOutDetail[] = [
     jumlah: 160
   },
   {
+    id_barang_keluar: 7,
     id_barang: 17,
     barang: {
       id: 17,
@@ -231,6 +248,7 @@ const itemOutDetail: ItemOutDetail[] = [
     jumlah: 170
   },
   {
+    id_barang_keluar: 8,
     id_barang: 18,
     barang: {
       id: 18,
@@ -239,6 +257,7 @@ const itemOutDetail: ItemOutDetail[] = [
     jumlah: 180
   },
   {
+    id_barang_keluar: 9,
     id_barang: 19,
     barang: {
       id: 19,
@@ -247,6 +266,7 @@ const itemOutDetail: ItemOutDetail[] = [
     jumlah: 190
   },
   {
+    id_barang_keluar: 10,
     id_barang: 20,
     barang: {
       id: 20,
@@ -255,6 +275,7 @@ const itemOutDetail: ItemOutDetail[] = [
     jumlah: 200
   },
   {
+    id_barang_keluar: 1,
     id_barang: 21,
     barang: {
       id: 21,
@@ -263,6 +284,7 @@ const itemOutDetail: ItemOutDetail[] = [
     jumlah: 210
   },
   {
+    id_barang_keluar: 2,
     id_barang: 22,
     barang: {
       id: 22,
@@ -271,6 +293,7 @@ const itemOutDetail: ItemOutDetail[] = [
     jumlah: 220
   },
   {
+    id_barang_keluar: 3,
     id_barang: 23,
     barang: {
       id: 23,
@@ -279,6 +302,7 @@ const itemOutDetail: ItemOutDetail[] = [
     jumlah: 230
   },
   {
+    id_barang_keluar: 4,
     id_barang: 24,
     barang: {
       id: 24,
@@ -287,6 +311,7 @@ const itemOutDetail: ItemOutDetail[] = [
     jumlah: 240
   },
   {
+    id_barang_keluar: 5,
     id_barang: 25,
     barang: {
       id: 25,
@@ -295,6 +320,7 @@ const itemOutDetail: ItemOutDetail[] = [
     jumlah: 250
   },
   {
+    id_barang_keluar: 6,
     id_barang: 26,
     barang: {
       id: 26,
@@ -303,6 +329,7 @@ const itemOutDetail: ItemOutDetail[] = [
     jumlah: 260
   },
   {
+    id_barang_keluar: 7,
     id_barang: 27,
     barang: {
       id: 27,
@@ -311,6 +338,7 @@ const itemOutDetail: ItemOutDetail[] = [
     jumlah: 270
   },
   {
+    id_barang_keluar: 8,
     id_barang: 28,
     barang: {
       id: 28,
@@ -319,6 +347,7 @@ const itemOutDetail: ItemOutDetail[] = [
     jumlah: 280
   },
   {
+    id_barang_keluar: 9,
     id_barang: 29,
     barang: {
       id: 29,
@@ -327,6 +356,7 @@ const itemOutDetail: ItemOutDetail[] = [
     jumlah: 290
   },
   {
+    id_barang_keluar: 10,
     id_barang: 30,
     barang: {
       id: 30,
@@ -335,5 +365,6 @@ const itemOutDetail: ItemOutDetail[] = [
     jumlah: 300
   }
 ]
+
 
 export { itemOut, itemOutDetail }

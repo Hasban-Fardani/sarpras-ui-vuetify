@@ -44,7 +44,7 @@ const saveItem = () => {
 </script>
 
 <template>
-    <v-dialog v-model="props.isActive" max-width="340">
+    <v-dialog v-model="props.isActive" max-width="400">
         <v-card title="Edit Barang" prepend-icon="mdi-pencil">
             <v-card-text>
                 <img v-if="imageUrl" :src="imageUrl" alt="Preview Image" class="img-preview" />

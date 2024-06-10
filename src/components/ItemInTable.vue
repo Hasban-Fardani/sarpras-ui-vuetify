@@ -30,7 +30,7 @@ onMounted(() => {
     <div class="d-flex w-100 justify-space-between align-center">
         <div class="w-50">
             <v-text-field v-model="itemIn.searchName" class="ma-2" label="cari" variant="outlined" density="comfortable"
-                placeholder="Cari nama..." append-inner-icon="mdi-magnify" hide-details />
+                placeholder="Cari deskripsi..." append-inner-icon="mdi-magnify" hide-details />
         </div>
         <div>
             <v-btn color="primary">
@@ -38,7 +38,7 @@ onMounted(() => {
                 <v-dialog activator="parent" >
                     <template v-slot:default="{ isActive }">
                         <v-card>
-                            <div class="d-flex ga-2 w-100">
+                            <div class="d-flex flex-wrap ga-2 w-100">
                                 <v-date-picker title="Tanggal Awal"/>
                                 <v-date-picker title="Tanggal Akhir"/>
                             </div>

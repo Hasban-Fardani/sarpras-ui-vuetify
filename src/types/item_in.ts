@@ -1,3 +1,5 @@
+import type { Item } from "./item"
+
 type ItemIn = {
   id: number
   id_unit: number
@@ -17,10 +19,7 @@ type ItemIn = {
 type ItemInDetail = {
   id_barang_masuk: number
   id_barang: number
-  barang: {
-    id: number
-    nama: string
-  }
+  barang: Item
   id_unit: number
   unit: {
     id: number

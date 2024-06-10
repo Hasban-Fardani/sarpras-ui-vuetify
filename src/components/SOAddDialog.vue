@@ -32,7 +32,7 @@ watch(() => props.isActive, (newVal) => {
 });
 </script>
 <template>
-    <v-dialog v-model="props.isActive" max-width="340">
+    <v-dialog v-model="props.isActive" max-width="400">
         <v-card title="Buat SO" prepend-icon="mdi-plus">
             <v-card-text>
                 <v-text-field label="Petugas" v-model="nama"></v-text-field>

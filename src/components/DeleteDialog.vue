@@ -9,7 +9,7 @@ const props = defineProps<{
 </script>
 
 <template>
-    <v-dialog v-model="props.isActive" max-width="340">
+    <v-dialog v-model="props.isActive" max-width="400">
         <v-card :title="'Hapus ' + type" prepend-icon="mdi-delete">
             <v-card-text>
                 <h3 class="text-center">Apakah anda yakin akan menghapus {{ props.nama }}?</h3>

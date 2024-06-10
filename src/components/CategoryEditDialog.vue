@@ -26,7 +26,7 @@ const saveCategory = () => {
 </script>
 
 <template>
-    <v-dialog v-model="props.isActive" max-width="340">
+    <v-dialog v-model="props.isActive" max-width="400">
         <v-card title="Edit Kategori" prepend-icon="mdi-pencil">
             <v-card-text>
                 <v-text-field label="Name" v-model="data.nama"></v-text-field>

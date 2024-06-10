@@ -4,7 +4,7 @@ const uploadFile = (file: File) => {
 }
 </script>
 <template>
-    <v-dialog activator="parent" max-width="340">
+    <v-dialog activator="parent" max-width="400">
         <template v-slot:default="{ isActive }">
             <v-card title="Import Data" prepend-icon="mdi-import">
                 <v-card-text>

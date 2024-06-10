@@ -1,11 +1,26 @@
 <script setup lang="ts">
 import AdminLayout from '@/layouts/AdminLayout.vue';
-import { itemIn } from '@/stores/fake/item_in';
+import { itemIn, itemInDetails } from '@/stores/fake/item_in';
 import { useRoute } from 'vue-router';
 
 const route = useRoute()
 const { id } = route.params
 const item = itemIn.find((i) => i.id === parseInt(id.toString()))
+const detailItemIn = itemInDetails.filter((i) => i.id_barang_masuk === parseInt(id.toString()))
+const headers = [
+    {
+        title: 'Gambar',
+        key: 'barang.gambar',
+    },
+    {
+        title: 'Barang',
+        key: 'barang.nama'
+    },
+    {
+        title: 'Jumlah',
+        key: 'jumlah'
+    }
+]
 </script>
 <template>
     <AdminLayout>
@@ -23,7 +38,10 @@ const item = itemIn.find((i) => i.id === parseInt(id.toString()))
         </div>
         <VCard class="w-100">
             <VCardText>
-                <VDataTable>
+                <VDataTable :items="detailItemIn" :headers="headers">
+                    <template v-slot:item.barang.gambar="{ item }">
+                        <img :src="item.barang.gambar ?? 'https://picsum.photos/200/200'" :alt="item.barang.nama" width="100px" height="100px">
+                    </template>
                 </VDataTable>
             </VCardText>
         </VCard>

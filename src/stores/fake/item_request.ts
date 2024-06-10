@@ -25,7 +25,7 @@ const itemRequests: ItemRequest[] = [
   },
   {
     id: 3,
-    status: 'diproses',
+    status: 'disetujui',
     id_unit: 3,
     unit: {
       id: 3,
@@ -36,7 +36,7 @@ const itemRequests: ItemRequest[] = [
   },
   {
     id: 4,
-    status: 'diproses',
+    status: 'disetujui',
     id_unit: 4,
     unit: {
       id: 4,
@@ -47,7 +47,7 @@ const itemRequests: ItemRequest[] = [
   },
   {
     id: 5,
-    status: 'diproses',
+    status: 'ditolak',
     id_unit: 5,
     unit: {
       id: 5,
@@ -58,7 +58,7 @@ const itemRequests: ItemRequest[] = [
   },
   {
     id: 6,
-    status: 'diproses',
+    status: 'ditolak',
     id_unit: 6,
     unit: {
       id: 6,
@@ -69,7 +69,7 @@ const itemRequests: ItemRequest[] = [
   },
   {
     id: 7,
-    status: 'diproses',
+    status: 'selesai',
     id_unit: 7,
     unit: {
       id: 7,
@@ -80,7 +80,7 @@ const itemRequests: ItemRequest[] = [
   },
   {
     id: 8,
-    status: 'diproses',
+    status: 'selesai',
     id_unit: 8,
     unit: {
       id: 8,

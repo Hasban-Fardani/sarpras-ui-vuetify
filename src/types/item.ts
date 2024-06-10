@@ -10,6 +10,7 @@ type Item = {
   stok?: number
   satuan?: 'buah' | 'unit'
   harga?: number
+  jumlah?: number
   updated_at?: string
 }
 

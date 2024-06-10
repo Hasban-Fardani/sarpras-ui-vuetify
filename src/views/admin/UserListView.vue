@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import AdminLayout from '@/layouts/AdminLayout.vue';
-import UserTable from '@/components/UserTable.vue'
+import UserTable from '@/components/UserTable.vue';
+import UserAddDialog from '@/components/UserAddDialog.vue';
+
 </script>
 <template>
     <AdminLayout>
@@ -15,6 +17,7 @@ import UserTable from '@/components/UserTable.vue'
                 <v-list>
                     <v-list-item append-icon="mdi-pencil-plus-outline" @click="null">
                         input
+                        <user-add-dialog/>
                     </v-list-item>
                     <v-list-item append-icon="mdi-import" @click="null">
                         import

@@ -7,7 +7,7 @@ const saveCategory = () => {
 }
 </script>
 <template>
-    <v-dialog activator="parent" max-width="340">
+    <v-dialog activator="parent" max-width="400">
         <template v-slot:default="{ isActive }">
             <v-card title="Tambah Kategori" prepend-icon="mdi-plus">
                 <v-card-text>
