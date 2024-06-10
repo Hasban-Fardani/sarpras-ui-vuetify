@@ -37,6 +37,10 @@ onMounted(() => {
 <template>
     <delete-dialog type="Pengadaan" :id="selectedDeleteId" :nama="selectedDeleteName" :is-active="confirmDeleteDialog"
         @close-dialog="confirmDeleteDialog = false" @delete="deleteItemSubmission" />
+    <div class="w-50 w-md-25">
+        <v-text-field v-model="itemRequest.searchName" class="ma-2" label="cari" variant="outlined" density="comfortable"
+            placeholder="Cari unit..." append-inner-icon="mdi-magnify" hide-details />
+    </div>
     <v-data-table-server v-model:items-per-page="itemRequest.perPage" :headers="itemRequest.headers"
         :items="itemRequest.filtered" :items-length="itemRequest.total" :loading="loading"
         :search="itemRequest.searchName" item-value="name" @update:options="itemRequest.updateTable">

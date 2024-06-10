@@ -36,6 +36,12 @@ onMounted(() => {
 <template>
     <delete-dialog type="Permintaan" :id="selectedDeleteId" :nama="selectedDeleteName" :is-active="confirmDeleteDialog"
         @close-dialog="confirmDeleteDialog = false" @delete="deleteItemRequest" />
+    <div class="d-flex w-100 justify-space-between">
+        <div class="w-50 w-md-25">
+            <v-text-field v-model="itemRequest.searchName" class="ma-2" label="cari" variant="outlined" density="comfortable"
+                placeholder="Cari nama..." append-inner-icon="mdi-magnify" hide-details />
+        </div>
+    </div>
     <v-data-table-server v-model:items-per-page="itemRequest.perPage" :headers="itemRequest.headers"
         :items="itemRequest.filtered" :items-length="itemRequest.total" :loading="loading"
         :search="itemRequest.searchName" item-value="name" @update:options="itemRequest.updateTable">

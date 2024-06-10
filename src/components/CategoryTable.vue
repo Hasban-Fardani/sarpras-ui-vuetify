@@ -37,6 +37,10 @@ onMounted(() => {
         :category-prop="selectedEditCategory" />
     <delete-dialog type="Kategori" :id="selectedDeleteId" :nama="selectedDeleteName" :is-active="confirmDeleteDialog"
         @close-dialog="confirmDeleteDialog = false" @delete="deleteCategory" />
+    <div class="w-50 w-md-25">
+        <v-text-field v-model="category.searchName" class="ma-2" label="cari" variant="outlined" density="comfortable"
+            placeholder="Cari deskripsi..." append-inner-icon="mdi-magnify" hide-details />
+    </div>
     <v-data-table-server v-model:items-per-page="category.perPage" :headers="category.headers"
         :items="category.filtered" :items-length="category.total" :loading="loading" :search="category.searchName"
         item-value="name" @update:options="category.updateTable">

@@ -29,7 +29,7 @@ const headers = [
     }
 ]
 
-const isDone = item?.status === 'selesai' || item?.status === 'ditolak'
+const isDone = item?.status != 'diproses'
 
 const getColor = (status: string) => {
     if (status == 'diproses') {

@@ -3,7 +3,7 @@ import DeleteDialog from '@/components/DeleteDialog.vue';
 import { onMounted, ref } from 'vue';
 import { useItemOutStore } from '@/stores/item_out';
 
-const itemIn = useItemOutStore()
+const itemOut = useItemOutStore()
 const loading = ref(false)
 
 const confirmDeleteDialog = ref(false)
@@ -21,15 +21,19 @@ const deleteItemOut = () => {
 
 
 onMounted(() => {
-    itemIn.tmpData()
+    itemOut.tmpData()
 })
 </script>
 <template>
     <delete-dialog type="Barang keluar" :id="selectedDeleteId" :nama="selectedDeleteName" :is-active="confirmDeleteDialog"
         @close-dialog="confirmDeleteDialog = false" @delete="deleteItemOut" />
-    <v-data-table-server v-model:items-per-page="itemIn.perPage" :headers="itemIn.headers" :items="itemIn.filtered"
-        :items-length="itemIn.total" :loading="loading" :search="itemIn.searchName" item-value="name"
-        @update:options="itemIn.updateTable">
+    <div class="w-50 w-md-25">
+        <v-text-field v-model="itemOut.searchName" class="ma-2" label="cari" variant="outlined" density="comfortable"
+            placeholder="Cari deskripsi..." append-inner-icon="mdi-magnify" hide-details />
+    </div>
+    <v-data-table-server v-model:items-per-page="itemOut.perPage" :headers="itemOut.headers" :items="itemOut.filtered"
+        :items-length="itemOut.total" :loading="loading" :search="itemOut.searchName" item-value="name"
+        @update:options="itemOut.updateTable">
         <template v-slot:item.id="{ item }">
             <div class="d-flex ga-2">
                 <v-btn icon="mdi-eye" color="primary" :to="`/admin/items/item-out/${item.id}`" />

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import ItemSubmissionTable from '@/components/ItemSubmissionTable.vue';
 import UserLayout from '@/layouts/UserLayout.vue';
 
 </script>
@@ -8,8 +9,6 @@ import UserLayout from '@/layouts/UserLayout.vue';
             Form Pengadaan
         </v-btn>
         <h3 class="mt-3">History Pengadaan</h3>
-        <v-data-table class="mt-3">
-
-        </v-data-table>
+        <ItemSubmissionTable/>
     </UserLayout>
 </template>

@@ -83,14 +83,12 @@ watch(() => selected.value, (newVal) => {
                 <template v-slot:item.2>
                     <v-card title="Jumlah Barang" subtitle="masukkan jumlah untuk setiap barang" flat>
                         <v-card-text>
-                            <div class="d-flex flex-wrap justify-start align-start">
-                                <v-col v-for="item in selectedItem" :key="item.id">
-
-                                    <v-number-input :reverse="false" controlVariant="split" :label="item.nama"
+                            <div class="d-flex flex-wrap ga-2">
+                            
+                                    <v-number-input v-for="item in selectedItem" :key="item.id" :reverse="false" controlVariant="split" :label="item.nama"
                                         :hideInput="false" variant="outlined" class="input-number" v-model="item.jumlah"
-                                        :min="1" required>
+                                        :min="1" required >
                                     </v-number-input>
-                                </v-col>
                             </div>
                         </v-card-text>
                     </v-card>
@@ -98,8 +96,13 @@ watch(() => selected.value, (newVal) => {
 
                 <template v-slot:item.3>
                     <v-card flat>
-                        <p class="text-caption text-center">{{ pesan }}</p>
+                        <v-card-title>Review</v-card-title>
                         <v-card-text>
+                            <div>
+                                <h5>Pesan</h5>
+                                <p class="text-caption">{{ pesan }}</p>
+                            </div>
+                            <h5>Barang:</h5>
                             <v-data-table :items="selectedItem">
 
                             </v-data-table>
@@ -118,6 +121,7 @@ watch(() => selected.value, (newVal) => {
 </template>
 <style scoped>
 .input-number {
-    width: 200px;
+    max-width: 200px;
+    min-width: 100px;
 }
 </style>

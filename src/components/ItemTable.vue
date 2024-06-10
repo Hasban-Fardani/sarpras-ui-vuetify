@@ -44,7 +44,7 @@ onMounted(() => {
         @close-dialog="deleteItemDialog = false" @delete="deleteItem" />
 
     <div class="d-flex w-100 justify-space-between">
-        <div class="w-50">
+        <div class="w-50 w-md-25">
             <v-text-field v-model="item.searchName" class="ma-2" label="cari" variant="outlined" density="comfortable"
                 placeholder="Cari nama..." append-inner-icon="mdi-magnify" hide-details />
         </div>

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import UserLayout from '@/layouts/UserLayout.vue';
 import RequestForm from '@/components/RequestForm.vue';
+import ItemRequestTable from '@/components/ItemRequestTable.vue';
 
 </script>
 <template>
@@ -10,8 +11,7 @@ import RequestForm from '@/components/RequestForm.vue';
             <RequestForm />
         </v-btn>
         <h3 class="mt-3">History Permintaan</h3>
-        <v-data-table class="mt-3">
-
-        </v-data-table>
+        
+            <ItemRequestTable/>
     </UserLayout>
 </template>
