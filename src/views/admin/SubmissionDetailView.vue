@@ -1,15 +1,20 @@
 <script setup lang="ts">
 import AdminLayout from '@/layouts/AdminLayout.vue';
+import ConfirmDialog from '@/components/ConfirmDialog.vue';
 import { itemSubmissionDetail } from '@/stores/fake/item_submission';
 import { useItemSubmissionStore } from '@/stores/item_submission';
 import { useRoute } from 'vue-router';
+import { ref } from 'vue';
 
 const route = useRoute()
 const { id } = route.params
+
 const itemSubmissionStore = useItemSubmissionStore()
 itemSubmissionStore.tmpData()
+
 const item = itemSubmissionStore.get(parseInt(id.toString()))
 const detailRequest = itemSubmissionDetail.filter((i) => i.id_pengajuan === parseInt(id.toString()))
+
 const headers = [
     {
         title: 'Gambar',
@@ -26,11 +31,14 @@ const headers = [
     {
         title: 'Jumlah Acc',
         key: 'jumlah_acc'
+    },
+    {
+        title: 'Aksi',
+        key: 'id'
     }
 ]
 
 const isDone = item?.status != 'diproses'
-
 const getColor = (status: string) => {
     if (status == 'diproses') {
         return 'warning'
@@ -40,13 +48,24 @@ const getColor = (status: string) => {
         return 'success'
     }
 }
+
+const isConfirm = ref(false)
+const selectedConfirmId = ref(0)
+const selectedNama = ref('')
+const confirm = (id: number, nama: string) => {
+    isConfirm.value = true
+    selectedConfirmId.value = id
+    selectedNama.value = nama
+}
 </script>
 <template>
     <AdminLayout>
+        <ConfirmDialog :is-active="isConfirm" :id="selectedConfirmId" title="Hapus Barang" :confirm-message="`apakah anda yakin akan menghapus ${selectedNama} dari pengadaan?`" confirm-message-sub="" @close-dialog="isConfirm = false"/>
         <div class="d-flex ga-2">
             <h2>Detail Pengadaan #{{ id }}</h2>
             <VChip size="small" :color="getColor(item!.status)">{{ item?.status }}</VChip>
         </div>
+        <p class="my-3">tanggal: {{ item?.tanggal }}</p>
         <div class="d-flex justify-space-between w-100">
             <div class="d-flex ga-2 my-3">
                 <v-avatar color="brown">
@@ -54,7 +73,7 @@ const getColor = (status: string) => {
                 </v-avatar>
                 <div>
                     <p>{{ item?.unit.nama }}</p>
-                    <p class="font-weight-bold text-caption">{{ item?.tanggal }}</p>
+                    <p class="font-weight-bold text-caption">NIP: {{ item?.unit.nip ?? '0012102312' }}</p>
                 </div>
             </div>
             <div class="d-flex ga-2" v-if="!isDone">
@@ -71,6 +90,9 @@ const getColor = (status: string) => {
                         </template>
                         <template v-slot:item.jumlah_acc="{ item }">
                             <v-number-input v-model="item.jumlah_acc" controlVariant="split" variant="outlined" :disabled="isDone"></v-number-input>
+                        </template>
+                        <template v-slot:item.id="{ item }">
+                            <v-btn icon="mdi-trash-can" color="red" @click="confirm(item.id, item.barang!.nama)"></v-btn>
                         </template>
                     </VDataTable>
                 </VCardText>

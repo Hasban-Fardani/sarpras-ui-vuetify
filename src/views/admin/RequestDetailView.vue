@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import AdminLayout from '@/layouts/AdminLayout.vue';
+import ConfirmDialog from '@/components/ConfirmDialog.vue';
 import { itemRequestDetail } from '@/stores/fake/item_request';
 import { useItemRequestStore } from '@/stores/item_request';
 import { ref } from 'vue';
@@ -7,10 +8,13 @@ import { useRoute } from 'vue-router';
 
 const route = useRoute()
 const { id } = route.params
+
 const itemRequestStore = useItemRequestStore()
 itemRequestStore.tmpData()
+
 const item = itemRequestStore.get(parseInt(id.toString()))
 const detailRequest = itemRequestDetail.filter((i) => i.id_permintaan === parseInt(id.toString()))
+
 const headers = [
     {
         title: 'Gambar',
@@ -28,12 +32,26 @@ const headers = [
         title: 'Jumlah Acc',
         key: 'jumlah_acc'
     },
+    {
+        title: 'Aksi',
+        key: 'id'
+    }
 ]
 
 const isDone = item?.status != 'diproses'
+
+const isConfirm = ref(false)
+const selectedConfirmId = ref(0)
+const selectedNama = ref('')
+const confirm = (id: number, nama: string) => {
+    isConfirm.value = true
+    selectedConfirmId.value = id
+    selectedNama.value = nama
+}
 </script>
 <template>
     <AdminLayout>
+        <ConfirmDialog :is-active="isConfirm" :id="selectedConfirmId" title="Hapus Barang" :confirm-message="`apakah anda yakin akan menghapus ${selectedNama} dari pengadaan?`" confirm-message-sub="" @close-dialog="isConfirm = false"/>
 
         <div class="d-flex ga-2">
             <h2>Detail Permintaan #{{ id }}</h2>
@@ -64,6 +82,9 @@ const isDone = item?.status != 'diproses'
                         </template>
                         <template v-slot:item.jumlah_acc="{ item }">
                             <v-number-input v-model="item.jumlah_acc" controlVariant="split" variant="outlined" :disabled="isDone"></v-number-input>
+                        </template>
+                        <template v-slot:item.id="{ item }">
+                            <v-btn icon="mdi-trash-can" color="red" @click="confirm(item.id, item.barang!.nama)"></v-btn>
                         </template>
                     </VDataTable>
                 </VCardText>
