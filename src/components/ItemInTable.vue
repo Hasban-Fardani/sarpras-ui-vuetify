@@ -10,6 +10,7 @@ const loading = ref(false)
 const confirmDeleteDialog = ref(false)
 const selectedDeleteName = ref('')
 const selectedDeleteId = ref(0)
+const suppliers = ref<string[]>()
 const confirmDelete = (id: number, nama: string) => {
     confirmDeleteDialog.value = true
     selectedDeleteName.value = nama
@@ -22,6 +23,7 @@ const deleteItemIn = () => {
 
 onMounted(() => {
     itemIn.tmpData()
+    suppliers.value = itemIn.items.map(i => i.supplier!.nama)
 })
 </script>
 <template>
@@ -32,15 +34,14 @@ onMounted(() => {
             <v-text-field v-model="itemIn.searchName" class="ma-2" label="cari" variant="outlined" density="comfortable"
                 placeholder="Cari deskripsi..." append-inner-icon="mdi-magnify" hide-details />
         </div>
-        <div>
-            <v-btn color="primary">
-                Filter
-                <v-dialog activator="parent" max-width="500">
+        <div class="d-flex ga-2">
+            <v-btn variant="outlined" height="48px">
+                dd/mm/yy
+                <v-dialog activator="parent" max-width="350">
                     <template v-slot:default="{ isActive }">
                         <v-card>
-                            <div class="d-flex flex-wrap ga-2 w-100">
-                                <v-date-picker title="Tanggal Awal"/>
-                                <v-date-picker title="Tanggal Akhir"/>
+                            <div class="d-flex flex-wrap justify-center align-center ga-2 w-100">
+                                <v-date-picker title="Tanggal"/>
                             </div>
                             <template v-slot:actions>
                                 <v-btn class="ml-auto" text="Close" @click="isActive.value = false"></v-btn>
@@ -49,6 +50,7 @@ onMounted(() => {
                     </template>
                 </v-dialog>
             </v-btn>
+            <v-select :items="suppliers" label="supplier" variant="outlined" density="comfortable" min-width="150" max-width="200" multiple></v-select>
         </div>
     </div>
     <v-data-table-server v-model:items-per-page="itemIn.perPage" :headers="itemIn.headers" :items="itemIn.filtered"
