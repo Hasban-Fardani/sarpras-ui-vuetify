@@ -64,9 +64,9 @@ export const useStockOpnameStore = defineStore('stockOpname', () => {
     perPage.value = args.itemsPerPage
   }
 
-  function addItem(item) {
+  function addItem() {
     const data = new FormData()
-    data.append('nama', item.nama)
+    // data.append('nama', item.nama)
   }
 
   function updateStockOpname() {}
