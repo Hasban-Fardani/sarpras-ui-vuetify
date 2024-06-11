@@ -27,9 +27,28 @@ onMounted(() => {
 <template>
     <delete-dialog type="Barang keluar" :id="selectedDeleteId" :nama="selectedDeleteName" :is-active="confirmDeleteDialog"
         @close-dialog="confirmDeleteDialog = false" @delete="deleteItemOut" />
-    <div class="w-50 w-md-25">
-        <v-text-field v-model="itemOut.searchName" class="ma-2" label="cari" variant="outlined" density="comfortable"
-            placeholder="Cari deskripsi..." append-inner-icon="mdi-magnify" hide-details />
+    <div class="d-flex w-100 justify-space-between align-center">
+        <div class="w-50 w-md-25">
+            <v-text-field v-model="itemOut.searchName" class="ma-2" label="cari" variant="outlined" density="comfortable"
+                placeholder="Cari deskripsi..." append-inner-icon="mdi-magnify" hide-details />
+        </div>
+        <div class="d-flex ga-2">
+            <v-btn variant="outlined" height="48px">
+                dd/mm/yy
+                <v-dialog activator="parent" max-width="350">
+                    <template v-slot:default="{ isActive }">
+                        <v-card>
+                            <div class="d-flex flex-wrap justify-center align-center ga-2 w-100">
+                                <v-date-picker title="Tanggal"/>
+                            </div>
+                            <template v-slot:actions>
+                                <v-btn class="ml-auto" text="Close" @click="isActive.value = false"></v-btn>
+                            </template>
+                        </v-card>
+                    </template>
+                </v-dialog>
+            </v-btn>
+        </div>
     </div>
     <v-data-table-server v-model:items-per-page="itemOut.perPage" :headers="itemOut.headers" :items="itemOut.filtered"
         :items-length="itemOut.total" :loading="loading" :search="itemOut.searchName" item-value="name"
