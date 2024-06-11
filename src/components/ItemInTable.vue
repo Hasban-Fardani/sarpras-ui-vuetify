@@ -29,12 +29,12 @@ onMounted(() => {
 <template>
     <delete-dialog type="Kategori" :id="selectedDeleteId" :nama="selectedDeleteName" :is-active="confirmDeleteDialog"
         @close-dialog="confirmDeleteDialog = false" @delete="deleteItemIn" />
-    <div class="d-flex w-100 justify-space-between align-center">
+    <div class="d-flex flex-wrap w-100 justify-space-between align-center">
         <div class="w-50 w-md-25">
             <v-text-field v-model="itemIn.searchName" class="ma-2" label="cari" variant="outlined" density="comfortable"
                 placeholder="Cari deskripsi..." append-inner-icon="mdi-magnify" hide-details />
         </div>
-        <div class="d-flex ga-2">
+        <div class="d-flex ga-2 ml-2">
             <v-btn variant="outlined" height="48px">
                 dd/mm/yy
                 <v-dialog activator="parent" max-width="350">

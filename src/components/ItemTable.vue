@@ -57,6 +57,12 @@ onMounted(() => {
                 <img :src="item.gambar?.toString()" alt="gambar" width="50">
             </div>
         </template>
+        <!-- <template v-slot:item.stok="{item}">
+            
+        </template> -->
+        <template v-slot:item.kategori.nama="{item}">
+            <v-chip size="small">{{ item?.kategori?.nama }}</v-chip>
+        </template>
         <template v-slot:item.harga="{ item }">
             <p>{{ toIDR(parseInt(item.harga!.toString())) }}</p>
         </template>

@@ -13,7 +13,7 @@ onMounted(() => {
 </script>
 <template>
     <AdminLayout>
-        <div class="d-flex ga-2">
+        <div class="d-flex ga-2 mb-2">
             <h2>Daftar Barang</h2>
             <v-menu>
                 <template v-slot:activator="{ props }">

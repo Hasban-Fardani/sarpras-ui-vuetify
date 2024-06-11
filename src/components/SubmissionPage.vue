@@ -36,13 +36,13 @@ const removeItem = (item: Item) => {
 }
 </script>
 <template>
-        <p class="text-h5">Form Pengadaan Barang</p>
+        <p class="text-h6">Form Pengadaan Barang</p>
         <div>
             <p class="text-subtitle-1 font-weight-bold">Data Pemohon</p>
             <v-text-field label="Nama" v-model="nama" required></v-text-field>
             <v-text-field label="Unit" v-model="unit" required></v-text-field>
             <v-text-field label="Pesan" v-model="pesan"></v-text-field>
-            <v-divider :thickness="8" class="color-black"/>
+            <!-- <v-divider :thickness="8" class="color-black"/> -->
             <p class="text-subtitle-1 mt-3 font-weight-bold">Daftar Barang</p>
             <div class="d-flex flex-wrap justify-start align-center mt-1">
                 <div class="w-100" v-for="item in selectedItems" :key="item.nama">
@@ -63,7 +63,7 @@ const removeItem = (item: Item) => {
                     <v-btn icon="mdi-plus" color="green" class="mt-2" @click="addItem" size="small"></v-btn>
                 </div>
             </div>
-            <v-divider :thickness="8" class="color-black"/>
+            <!-- <v-divider :thickness="8" class="color-black"/> -->
             <div class="mt-3">
                 <div class="d-flex w-100 justify-space-between font-weight-bold">
                     <p>Jumlah Barang</p>

@@ -6,7 +6,7 @@ import ItemOutAddDialog from '@/components/itemOutAddDialog.vue';
 </script>
 <template>
     <AdminLayout>
-        <div class="d-flex ga-2">
+        <div class="d-flex ga-2 mb-2">
             <h2>Barang Keluar</h2>
             <VChip color="primary" append-icon="mdi-plus" variant="flat" @click="null">
                 Tambah

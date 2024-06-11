@@ -27,7 +27,7 @@ onMounted(() => {
 <template>
     <delete-dialog type="Barang keluar" :id="selectedDeleteId" :nama="selectedDeleteName" :is-active="confirmDeleteDialog"
         @close-dialog="confirmDeleteDialog = false" @delete="deleteItemOut" />
-    <div class="d-flex w-100 justify-space-between align-center">
+    <div class="d-flex flex-wrap w-100 justify-space-between align-center">
         <div class="w-50 w-md-25">
             <v-text-field v-model="itemOut.searchName" class="ma-2" label="cari" variant="outlined" density="comfortable"
                 placeholder="Cari deskripsi..." append-inner-icon="mdi-magnify" hide-details />

@@ -45,11 +45,11 @@ export const useItemStore = defineStore('item', () => {
       key: 'harga'
     },
     {
-      title: 'Stok',
+      title: 'Stok/Minimal',
       key: 'stok'
     },
     {
-      title: 'Diupdate',
+      title: 'SO terakhir',
       key: 'updated_at'
     },
     {
