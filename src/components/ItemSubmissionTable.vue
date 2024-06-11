@@ -2,6 +2,10 @@
 import DeleteDialog from '@/components/DeleteDialog.vue';
 import { onMounted, ref } from 'vue';
 import { useItemSubmissionStore } from '@/stores/item_submission';
+import { useUserStore } from '@/stores/user';
+
+
+const user = useUserStore()
 
 const itemRequest = useItemSubmissionStore()
 const loading = ref(false)
@@ -49,7 +53,7 @@ onMounted(() => {
         </template>
         <template v-slot:item.id="{ item }">
             <div class="d-flex ga-2">
-                <v-btn icon="mdi-eye" color="primary" :to="`/admin/pengadaan/${item.id}`" />
+                <v-btn icon="mdi-eye" color="primary" :to="`/${user.data.role}/pengadaan/${item.id}`" />
                 <v-btn icon="mdi-delete" color="red"
                     @click="confirmDelete(item.id, 'pengadaan tanggal ' + item.tanggal)" />
             </div>

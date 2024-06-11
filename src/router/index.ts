@@ -180,6 +180,15 @@ const router = createRouter({
       }
     },
     {
+      path: '/user/permintaan/:id',
+      name: 'user-permintaan-detail',
+      component: () => import('../views/user/RequestDetailView.vue'),
+      meta: {
+        auth: true,
+        role: 'user'
+      }
+    },
+    {
       path: '/user/pengadaan',
       name: 'user-pengadaan',
       component: () => import('../views/user/SubmissionView.vue'),
@@ -196,6 +205,15 @@ const router = createRouter({
         auth: true,
         role: 'user'
       },
+    },
+    {
+      path: '/user/pengadaan/:id',
+      name: 'user-pengadaan-detail',
+      component: () => import('../views/user/SubmissionDetailView.vue'),
+      meta: {
+        auth: true,
+        role: 'user'
+      }
     },
 
 
