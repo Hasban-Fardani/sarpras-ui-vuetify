@@ -38,7 +38,7 @@ const headers = [
     }
 ]
 
-const isDone = item?.status != 'diproses'
+const isDone = item?.status != 'diajukan'
 
 const isConfirm = ref(false)
 const selectedConfirmId = ref(0)

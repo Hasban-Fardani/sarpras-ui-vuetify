@@ -11,9 +11,10 @@ export const items: Item[] = [
       nama: 'Alat Tulis'
     },
     stok: 20,
+    stok_minimum: 30,
     satuan: 'unit',
     harga: 10000,
-    updated_at: '2024-05-22T00:00:00Z'
+    updated_at: new Date('2024-05-22T00:00:00Z')
   },
   {
     id: 1,
@@ -25,9 +26,10 @@ export const items: Item[] = [
       nama: 'Alat Tulis'
     },
     stok: 20,
+    stok_minimum: 30,
     satuan: 'unit',
     harga: 2000,
-    updated_at: '2024-05-22T00:00:00Z'
+    updated_at: new Date('2024-05-22T00:00:00Z')
   },
   {
     id: 2,
@@ -39,9 +41,10 @@ export const items: Item[] = [
       nama: 'Alat Tulis'
     },
     stok: 30,
+    stok_minimum: 30,
     satuan: 'unit',
     harga: 1000,
-    updated_at: '2024-05-22T00:00:00Z'
+    updated_at: new Date('2024-05-22T00:00:00Z')
   },
   {
     id: 3,
@@ -53,9 +56,10 @@ export const items: Item[] = [
       nama: 'Alat Tulis'
     },
     stok: 50,
+    stok_minimum: 30,
     satuan: 'unit',
     harga: 1500,
-    updated_at: '2024-05-22T00:00:00Z'
+    updated_at: new Date('2024-05-22T00:00:00Z')
   },
   {
     id: 4,
@@ -67,9 +71,10 @@ export const items: Item[] = [
       nama: 'Kertas'
     },
     stok: 500,
+    stok_minimum: 30,
     satuan: 'unit',
     harga: 5000,
-    updated_at: '2024-05-22T00:00:00Z'
+    updated_at: new Date('2024-05-22T00:00:00Z')
   },
   {
     id: 5,
@@ -81,9 +86,10 @@ export const items: Item[] = [
       nama: 'Buku'
     },
     stok: 100,
+    stok_minimum: 30,
     satuan: 'buah',
     harga: 3000,
-    updated_at: '2024-05-22T00:00:00Z'
+    updated_at: new Date('2024-05-22T00:00:00Z')
   },
   {
     id: 6,
@@ -95,9 +101,10 @@ export const items: Item[] = [
       nama: 'Organisasi File'
     },
     stok: 75,
+    stok_minimum: 30,
     satuan: 'unit',
     harga: 2500,
-    updated_at: '2024-05-22T00:00:00Z'
+    updated_at: new Date('2024-05-22T00:00:00Z')
   },
   {
     id: 7,
@@ -109,9 +116,10 @@ export const items: Item[] = [
       nama: 'Label'
     },
     stok: 200,
+    stok_minimum: 30,
     satuan: 'unit',
     harga: 3500,
-    updated_at: '2024-05-22T00:00:00Z'
+    updated_at: new Date('2024-05-22T00:00:00Z')
   },
   {
     id: 8,
@@ -123,9 +131,10 @@ export const items: Item[] = [
       nama: 'Aksesoris Printer'
     },
     stok: 10,
+    stok_minimum: 30,
     satuan: 'unit',
     harga: 12000,
-    updated_at: '2024-05-22T00:00:00Z'
+    updated_at: new Date('2024-05-22T00:00:00Z')
   },
   {
     id: 9,
@@ -137,9 +146,10 @@ export const items: Item[] = [
       nama: 'Pengikat Kertas'
     },
     stok: 150,
+    stok_minimum: 30,
     satuan: 'unit',
     harga: 4000,
-    updated_at: '2024-05-22T00:00:00Z'
+    updated_at: new Date('2024-05-22T00:00:00Z')
   },
   {
     id: 10,
@@ -151,9 +161,10 @@ export const items: Item[] = [
       nama: 'Alat Tulis'
     },
     stok: 80,
+    stok_minimum: 30,
     satuan: 'unit',
     harga: 6000,
-    updated_at: '2024-05-22T00:00:00Z'
+    updated_at: new Date('2024-05-22T00:00:00Z')
   },
   {
     id: 11,
@@ -165,9 +176,10 @@ export const items: Item[] = [
       nama: 'Alat Koreksi'
     },
     stok: 60,
+    stok_minimum: 30,
     satuan: 'unit',
     harga: 2500,
-    updated_at: '2024-05-22T00:00:00Z'
+    updated_at: new Date('2024-05-22T00:00:00Z')
   },
   {
     id: 12,
@@ -179,9 +191,10 @@ export const items: Item[] = [
       nama: 'Pengikat Kertas'
     },
     stok: 300,
+    stok_minimum: 30,
     satuan: 'unit',
     harga: 4500,
-    updated_at: '2024-05-22T00:00:00Z'
+    updated_at: new Date('2024-05-22T00:00:00Z')
   },
   {
     id: 13,
@@ -193,9 +206,10 @@ export const items: Item[] = [
       nama: 'Kertas'
     },
     stok: 100,
+    stok_minimum: 30,
     satuan: 'unit',
     harga: 7000,
-    updated_at: '2024-05-22T00:00:00Z'
+    updated_at: new Date('2024-05-22T00:00:00Z')
   },
   {
     id: 14,
@@ -207,9 +221,10 @@ export const items: Item[] = [
       nama: 'Kertas'
     },
     stok: 50,
+    stok_minimum: 30,
     satuan: 'unit',
     harga: 20000,
-    updated_at: '2024-05-22T00:00:00Z'
+    updated_at: new Date('2024-05-22T00:00:00Z')
   },
   {
     id: 15,
@@ -221,9 +236,10 @@ export const items: Item[] = [
       nama: 'Kertas'
     },
     stok: 150,
+    stok_minimum: 30,
     satuan: 'unit',
     harga: 8000,
-    updated_at: '2024-05-22T00:00:00Z'
+    updated_at: new Date('2024-05-22T00:00:00Z')
   },
   {
     id: 16,
@@ -235,9 +251,10 @@ export const items: Item[] = [
       nama: 'Kertas'
     },
     stok: 250,
+    stok_minimum: 30,
     satuan: 'unit',
     harga: 500,
-    updated_at: '2024-05-22T00:00:00Z'
+    updated_at: new Date('2024-05-22T00:00:00Z')
   },
   {
     id: 17,
@@ -249,9 +266,10 @@ export const items: Item[] = [
       nama: 'Alat Pengikat'
     },
     stok: 200,
+    stok_minimum: 30,
     satuan: 'unit',
     harga: 3000,
-    updated_at: '2024-05-22T00:00:00Z'
+    updated_at: new Date('2024-05-22T00:00:00Z')
   },
   {
     id: 18,
@@ -263,9 +281,10 @@ export const items: Item[] = [
       nama: 'Alat Pengikat'
     },
     stok: 100,
+    stok_minimum: 30,
     satuan: 'unit',
     harga: 4000,
-    updated_at: '2024-05-22T00:00:00Z'
+    updated_at: new Date('2024-05-22T00:00:00Z')
   },
   {
     id: 19,
@@ -277,8 +296,9 @@ export const items: Item[] = [
       nama: 'Kertas'
     },
     stok: 500,
+    stok_minimum: 30,
     satuan: 'unit',
     harga: 15000,
-    updated_at: '2024-05-22T00:00:00Z'
+    updated_at: new Date('2024-05-22T00:00:00Z')
   }
 ]

@@ -9,7 +9,7 @@ const itemSubmissions: ItemSubmission[] = [
       nama: 'BK'
     },
     jumlah_ajuan: 4,
-    status: 'diproses',
+    status: 'diajukan',
     tanggal: '2024-05-11'
   },
   {
@@ -20,7 +20,7 @@ const itemSubmissions: ItemSubmission[] = [
       nama: 'MTK'
     },
     jumlah_ajuan: 9,
-    status: 'diproses',
+    status: 'diajukan',
     tanggal: '2024-05-12'
   },
   {
@@ -75,7 +75,7 @@ const itemSubmissions: ItemSubmission[] = [
       nama: 'RPL'
     },
     jumlah_ajuan: 13,
-    status: 'diproses',
+    status: 'diajukan',
     tanggal: '2024-05-17'
   },
   {
@@ -86,7 +86,7 @@ const itemSubmissions: ItemSubmission[] = [
       nama: 'DKV'
     },
     jumlah_ajuan: 7,
-    status: 'diproses',
+    status: 'diajukan',
     tanggal: '2024-05-18'
   },
   {
@@ -97,7 +97,7 @@ const itemSubmissions: ItemSubmission[] = [
       nama: 'Sejarah'
     },
     jumlah_ajuan: 10,
-    status: 'diproses',
+    status: 'diajukan',
     tanggal: '2024-05-19'
   },
   {
@@ -108,7 +108,7 @@ const itemSubmissions: ItemSubmission[] = [
       nama: 'Pemasaran'
     },
     jumlah_ajuan: 5,
-    status: 'diproses',
+    status: 'diajukan',
     tanggal: '2024-05-20'
   }
 ]

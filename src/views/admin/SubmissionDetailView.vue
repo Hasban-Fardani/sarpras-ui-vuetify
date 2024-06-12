@@ -38,9 +38,9 @@ const headers = [
     }
 ]
 
-const isDone = item?.status != 'diproses'
+const isDone = item?.status != 'diajukan'
 const getColor = (status: string) => {
-    if (status == 'diproses') {
+    if (status == 'diajukan') {
         return 'warning'
     } else if (status == 'ditolak') {
         return 'error'

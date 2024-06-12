@@ -3,7 +3,7 @@ import type { ItemRequest, ItemRequestDetail } from '@/types/item_request'
 const itemRequests: ItemRequest[] = [
   {
     id: 1,
-    status: 'diproses',
+    status: 'diajukan',
     id_unit: 1,
     unit: {
       id: 1,
@@ -14,7 +14,7 @@ const itemRequests: ItemRequest[] = [
   },
   {
     id: 2,
-    status: 'diproses',
+    status: 'diajukan',
     id_unit: 2,
     unit: {
       id: 2,
@@ -91,7 +91,7 @@ const itemRequests: ItemRequest[] = [
   },
   {
     id: 9,
-    status: 'diproses',
+    status: 'diajukan',
     id_unit: 9,
     unit: {
       id: 9,
@@ -102,7 +102,7 @@ const itemRequests: ItemRequest[] = [
   },
   {
     id: 10,
-    status: 'diproses',
+    status: 'diajukan',
     id_unit: 10,
     unit: {
       id: 10,

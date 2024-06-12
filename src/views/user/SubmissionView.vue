@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import ItemSubmissionTable from '@/components/ItemSubmissionTable.vue';
+import ItemSubmissionTable from '@/components/tables/ItemSubmissionTable.vue';
 import UserLayout from '@/layouts/UserLayout.vue';
 
 </script>

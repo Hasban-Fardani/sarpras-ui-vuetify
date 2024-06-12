@@ -6,7 +6,7 @@ type ItemSubmission = {
   id_unit: number
   unit: User
   jumlah_ajuan: number
-  status: 'selesai' | 'disetujui' | 'diproses' | 'ditolak'
+  status: 'selesai' | 'disetujui' | 'diajukan' | 'ditolak'
   tanggal: string
 }
 

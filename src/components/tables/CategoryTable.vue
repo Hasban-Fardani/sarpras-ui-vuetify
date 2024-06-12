@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import CategoryEditDialog from './CategoryEditDialog.vue';
+import CategoryEditDialog from '@/components/CategoryEditDialog.vue';
 import DeleteDialog from '@/components/DeleteDialog.vue';
 import { onMounted, ref } from 'vue';
 import { useCategoryStore } from '@/stores/category';

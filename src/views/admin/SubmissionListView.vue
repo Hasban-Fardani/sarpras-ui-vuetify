@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import AdminLayout from '@/layouts/AdminLayout.vue';
-import ItemSubmissionTable from '@/components/ItemSubmissionTable.vue';
+import ItemSubmissionTable from '@/components/tables/ItemSubmissionTable.vue';
 
 </script>
 <template>

@@ -22,7 +22,7 @@ const deleteItemRequest = () => {
 }
 
 const getColor = (status: string) => {
-    if (status == 'diproses') {
+    if (status == 'diajukan') {
         return 'warning'
     } else if (status == 'ditolak') {
         return 'error'

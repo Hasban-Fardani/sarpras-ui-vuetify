@@ -57,7 +57,7 @@ const router = createRouter({
       }
     },
     {
-      path: '/admin/items/item-in',
+      path: '/admin/barang-masuk',
       name: 'admin-item-in',
       component: () => import('../views/admin/ItemInListView.vue'),
       meta: {
@@ -66,7 +66,7 @@ const router = createRouter({
       }
     },
     {
-      path: '/admin/items/item-in/:id',
+      path: '/admin/barang-masuk/:id',
       name: 'admin-item-in-detail',
       component: () => import('../views/admin/ItemInDetailView.vue'),
       meta: {
@@ -75,7 +75,7 @@ const router = createRouter({
       }
     },
     {
-      path: '/admin/items/item-out',
+      path: '/admin/barang-keluar',
       name: 'admin-item-out',
       component: () => import('../views/admin/ItemOutListView.vue'),
       meta: {
@@ -84,7 +84,7 @@ const router = createRouter({
       }
     },
     {
-      path: '/admin/items/item-out/:id',
+      path: '/admin/barang-keluar/:id',
       name: 'admin-item-out-detail',
       component: () => import('../views/admin/ItemOutDetailView.vue'),
       meta: {

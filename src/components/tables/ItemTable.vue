@@ -57,14 +57,19 @@ onMounted(() => {
                 <img :src="item.gambar?.toString()" alt="gambar" width="50">
             </div>
         </template>
-        <!-- <template v-slot:item.stok="{item}">
-            
-        </template> -->
+        <template v-slot:item.stok="{item}">
+            <p :class="{'text-red': item.stok! < item.stok_minimum!}">
+                {{ item.stok }} / {{ item.stok_minimum }}
+            </p>
+        </template>
         <template v-slot:item.kategori.nama="{item}">
             <v-chip size="small">{{ item?.kategori?.nama }}</v-chip>
         </template>
         <template v-slot:item.harga="{ item }">
             <p>{{ toIDR(parseInt(item.harga!.toString())) }}</p>
+        </template>
+        <template v-slot:item.updated_at="{ item }">
+            {{ item.updated_at?.toLocaleDateString() }}
         </template>
         <template v-slot:item.id="{ item }">
             <div class="d-flex ga-2">

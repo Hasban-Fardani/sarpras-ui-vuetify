@@ -7,7 +7,7 @@ type ItemRequest = {
   unit: User
   jumlah_permintaan: number
   tanggal: string
-  status: 'selesai' | 'disetujui' | 'diproses' | 'ditolak'
+  status: 'selesai' | 'disetujui' | 'diajukan' | 'ditolak'
   details?: ItemRequestDetail[]
 }
 

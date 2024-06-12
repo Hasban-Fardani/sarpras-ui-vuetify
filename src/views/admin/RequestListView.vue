@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import AdminLayout from '@/layouts/AdminLayout.vue';
-import ItemRequestTable from '@/components/ItemRequestTable.vue';
+import ItemRequestTable from '@/components/tables/ItemRequestTable.vue';
 import RequestForm from '@/components/RequestForm.vue';
 </script>
 <template>

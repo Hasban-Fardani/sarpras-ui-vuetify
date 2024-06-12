@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import AdminLayout from '@/layouts/AdminLayout.vue';
-import ItemTable from '@/components/ItemTable.vue'
+import ItemTable from '@/components/tables/ItemTable.vue'
 import ItemAddDialog from '@/components/ItemAddDialog.vue'
 import ItemImportDialog from '@/components/ItemImportDialog.vue'
 import { useItemStore } from '@/stores/item';
