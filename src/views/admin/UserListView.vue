@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import AdminLayout from '@/layouts/AdminLayout.vue';
 import UserTable from '@/components/tables/UserTable.vue';
-import UserAddDialog from '@/components/UserAddDialog.vue';
+import UserAddDialog from '@/components/dialogs/UserAddDialog.vue';
 
 </script>
 <template>

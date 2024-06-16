@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import AdminLayout from '@/layouts/AdminLayout.vue';
-import ConfirmDialog from '@/components/ConfirmDialog.vue';
+import ConfirmDialog from '@/components/dialogs/ConfirmDialog.vue';
 import { itemSubmissionDetail } from '@/stores/fake/item_submission';
 import { useItemSubmissionStore } from '@/stores/item_submission';
 import { useRoute } from 'vue-router';

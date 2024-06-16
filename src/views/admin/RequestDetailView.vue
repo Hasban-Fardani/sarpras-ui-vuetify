@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import AdminLayout from '@/layouts/AdminLayout.vue';
-import ConfirmDialog from '@/components/ConfirmDialog.vue';
+import ConfirmDialog from '@/components/dialogs/ConfirmDialog.vue';
 import { itemRequestDetail } from '@/stores/fake/item_request';
 import { useItemRequestStore } from '@/stores/item_request';
 import { ref } from 'vue';

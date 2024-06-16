@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import DeleteDialog from '@/components/DeleteDialog.vue';
+import DeleteDialog from '@/components/dialogs/DeleteDialog.vue';
+import DateRangePicker from '../DateRangePicker.vue';
 import { onMounted, ref } from 'vue';
 import { useItemInStore } from '@/stores/item_in';
 
@@ -34,23 +35,12 @@ onMounted(() => {
             <v-text-field v-model="itemIn.searchName" class="ma-2" label="cari" variant="outlined" density="comfortable"
                 placeholder="Cari deskripsi..." append-inner-icon="mdi-magnify" hide-details />
         </div>
-        <div class="d-flex ga-2 ml-2">
+        <div class="d-flex ga-2 ml-2 mt-3">
             <v-btn variant="outlined" height="48px">
                 dd/mm/yy
-                <v-dialog activator="parent" max-width="350">
-                    <template v-slot:default="{ isActive }">
-                        <v-card>
-                            <div class="d-flex flex-wrap justify-center align-center ga-2 w-100">
-                                <v-date-picker title="Tanggal"/>
-                            </div>
-                            <template v-slot:actions>
-                                <v-btn class="ml-auto" text="Close" @click="isActive.value = false"></v-btn>
-                            </template>
-                        </v-card>
-                    </template>
-                </v-dialog>
+                <date-range-picker/>
             </v-btn>
-            <v-select :items="suppliers" label="supplier" variant="outlined" density="comfortable" min-width="150" max-width="200" multiple></v-select>
+            <v-select :items="suppliers" label="supplier" variant="outlined" density="comfortable" width="150" multiple chips clearable></v-select>
         </div>
     </div>
     <v-data-table-server v-model:items-per-page="itemIn.perPage" :headers="itemIn.headers" :items="itemIn.filtered"

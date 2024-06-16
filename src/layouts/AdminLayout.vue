@@ -45,6 +45,9 @@ const logout = async () => {
                         src="/logo/icon.svg" :width="rail ? 25 : 50" /></v-list-item>
                 <v-list-item prepend-icon="mdi-view-dashboard" title="Dashboard" value="dashboard"
                     to="/admin/dashboard" />
+                <v-list-item prepend-icon="mdi-file-chart" title="Laporan" value="report"
+                    to="/admin/laporan" />
+                <v-divider/>
                 <v-list-item prepend-icon="mdi-tag-multiple" title="Kategori" value="kategori" to="/admin/kategori" />
                 <v-list-item to="/admin/items" prepend-icon="mdi-view-list" title="Barang" value="items" />
                 <v-list-item to="/admin/barang-masuk" prepend-icon="mdi-arrow-down-bold-hexagon-outline"

@@ -56,10 +56,10 @@ const removeItem = (item: Item) => {
             <template v-slot:item.1>
                 <v-card title="Tambah Barang Masuk" prepend-icon="mdi-plus">
                     <v-card-text>
-                        <v-file-input label="dokumen pemeriksaan" class="mt-2"/>
-                        <v-file-input label="dokumen berita acara serah terima" class="mt-2"/>
-                        <v-select :items="suppliers" label="supplier"></v-select>
-                        <v-textarea label="deskripsi"></v-textarea>
+                        <v-file-input label="dokumen pemeriksaan" class="mt-1" density="comfortable"/>
+                        <v-file-input label="dokumen berita acara serah terima" class="mt-1" density="comfortable"/>
+                        <v-select :items="suppliers" label="supplier" density="comfortable"></v-select>
+                        <v-textarea label="deskripsi" rows="3"></v-textarea>
                     </v-card-text>
                 </v-card>
             </template>
@@ -72,7 +72,8 @@ const removeItem = (item: Item) => {
                 <div class="w-100" v-for="item in selectedItems" :key="item.nama">
                     <div class="d-flex ga-2 w-100 justify-space-between mt-5">
                         <p class="w-50 mt-4">{{ item.nama }}</p>
-                        <v-number-input placeholder="jumlah" variant="outlined" controlVariant="stacked" class="w-50" v-model="item.jumlah" inset required></v-number-input>
+                        <v-number-input placeholder="jumlah" variant="outlined" controlVariant="stacked" width="150" v-model="item.jumlah" inset required></v-number-input>
+                        <v-select label="satuan" width="150" variant="outlined" class="mr-4" :items="['box', 'rim', 'lusin']" v-model="item.satuan"/>
                         <v-btn icon="mdi-delete" color="red" size="small" class="mt-2" @click="removeItem(item)"></v-btn>
                     </div>
                     <v-divider :thickness="2"/>
@@ -93,6 +94,9 @@ const removeItem = (item: Item) => {
                     <v-data-table :items="selectedItems" :headers="headers">
                         <template v-slot:item.gambar="{ item }">
                             <img :src="item.gambar?.toString()" alt="gambar" width="50">
+                        </template>
+                        <template v-slot:item.jumlah="{ item }">
+                            <p>{{ item.jumlah }} {{ item.satuan }}</p>
                         </template>
                     </v-data-table>
                 </v-card-text>

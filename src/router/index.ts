@@ -39,6 +39,15 @@ const router = createRouter({
       }
     },
     {
+      path: '/admin/laporan',
+      name: 'admin-laporan',
+      component: () => import('../views/admin/ReportView.vue'),
+      meta: {
+        auth: true,
+        role: 'admin'
+      }
+    },
+    {
       path: '/admin/kategori',
       name: 'admin-kategori',
       component: () => import('../views/admin/CategoryListView.vue'),

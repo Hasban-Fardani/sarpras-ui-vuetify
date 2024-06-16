@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import AdminLayout from '@/layouts/AdminLayout.vue';
 import ItemOutTable from '@/components/tables/ItemOutTable.vue'
-import ItemOutAddDialog from '@/components/itemOutAddDialog.vue';
+import ItemOutAddDialog from '@/components/dialogs/itemOutAddDialog.vue';
 
 </script>
 <template>

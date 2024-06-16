@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import DeleteDialog from '@/components/DeleteDialog.vue';
+import DeleteDialog from '@/components/dialogs/DeleteDialog.vue';
+import DateRangePicker from '../DateRangePicker.vue';
 import { onMounted, ref } from 'vue';
 import { useItemOutStore } from '@/stores/item_out';
 
@@ -35,18 +36,7 @@ onMounted(() => {
         <div class="d-flex ga-2">
             <v-btn variant="outlined" height="48px">
                 dd/mm/yy
-                <v-dialog activator="parent" max-width="350">
-                    <template v-slot:default="{ isActive }">
-                        <v-card>
-                            <div class="d-flex flex-wrap justify-center align-center ga-2 w-100">
-                                <v-date-picker title="Tanggal"/>
-                            </div>
-                            <template v-slot:actions>
-                                <v-btn class="ml-auto" text="Close" @click="isActive.value = false"></v-btn>
-                            </template>
-                        </v-card>
-                    </template>
-                </v-dialog>
+                <date-range-picker/>
             </v-btn>
         </div>
     </div>

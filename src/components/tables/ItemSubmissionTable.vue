@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import DeleteDialog from '@/components/DeleteDialog.vue';
+import DeleteDialog from '@/components/dialogs/DeleteDialog.vue';
 import { onMounted, ref } from 'vue';
 import { useItemSubmissionStore } from '@/stores/item_submission';
 import { useUserStore } from '@/stores/user';

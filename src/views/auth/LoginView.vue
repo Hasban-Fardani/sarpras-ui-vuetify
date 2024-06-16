@@ -49,8 +49,7 @@ const login = async () => {
 }
 </script>
 <template>
-    <v-alert :text="alertMessage" v-model="showAlert" transition="slide-y-transition" type="error" closable
-        class="position-absolute top-0 w-100"></v-alert>
+    <v-alert :text="alertMessage" v-model="showAlert" transition="slide-y-transition" type="error" closable ></v-alert>
     <div class="w-100 d-flex justify-center align-center h-screen">
         <div class="w-100 w-md-50 d-flex flex-column justify-center align-center">
             <img src="/logo/icon.svg" width="100" alt="logo sarpras">

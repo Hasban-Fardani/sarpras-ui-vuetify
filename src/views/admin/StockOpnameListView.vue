@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import SOAddDialog from '@/components/SOAddDialog.vue';
+import SOAddDialog from '@/components/dialogs/SOAddDialog.vue';
 import StockOpnameTable from '@/components/tables/StockOpnameTable.vue';
 import AdminLayout from '@/layouts/AdminLayout.vue';
 </script>

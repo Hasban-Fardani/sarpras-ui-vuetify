@@ -9,7 +9,7 @@ type Item = {
   }
   stok?: number
   stok_minimum?: number
-  satuan?: 'buah' | 'unit'
+  satuan?: 'buah' | 'unit' | 'box' | 'rim' | 'lusin'
   harga?: number
   jumlah?: number
   updated_at?: Date

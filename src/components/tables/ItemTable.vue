@@ -1,10 +1,11 @@
 <!-- eslint-disable vue/valid-v-slot -->
 <script setup lang="ts">
-import ItemEditDialog from '@/components/ItemEditDialog.vue';
-import DeleteDialog from '@/components/DeleteDialog.vue';
+import ItemEditDialog from '@/components/dialogs/ItemEditDialog.vue';
+import DeleteDialog from '@/components/dialogs/DeleteDialog.vue';
 import { onMounted, ref } from 'vue';
 import { useItemStore } from '@/stores/item';
 import type { Item } from '@/types/item';
+import { categories } from '@/stores/fake/category';
 
 const item = useItemStore()
 const loading = ref(false)
@@ -32,6 +33,8 @@ const deleteItem = (id: number) => {
 
 }
 
+const selectedCategory = ref()
+
 onMounted(() => {
     item.tmpData()
 })
@@ -43,10 +46,25 @@ onMounted(() => {
     <delete-dialog type="Barang" :id="selectedDeleteId" :nama="selectedDeleteName" :is-active="deleteItemDialog"
         @close-dialog="deleteItemDialog = false" @delete="deleteItem" />
 
-    <div class="d-flex w-100 justify-space-between">
+    <div class="d-flex flex-wrap w-100 justify-space-between">
         <div class="w-50 w-md-25">
             <v-text-field v-model="item.searchName" class="ma-2" label="cari" variant="outlined" density="comfortable"
                 placeholder="Cari nama..." append-inner-icon="mdi-magnify" hide-details />
+        </div>
+        <div>
+            <v-select variant="outlined" label="kategori" placeholder="select kategori" max-width="400" width="200" :items="categories" v-model="selectedCategory" item-title="nama" item-value="id" density="comfortable" class="mt-2" multiple clearable>
+                <template v-slot:selection="{ item, index }">
+                    <v-chip v-if="index < 2">
+                        <span>{{ item.raw.nama }}</span>
+                    </v-chip>
+                    <span
+                        v-if="index === 2"
+                        class="text-grey text-caption align-self-center"
+                    >
+                        (+{{ selectedCategory.length - 2 }} lainnya)
+                    </span>
+                </template>
+            </v-select>
         </div>
     </div>
     <v-data-table-server v-model:items-per-page="item.perPage" :headers="item.headers" :items="item.filtered"
@@ -58,8 +76,11 @@ onMounted(() => {
             </div>
         </template>
         <template v-slot:item.stok="{item}">
-            <p :class="{'text-red': item.stok! < item.stok_minimum!}">
-                {{ item.stok }} / {{ item.stok_minimum }}
+            <p>
+               <span :class="{'text-red': item.stok! < item.stok_minimum!}">
+                   {{ item.stok }} / {{ item.stok_minimum }} 
+               </span>
+               <span class="ml-2">{{ item.satuan }}</span>
             </p>
         </template>
         <template v-slot:item.kategori.nama="{item}">
