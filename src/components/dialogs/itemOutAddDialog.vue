@@ -65,7 +65,8 @@ const removeItem = (item: Item) => {
                 <div class="w-100" v-for="item in selectedItems" :key="item.nama">
                     <div class="d-flex ga-2 w-100 justify-space-between mt-5">
                         <p class="w-50 mt-4">{{ item.nama }}</p>
-                        <v-number-input placeholder="jumlah" variant="outlined" controlVariant="stacked" class="w-50" v-model="item.jumlah" inset required></v-number-input>
+                        <v-number-input placeholder="jumlah" variant="outlined" controlVariant="stacked" width="150" v-model="item.jumlah" inset required></v-number-input>
+                        <v-select label="satuan" width="150" variant="outlined" class="mr-4" :items="['box', 'rim', 'lusin']" v-model="item.satuan"/>
                         <v-btn icon="mdi-delete" color="red" size="small" class="mt-2" @click="removeItem(item)"></v-btn>
                     </div>
                     <v-divider :thickness="2"/>

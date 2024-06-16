@@ -21,8 +21,8 @@ watch(() => startDate.value, (newVal) => {
     <v-dialog activator="parent" max-width="350" class="d-flex justify-center align-center">
         <v-card>
             <v-card-text max-width="500">
-                <v-date-picker title="Tanggal Awal" v-model="startDate"/>
-                <v-date-picker title="Tanggal Akhir" v-model="endDate" :allowed-dates="allowedEndDate"/>
+                <v-date-picker title="Tanggal Awal" width="300" v-model="startDate"/>
+                <v-date-picker title="Tanggal Akhir" width="300" v-model="endDate" :allowed-dates="allowedEndDate"/>
             </v-card-text>
         </v-card>
     </v-dialog>
