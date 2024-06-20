@@ -40,10 +40,16 @@ const uploadImage = (event: Event) => {
                         </template>
                     </v-select>
                     <div class="d-flex ga-3">
-                        <v-text-field label="Stok" v-model="data.stok"></v-text-field>
-                        <v-select label="Satuan"
-                            :items="['Unit', 'buat']"
-                        v-model="data.satuan"></v-select>
+                        <v-text-field label="Stok" v-model="data.stok" class="mt-3"></v-text-field>
+                        <div class="w-50">
+                            <v-btn size="x-small" variant="plain" prepend-icon="mdi-plus">
+                                Tambah satuan
+                            </v-btn>
+                            <v-select label="Satuan"
+                                :items="['Unit', 'buat']"
+                            v-model="data.satuan"
+                            density="comfortable"></v-select>
+                        </div>
                     </div>
                     <v-text-field label="Harga" v-model="data.harga"></v-text-field>
                 </v-card-text>
@@ -58,5 +64,8 @@ const uploadImage = (event: Event) => {
 <style scoped>
 .img-preview {
     max-width: 300px;
+}
+.v-input__details {
+    display: none !important;
 }
 </style>

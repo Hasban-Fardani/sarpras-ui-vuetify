@@ -38,10 +38,17 @@ onMounted(() => {
 <template>
     <delete-dialog type="Permintaan" :id="selectedDeleteId" :nama="selectedDeleteName" :is-active="confirmDeleteDialog"
         @close-dialog="confirmDeleteDialog = false" @delete="deleteItemRequest" />
-    <div class="d-flex w-100 justify-space-between">
+        <div class="d-flex flex-wrap w-100 justify-space-between align-center">
         <div class="w-50 w-md-25">
             <v-text-field v-model="itemRequest.searchName" class="ma-2" label="cari" variant="outlined" density="comfortable"
-                placeholder="Cari nama..." append-inner-icon="mdi-magnify" hide-details />
+                placeholder="Cari unit..." append-inner-icon="mdi-magnify" hide-details />
+        </div>
+        <div class="d-flex ga-2 ml-2 mt-3">
+            <v-btn variant="outlined" height="48px">
+                dd/mm/yy
+                <date-range-picker/>
+            </v-btn>
+            <v-select :items="['diajukan', 'disetujui', 'selesai', 'ditolak']" label="status" variant="outlined" density="comfortable" width="150" multiple chips clearable/>
         </div>
     </div>
     <v-data-table-server v-model:items-per-page="itemRequest.perPage" :headers="itemRequest.headers"
