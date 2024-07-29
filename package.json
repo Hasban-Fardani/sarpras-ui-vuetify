@@ -35,6 +35,7 @@
     "vuetify": "^3.6.6"
   },
   "devDependencies": {
+    "@biomejs/biome": "1.8.3",
     "@rushstack/eslint-patch": "^1.8.0",
     "@tsconfig/node20": "^20.1.4",
     "@types/node": "^20.12.5",
@@ -45,7 +46,6 @@
     "eslint": "^8.57.0",
     "eslint-plugin-vue": "^9.23.0",
     "npm-run-all2": "^6.1.2",
-    "prettier": "^3.2.5",
     "typescript": "~5.4.0",
     "vite": "^5.2.8",
     "vue-tsc": "^2.0.11"

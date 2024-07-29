@@ -8,15 +8,15 @@ const alertMessage = ref('')
 const showAlert = ref(false)
 const valid = ref(false)
 const data = ref<Credentials>({
-    username: '',
+    nip: '',
     password: '',
 })
 const rules = {
-    username: [
+    nip: [
         (v: String) => {
             if (!(v.length < 4)) return true
 
-            return 'Username minimal 4 karakter'
+            return 'NIP minimal 4 karakter'
         }
     ],
     password: [
@@ -30,11 +30,17 @@ const rules = {
 
 const user = useUserStore()
 const login = async () => {
-    let message = await user.loginTMP(data.value)
+    let message = await user.login(data.value)
     if (message == 'login success') {
         console.log('sini', user.data);
 
-        router.push('/' + user.data.role)
+        const redirect = {
+            'admin': '/admin/dashboard',
+            'unit': '/user/home',
+            'pengawas': '/advisor/dashboard'
+        }
+
+        console.log(redirect[user.data.role])
         location.reload()
         return
     }
@@ -50,7 +56,7 @@ const login = async () => {
 </script>
 <template>
     <v-alert :text="alertMessage" v-model="showAlert" transition="slide-y-transition" type="error" closable ></v-alert>
-    <div class="w-100 d-flex justify-center align-center h-screen">
+    <div class="w-100 d-flex justify-center align-center h-screen base">
         <div class="w-100 w-md-50 d-flex flex-column justify-center align-center">
             <img src="/logo/icon.svg" width="100" alt="logo sarpras">
             <v-card class="mt-4 w-75">
@@ -58,7 +64,7 @@ const login = async () => {
                 <v-card-text class="text-center">masukkan data untuk login ke akun anda</v-card-text>
                 <v-card-item>
                     <v-form v-model="valid" @submit.prevent="login">
-                        <v-text-field label="Username" v-model="data.username" :rules="rules.username" />
+                        <v-text-field label="NIP" v-model="data.nip" :rules="rules.username" />
                         <v-text-field label="Password" v-model="data.password" :rules="rules.password"
                             type="password" />
                         <v-btn type="submit" color="primary" class="mt-2">Login</v-btn>
@@ -71,5 +77,9 @@ const login = async () => {
 <style scoped>
 .v-card {
     border: solid 1px;
+}
+
+.base {
+    background-color: rgb(248, 248, 255);
 }
 </style>

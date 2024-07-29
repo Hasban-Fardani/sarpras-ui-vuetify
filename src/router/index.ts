@@ -176,7 +176,7 @@ const router = createRouter({
       component: () => import('../views/user/HomeView.vue'),
       meta: {
         auth: true,
-        role: 'user'
+        role: 'unit'
       }
     },
     {
@@ -185,7 +185,7 @@ const router = createRouter({
       component: () => import('../views/user/RequestView.vue'),
       meta: {
         auth: true,
-        role: 'user'
+        role: 'unit'
       }
     },
     {
@@ -194,7 +194,7 @@ const router = createRouter({
       component: () => import('../views/user/RequestDetailView.vue'),
       meta: {
         auth: true,
-        role: 'user'
+        role: 'unit'
       }
     },
     {
@@ -203,7 +203,7 @@ const router = createRouter({
       component: () => import('../views/user/SubmissionView.vue'),
       meta: {
         auth: true,
-        role: 'user'
+        role: 'unit'
       },
     },
     {
@@ -212,7 +212,7 @@ const router = createRouter({
       component: () => import('../views/user/SubmissionAddView.vue'),
       meta: {
         auth: true,
-        role: 'user'
+        role: 'unit'
       },
     },
     {
@@ -221,7 +221,7 @@ const router = createRouter({
       component: () => import('../views/user/SubmissionDetailView.vue'),
       meta: {
         auth: true,
-        role: 'user'
+        role: 'unit'
       }
     },
 
@@ -262,8 +262,14 @@ router.beforeEach(async (to, _, next) => {
     return next({ path: '/auth/login' })
   }
 
-  if (to.name == 'login' && user.isLogin) {
-    return next({ path: '/' + user.data.role })
+  if (to.name === 'login' && user.isLogin) {
+    const redirect = {
+      'admin': '/admin/dashboard',
+      'unit': '/user/home',
+      'pengawas': '/advisor/dashboard'
+    }
+    console.log(redirect[user.data!.role])
+    return next({ path: redirect[user.data.role] })
   }
 
   if (to.meta.role && to.meta.role != user.data.role) {

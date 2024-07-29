@@ -2,16 +2,16 @@ import axios from 'axios'
 import { computed, ref } from 'vue'
 import { defineStore } from 'pinia'
 import { Preferences } from '@capacitor/preferences'
-import { users } from './fake/user'
 import type { Credentials } from '@/types/credential'
 import type { User } from '@/types/user'
 
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL
 export const useUserStore = defineStore('user', () => {
   const data = ref<User>({
     nama: '',
-    role: 'user',
+    role: '',
     token: '',
-    unit: 'sarpras'
+    unit: ''
   })
   const isLogin = computed(() => data.value?.token != '')
 
@@ -26,33 +26,26 @@ export const useUserStore = defineStore('user', () => {
   }
 
   async function login(credential: Credentials) {
-    const { data } = await axios.post('/auth/login', credential)
-    data.value = data
-    await Preferences.set({
-      key: 'user',
-      value: JSON.stringify(data.value)
-    })
-  }
-
-  async function loginTMP(credential: Credentials) {
-    const userFind = users.find(
-      (usr) => usr.nama == credential.username && usr.password == credential.password
-    )
-    if (userFind) {
-      data.value.nama = userFind.nama
-      data.value.role = userFind.role
-      data.value.unit = userFind.role
-      data.value.nip = userFind.nip
-      data.value.token = 'random token'
-
+    try {
+      const { data: dataResponse } = await axios.post(`${BACKEND_URL}/auth/login`, credential)
+      const token = dataResponse.token
+      const {name, role} = dataResponse.user
+      const unit = role
+      data.value = {
+        token,
+        nama: name,
+        role,
+        unit
+      }
       await Preferences.set({
         key: 'user',
         value: JSON.stringify(data.value)
       })
-
+  
       return 'login success'
+    } catch (error) {
+      return 'login failed'
     }
-    return 'wrong usernama/password'
   }
 
   async function clear() {
@@ -84,5 +77,5 @@ export const useUserStore = defineStore('user', () => {
     }
   }
 
-  return { data, isLogin, load, login, logout, loginTMP, clear }
+  return { data, isLogin, load, login, logout, clear }
 })

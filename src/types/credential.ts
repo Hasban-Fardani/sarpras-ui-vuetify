@@ -1,5 +1,5 @@
 type Credentials = {
-  username: string
+  nip: string
   password: string
 }
 
