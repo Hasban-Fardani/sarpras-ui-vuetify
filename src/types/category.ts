@@ -1,10 +1,10 @@
 type Category = {
   id: number
-  nama: string
+  name: string
 }
 
 type CreateCategory = {
-  nama: string
+  name: string
 }
 
 export type { Category, CreateCategory }

@@ -1,17 +1,17 @@
 <script setup lang="ts">
+import { categories } from '@/stores/fake/category';
 import type { CreateItem } from '@/types/item';
 import { ref } from 'vue';
-import { categories } from '@/stores/fake/category';
 
 const image = ref<File | null>(null)
 const imageUrl = ref<string | null>(null)
 const data = ref<CreateItem>({
-    nama: '',
+    name: '',
     gambar: new File([], ''),
-    stok: 1,
-    satuan: '',
-    harga: 0,
-    kategori_id: 0
+    stock: 1,
+    unit: '',
+    price: 0,
+    category_id: 0
 })
 
 const uploadImage = (event: Event) => {
@@ -33,25 +33,25 @@ const uploadImage = (event: Event) => {
                 <v-card-text>
                     <img ref="imagePreview" v-if="imageUrl" :src="imageUrl" alt="Preview Image" class="img-preview" />
                     <v-file-input label="input gambar" ref="image" @change="uploadImage"></v-file-input>
-                    <v-text-field label="Name" v-model="data.nama"></v-text-field>
-                    <v-select label="Kategori" :items="categories" item-value="id" item-title="nama">
+                    <v-text-field label="Name" v-model="data.name"></v-text-field>
+                    <v-select label="category" :items="categories" item-value="id" item-title="name">
                         <template v-slot:item="{ props, item }">
-                            <v-list-item v-bind="props" :title="item.raw.nama" />
+                            <v-list-item v-bind="props" :title="item.raw.name" />
                         </template>
                     </v-select>
                     <div class="d-flex ga-3">
-                        <v-text-field label="Stok" v-model="data.stok" class="mt-3"></v-text-field>
+                        <v-text-field label="stock" v-model="data.stock" class="mt-3"></v-text-field>
                         <div class="w-50">
                             <v-btn size="x-small" variant="plain" prepend-icon="mdi-plus">
-                                Tambah satuan
+                                Tambah unit
                             </v-btn>
-                            <v-select label="Satuan"
+                            <v-select label="unit"
                                 :items="['Unit', 'buat']"
-                            v-model="data.satuan"
+                            v-model="data.unit"
                             density="comfortable"></v-select>
                         </div>
                     </div>
-                    <v-text-field label="Harga" v-model="data.harga"></v-text-field>
+                    <v-text-field label="price" v-model="data.price"></v-text-field>
                 </v-card-text>
                 <template v-slot:actions>
                     <v-btn class="ml-auto" text="Save" @click="null" color="primary"></v-btn>

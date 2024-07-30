@@ -1,11 +1,11 @@
+import type { CreateItem } from '@/types/item'
+import type { ItemSubmission } from '@/types/item_submission'
+import type { UpdateTableArgs } from '@/types/table'
 import axios from 'axios'
 import { defineStore } from 'pinia'
 import { computed, ref } from 'vue'
-import { useUserStore } from './user'
 import { itemSubmissions } from './fake/item_submission'
-import type { CreateItem } from '@/types/item'
-import type { UpdateTableArgs } from '@/types/table'
-import type { ItemSubmission } from '@/types/item_submission'
+import { useUserStore } from './user'
 
 export const useItemSubmissionStore = defineStore('item-submission', () => {
   const items = ref<ItemSubmission[]>([])
@@ -17,7 +17,7 @@ export const useItemSubmissionStore = defineStore('item-submission', () => {
     let res = []
     if (searchName.value) {
       res = items.value.filter(
-        (i) => i.unit.nama.toLocaleLowerCase().search(searchName.value.toLocaleLowerCase()) != -1
+        (i) => i.unit.name.toLocaleLowerCase().search(searchName.value.toLocaleLowerCase()) != -1
       )
     } else {
       res = items.value
@@ -29,8 +29,8 @@ export const useItemSubmissionStore = defineStore('item-submission', () => {
   const totalFiltered = computed(() => filtered.value!.length)
   const headers = [
     {
-      title: 'Nama',
-      key: 'unit.nama'
+      title: 'name',
+      key: 'unit.name'
     },
     {
       title: 'Jumlah',
@@ -74,11 +74,11 @@ export const useItemSubmissionStore = defineStore('item-submission', () => {
 
   function addItem(item: CreateItem) {
     const data = new FormData()
-    data.append('nama', item.nama)
+    data.append('name', item.name)
     data.append('gambar', item.gambar)
-    data.append('kategori_id', item.kategori_id.toString())
-    data.append('stok', item.stok.toString())
-    data.append('harga', item.harga.toString())
+    data.append('category_id', item.category_id.toString())
+    data.append('stock', item.stock.toString())
+    data.append('price', item.price.toString())
   }
 
   function updateItem() {}

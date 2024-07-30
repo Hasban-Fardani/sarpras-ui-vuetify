@@ -6,7 +6,7 @@ const itemOut: ItemOut[] = [
     id_unit: 1,
     unit: {
       id: 1,
-      nama: 'BK'
+      name: 'BK'
     },
     tanggal: '2024-05-01'
   },
@@ -15,7 +15,7 @@ const itemOut: ItemOut[] = [
     id_unit: 2,
     unit: {
       id: 2,
-      nama: 'MTK'
+      name: 'MTK'
     },
     tanggal: '2024-05-02'
   },
@@ -24,7 +24,7 @@ const itemOut: ItemOut[] = [
     id_unit: 3,
     unit: {
       id: 3,
-      nama: 'RPL'
+      name: 'RPL'
     },
     tanggal: '2024-05-03'
   },
@@ -33,7 +33,7 @@ const itemOut: ItemOut[] = [
     id_unit: 4,
     unit: {
       id: 4,
-      nama: 'MPLB'
+      name: 'MPLB'
     },
     tanggal: '2024-05-04'
   },
@@ -42,7 +42,7 @@ const itemOut: ItemOut[] = [
     id_unit: 5,
     unit: {
       id: 5,
-      nama: 'AKL'
+      name: 'AKL'
     },
     tanggal: '2024-05-05'
   },
@@ -51,7 +51,7 @@ const itemOut: ItemOut[] = [
     id_unit: 6,
     unit: {
       id: 6,
-      nama: 'Sarpras'
+      name: 'Sarpras'
     },
     tanggal: '2024-05-06'
   },
@@ -60,7 +60,7 @@ const itemOut: ItemOut[] = [
     id_unit: 1,
     unit: {
       id: 1,
-      nama: 'BK'
+      name: 'BK'
     },
     tanggal: '2024-05-07'
   },
@@ -69,7 +69,7 @@ const itemOut: ItemOut[] = [
     id_unit: 2,
     unit: {
       id: 2,
-      nama: 'MTK'
+      name: 'MTK'
     },
     tanggal: '2024-05-08'
   },
@@ -78,7 +78,7 @@ const itemOut: ItemOut[] = [
     id_unit: 3,
     unit: {
       id: 3,
-      nama: 'RPL'
+      name: 'RPL'
     },
     tanggal: '2024-05-09'
   },
@@ -87,7 +87,7 @@ const itemOut: ItemOut[] = [
     id_unit: 4,
     unit: {
       id: 4,
-      nama: 'MPLB'
+      name: 'MPLB'
     },
     tanggal: '2024-05-10'
   }
@@ -99,7 +99,7 @@ const itemOutDetail: ItemOutDetail[] = [
     id_barang: 1,
     barang: {
       id: 1,
-      nama: 'Pensil'
+      name: 'Pensil'
     },
     jumlah: 10
   },
@@ -108,7 +108,7 @@ const itemOutDetail: ItemOutDetail[] = [
     id_barang: 2,
     barang: {
       id: 2,
-      nama: 'Pulpen'
+      name: 'Pulpen'
     },
     jumlah: 20
   },
@@ -117,7 +117,7 @@ const itemOutDetail: ItemOutDetail[] = [
     id_barang: 3,
     barang: {
       id: 3,
-      nama: 'Penghapus'
+      name: 'Penghapus'
     },
     jumlah: 30
   },
@@ -126,7 +126,7 @@ const itemOutDetail: ItemOutDetail[] = [
     id_barang: 4,
     barang: {
       id: 4,
-      nama: 'Spidol'
+      name: 'Spidol'
     },
     jumlah: 40
   },
@@ -135,7 +135,7 @@ const itemOutDetail: ItemOutDetail[] = [
     id_barang: 5,
     barang: {
       id: 5,
-      nama: 'Penggaris'
+      name: 'Penggaris'
     },
     jumlah: 50
   },
@@ -144,7 +144,7 @@ const itemOutDetail: ItemOutDetail[] = [
     id_barang: 6,
     barang: {
       id: 6,
-      nama: 'Tinta Printer'
+      name: 'Tinta Printer'
     },
     jumlah: 60
   },
@@ -153,7 +153,7 @@ const itemOutDetail: ItemOutDetail[] = [
     id_barang: 7,
     barang: {
       id: 7,
-      nama: 'Kertas HVS'
+      name: 'Kertas HVS'
     },
     jumlah: 70
   },
@@ -162,7 +162,7 @@ const itemOutDetail: ItemOutDetail[] = [
     id_barang: 8,
     barang: {
       id: 8,
-      nama: 'Stiker Label'
+      name: 'Stiker Label'
     },
     jumlah: 80
   },
@@ -171,7 +171,7 @@ const itemOutDetail: ItemOutDetail[] = [
     id_barang: 9,
     barang: {
       id: 9,
-      nama: 'Correction Tape'
+      name: 'Correction Tape'
     },
     jumlah: 90
   },
@@ -180,7 +180,7 @@ const itemOutDetail: ItemOutDetail[] = [
     id_barang: 10,
     barang: {
       id: 10,
-      nama: 'Paper Clip'
+      name: 'Paper Clip'
     },
     jumlah: 100
   },
@@ -189,7 +189,7 @@ const itemOutDetail: ItemOutDetail[] = [
     id_barang: 11,
     barang: {
       id: 11,
-      nama: 'Binder Clip'
+      name: 'Binder Clip'
     },
     jumlah: 110
   },
@@ -198,7 +198,7 @@ const itemOutDetail: ItemOutDetail[] = [
     id_barang: 12,
     barang: {
       id: 12,
-      nama: 'Amplop'
+      name: 'Amplop'
     },
     jumlah: 120
   },
@@ -207,7 +207,7 @@ const itemOutDetail: ItemOutDetail[] = [
     id_barang: 13,
     barang: {
       id: 13,
-      nama: 'Sticky Note'
+      name: 'Sticky Note'
     },
     jumlah: 130
   },
@@ -216,7 +216,7 @@ const itemOutDetail: ItemOutDetail[] = [
     id_barang: 14,
     barang: {
       id: 14,
-      nama: 'Memo'
+      name: 'Memo'
     },
     jumlah: 140
   },
@@ -225,7 +225,7 @@ const itemOutDetail: ItemOutDetail[] = [
     id_barang: 15,
     barang: {
       id: 15,
-      nama: 'Map Plastik'
+      name: 'Map Plastik'
     },
     jumlah: 150
   },
@@ -234,7 +234,7 @@ const itemOutDetail: ItemOutDetail[] = [
     id_barang: 16,
     barang: {
       id: 16,
-      nama: 'Rautan'
+      name: 'Rautan'
     },
     jumlah: 160
   },
@@ -243,7 +243,7 @@ const itemOutDetail: ItemOutDetail[] = [
     id_barang: 17,
     barang: {
       id: 17,
-      nama: 'Buku Tulis'
+      name: 'Buku Tulis'
     },
     jumlah: 170
   },
@@ -252,7 +252,7 @@ const itemOutDetail: ItemOutDetail[] = [
     id_barang: 18,
     barang: {
       id: 18,
-      nama: 'Stabilo'
+      name: 'Stabilo'
     },
     jumlah: 180
   },
@@ -261,7 +261,7 @@ const itemOutDetail: ItemOutDetail[] = [
     id_barang: 19,
     barang: {
       id: 19,
-      nama: 'Staples'
+      name: 'Staples'
     },
     jumlah: 190
   },
@@ -270,7 +270,7 @@ const itemOutDetail: ItemOutDetail[] = [
     id_barang: 20,
     barang: {
       id: 20,
-      nama: 'Lem'
+      name: 'Lem'
     },
     jumlah: 200
   },
@@ -279,7 +279,7 @@ const itemOutDetail: ItemOutDetail[] = [
     id_barang: 21,
     barang: {
       id: 21,
-      nama: 'Pita'
+      name: 'Pita'
     },
     jumlah: 210
   },
@@ -288,7 +288,7 @@ const itemOutDetail: ItemOutDetail[] = [
     id_barang: 22,
     barang: {
       id: 22,
-      nama: 'Tali'
+      name: 'Tali'
     },
     jumlah: 220
   },
@@ -297,7 +297,7 @@ const itemOutDetail: ItemOutDetail[] = [
     id_barang: 23,
     barang: {
       id: 23,
-      nama: 'Klip Kertas'
+      name: 'Klip Kertas'
     },
     jumlah: 230
   },
@@ -306,7 +306,7 @@ const itemOutDetail: ItemOutDetail[] = [
     id_barang: 24,
     barang: {
       id: 24,
-      nama: 'Kabel USB'
+      name: 'Kabel USB'
     },
     jumlah: 240
   },
@@ -315,7 +315,7 @@ const itemOutDetail: ItemOutDetail[] = [
     id_barang: 25,
     barang: {
       id: 25,
-      nama: 'Mouse Pad'
+      name: 'Mouse Pad'
     },
     jumlah: 250
   },
@@ -324,7 +324,7 @@ const itemOutDetail: ItemOutDetail[] = [
     id_barang: 26,
     barang: {
       id: 26,
-      nama: 'Tape'
+      name: 'Tape'
     },
     jumlah: 260
   },
@@ -333,7 +333,7 @@ const itemOutDetail: ItemOutDetail[] = [
     id_barang: 27,
     barang: {
       id: 27,
-      nama: 'Penghapus Papan Tulis'
+      name: 'Penghapus Papan Tulis'
     },
     jumlah: 270
   },
@@ -342,7 +342,7 @@ const itemOutDetail: ItemOutDetail[] = [
     id_barang: 28,
     barang: {
       id: 28,
-      nama: 'Box File'
+      name: 'Box File'
     },
     jumlah: 280
   },
@@ -351,7 +351,7 @@ const itemOutDetail: ItemOutDetail[] = [
     id_barang: 29,
     barang: {
       id: 29,
-      nama: 'Label Nama'
+      name: 'Label name'
     },
     jumlah: 290
   },
@@ -360,7 +360,7 @@ const itemOutDetail: ItemOutDetail[] = [
     id_barang: 30,
     barang: {
       id: 30,
-      nama: 'Kartu Nama'
+      name: 'Kartu name'
     },
     jumlah: 300
   }

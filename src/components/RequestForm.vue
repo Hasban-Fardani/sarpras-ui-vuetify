@@ -19,7 +19,7 @@ const prev = () => {
 
 type Item = {
     id: number
-    nama: string
+    name: string
     jumlah?: number
 }
 
@@ -52,7 +52,7 @@ watch(() => step.value, (newVal) => {
 
 watch(() => selected.value, (newVal) => {
     selectedItem.value = items.value.filter((i) => newVal.includes(i.id)).map((i) => {
-        return { id: i.id, nama: i.nama }
+        return { id: i.id, name: i.name }
     })
 })
 </script>
@@ -67,13 +67,13 @@ watch(() => selected.value, (newVal) => {
                             <v-text-field label="Unit" v-model="unit" required></v-text-field>
                             <v-text-field label="Pesan" v-model="pesan"></v-text-field>
 
-                            <v-autocomplete chips label="Barang" item-title="nama" item-value="id" :items="items"
+                            <v-autocomplete chips label="Barang" item-title="name" item-value="id" :items="items"
                                 v-model="selected" multiple closable-chips required>
                                 <template v-slot:chip="{ props, item }">
-                                    <v-chip v-bind="props" :text="item.raw.nama" :prepend-avatar="item.raw.gambar" />
+                                    <v-chip v-bind="props" :text="item.raw.name" :prepend-avatar="item.raw.gambar" />
                                 </template>
                                 <template v-slot:item="{ props, item }">
-                                    <v-list-item v-bind="props" :title="item.raw.nama" />
+                                    <v-list-item v-bind="props" :title="item.raw.name" />
                                 </template>
                             </v-autocomplete>
                         </v-card-text>
@@ -85,7 +85,7 @@ watch(() => selected.value, (newVal) => {
                         <v-card-text>
                             <div class="d-flex flex-wrap ga-2">
                             
-                                    <v-number-input v-for="item in selectedItem" :key="item.id" :reverse="false" controlVariant="split" :label="item.nama"
+                                    <v-number-input v-for="item in selectedItem" :key="item.id" :reverse="false" controlVariant="split" :label="item.name"
                                         :hideInput="false" variant="outlined" class="input-number" v-model="item.jumlah"
                                         :min="1" required >
                                     </v-number-input>

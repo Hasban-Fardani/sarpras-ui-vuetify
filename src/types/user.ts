@@ -1,6 +1,6 @@
 type User = {
   id?: number
-  nama: string
+  name: string
   token?: string
   unit?: string
   role?: 'admin' | 'unit' | 'pengawas'

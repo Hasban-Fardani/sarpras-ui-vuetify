@@ -12,11 +12,11 @@ const image = ref<File | null>(null);
 const imageUrl = ref<string | null>(null);
 
 const data = ref<Item>({
-    nama: props.itemProp?.nama || '',
+    name: props.itemProp?.name || '',
     gambar: props.itemProp?.gambar || null,
-    stok: props.itemProp?.stok || 0,
-    harga: props.itemProp?.harga || 0,
-    kategori_id: props.itemProp?.kategori_id || 0,
+    stock: props.itemProp?.stock || 0,
+    price: props.itemProp?.price || 0,
+    category_id: props.itemProp?.category_id || 0,
     updated_at: props.itemProp?.updated_at || '2024-05-22T00:00:00Z'
 } as Item);
 
@@ -49,9 +49,9 @@ const saveItem = () => {
             <v-card-text>
                 <img v-if="imageUrl" :src="imageUrl" alt="Preview Image" class="img-preview" />
                 <v-file-input label="Input File" @change="uploadImage"></v-file-input>
-                <v-text-field label="Name" v-model="data.nama"></v-text-field>
-                <v-text-field label="Stok" v-model="data.stok"></v-text-field>
-                <v-text-field label="Harga" v-model="data.harga"></v-text-field>
+                <v-text-field label="Name" v-model="data.name"></v-text-field>
+                <v-text-field label="stock" v-model="data.stock"></v-text-field>
+                <v-text-field label="price" v-model="data.price"></v-text-field>
             </v-card-text>
             <template v-slot:actions>
                 <v-btn class="ml-auto" text="Save" @click="saveItem" color="primary">Save</v-btn>

@@ -50,7 +50,7 @@ const logout = async () => {
                             to="/admin/laporan" />
                     -->
                 <v-divider/>
-                <v-list-item prepend-icon="mdi-tag-multiple" title="Kategori" value="kategori" to="/admin/kategori" />
+                <v-list-item prepend-icon="mdi-tag-multiple" title="category" value="category" to="/admin/category" />
                 <v-list-item to="/admin/items" prepend-icon="mdi-view-list" title="Barang" value="items" />
                 <v-list-item to="/admin/barang-masuk" prepend-icon="mdi-arrow-down-bold-hexagon-outline"
                     title="Barang Masuk" value="item-in" />
@@ -78,7 +78,7 @@ const logout = async () => {
                     </template>
 
                     <v-list>
-                        <v-list-item> Hello {{ user.data.nama }} </v-list-item>
+                        <v-list-item> Hello {{ user.data.name }} </v-list-item>
                         <v-divider />
                         <v-list-item to="/profile"> Akun </v-list-item>
                         <v-list-item @click="logout()"> Logout </v-list-item>

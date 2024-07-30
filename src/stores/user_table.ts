@@ -1,10 +1,10 @@
+import type { UpdateTableArgs } from '@/types/table'
+import type { User } from '@/types/user'
 import axios from 'axios'
 import { defineStore } from 'pinia'
 import { computed, ref } from 'vue'
-import { useUserStore } from './user'
 import { users as fakeUser } from './fake/user'
-import type { UpdateTableArgs } from '@/types/table'
-import type { User } from '@/types/user'
+import { useUserStore } from './user'
 
 export const useUserTableStore = defineStore('userTable', () => {
   const users = ref<User[]>([])
@@ -16,7 +16,7 @@ export const useUserTableStore = defineStore('userTable', () => {
     let res = []
     if (searchName.value) {
       res = users.value.filter(
-        (i) => i.nama.toLocaleLowerCase().search(searchName.value.toLocaleLowerCase()) != -1
+        (i) => i.name.toLocaleLowerCase().search(searchName.value.toLocaleLowerCase()) != -1
       )
     } else {
       res = users.value
@@ -28,8 +28,8 @@ export const useUserTableStore = defineStore('userTable', () => {
   const totalFiltered = computed(() => filtered.value!.length)
   const headers = [
     {
-      title: 'Nama',
-      key: 'nama'
+      title: 'name',
+      key: 'name'
     },
     {
       title: 'Role',
@@ -70,7 +70,7 @@ export const useUserTableStore = defineStore('userTable', () => {
 
   function addUser() {
     // const data = new FormData()
-    // data.append('nama', item.nama)
+    // data.append('name', item.name)
   }
 
   function updateCategory() {}

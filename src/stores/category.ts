@@ -1,35 +1,25 @@
-import axios from 'axios'
-import { defineStore } from 'pinia'
-import { computed, ref } from 'vue'
-import { useUserStore } from './user'
-import { categories as fakeCategory } from './fake/category'
 import type { Category, CreateCategory } from '@/types/category'
 import type { UpdateTableArgs } from '@/types/table'
+import axios, { type AxiosRequestConfig } from 'axios'
+import { defineStore } from 'pinia'
+import { ref } from 'vue'
+import { useUserStore } from './user'
+
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL
 
 export const useCategoryStore = defineStore('category', () => {
+  const onUpdate = ref(false)
   const categories = ref<Category[]>([])
-  const total = computed(() => categories.value?.length)
+  const total = ref(0)
   const perPage = ref(5)
   const page = ref(1)
+  const shortBy = ref(null)
   const searchName = ref('')
-  const filtered = computed(() => {
-    let res = []
-    if (searchName.value) {
-      res = categories.value.filter(
-        (i) => i.nama.toLocaleLowerCase().search(searchName.value.toLocaleLowerCase()) != -1
-      )
-    } else {
-      res = categories.value
-    }
-    const start = page.value - 1 > 0 ? (page.value - 1) * perPage.value : 0
-    const end = start + perPage.value
-    return res.slice(start, end)
-  })
-  const totalFiltered = computed(() => filtered.value!.length)
+
   const headers = [
     {
-      title: 'Nama',
-      key: 'nama'
+      title: 'name',
+      key: 'name'
     },
     {
       title: 'Action',
@@ -38,47 +28,101 @@ export const useCategoryStore = defineStore('category', () => {
     }
   ]
 
-  function getAll() {
+  async function getAll() {
     const user = useUserStore()
-    return axios.get('/categories', {
+    await user.load()
+    const {data} = await axios.get(`${BACKEND_URL}/category?page=${page.value}&per_page=${perPage.value}&search=${searchName.value}`, {
       headers: {
-        Authorization: 'Bearer ' + user.data.token
+        Authorization: `Bearer ${user.data.token}`
       }
     })
+
+    categories.value = data.data
+    total.value = data.total
   }
 
-  function tmpData() {
-    categories.value = fakeCategory
-  }
-
-  function updateTable(args: UpdateTableArgs) {
+  async function updateTable(args: UpdateTableArgs) {
     page.value = args.page
     perPage.value = args.itemsPerPage
+
+    if (!onUpdate.value) {
+      onUpdate.value = true
+      setTimeout(async () => {
+        await getAll()
+        onUpdate.value = false
+      }, 1000)
+    }
   }
 
-  function addItem(item: CreateCategory) {
-    const data = new FormData()
-    data.append('nama', item.nama)
+  async function refresh() {
+    const args: UpdateTableArgs = {
+      page: page.value,
+      itemsPerPage: perPage.value,
+      shortBy: shortBy.value
+    }
+    
+    updateTable(args)
   }
 
-  function updateCategory() {}
+  async function addCategory(newCategory: CreateCategory) {
+    const authToken = useUserStore().data.token;
+    const config: AxiosRequestConfig = {
+      headers: { Authorization: `Bearer ${authToken}` }
+    };
 
-  function deleteCategory() {}
+    await axios.post(`${BACKEND_URL}/category`, { name: newCategory.name }, config);
+
+    await refresh();
+  }
+
+  async function updateCategory(categoryToUpdate: Category) {
+    try {
+      const authToken = useUserStore().data.token;
+      const config: AxiosRequestConfig = {
+        headers: { Authorization: `Bearer ${authToken}` }
+      };
+
+      const updatedCategory = { name: categoryToUpdate.name };
+
+      await axios.put(
+        `${BACKEND_URL}/category/${categoryToUpdate.id}`,
+        updatedCategory,
+        config
+      );
+
+      await refresh();
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  async function deleteCategory(categoryId: number) {
+    onUpdate.value = true;
+
+    const userStore = useUserStore();
+    const token = userStore.data.token;
+
+    await axios.delete(`${BACKEND_URL}/category/${categoryId}`, {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+
+    onUpdate.value = false;
+    refresh();
+  }
 
   return {
     categories,
-    filtered,
     total,
-    totalFiltered,
     headers,
     perPage,
     page,
+    shortBy,
     searchName,
+    onUpdate,
     getAll,
-    tmpData,
     updateTable,
     deleteCategory,
     updateCategory,
-    addItem
+    addCategory
   }
 })

@@ -12,7 +12,7 @@ const tab = ref(null)
       
     >
       <v-tab value="one">Barang Masuk/Keluar</v-tab>
-      <v-tab value="two">Stok Barang</v-tab>
+      <v-tab value="two">stock Barang</v-tab>
     </v-tabs>
 
       <v-tabs-window v-model="tab" class="mt-4">

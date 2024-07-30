@@ -17,7 +17,7 @@ const CLayout = user.data.role === 'admin' ? AdminLayout : UserLayout
 
                 <v-row class="mt-3">
                     <v-col>
-                        <v-text-field label="Name" v-model="user.data.nama"></v-text-field>
+                        <v-text-field label="Name" v-model="user.data.name"></v-text-field>
                     </v-col>
                     <v-col>
                         <v-text-field label="NIP" v-model="user.data.nip"></v-text-field>

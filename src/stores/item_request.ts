@@ -1,11 +1,11 @@
+import type { CreateItem } from '@/types/item'
+import type { ItemRequest } from '@/types/item_request'
+import type { UpdateTableArgs } from '@/types/table'
 import axios from 'axios'
 import { defineStore } from 'pinia'
 import { computed, ref } from 'vue'
-import { useUserStore } from './user'
 import { itemRequests } from './fake/item_request'
-import type { CreateItem } from '@/types/item'
-import type { UpdateTableArgs } from '@/types/table'
-import type { ItemRequest } from '@/types/item_request'
+import { useUserStore } from './user'
 
 export const useItemRequestStore = defineStore('item_request', () => {
   const items = ref<ItemRequest[]>([])
@@ -17,7 +17,7 @@ export const useItemRequestStore = defineStore('item_request', () => {
     let res = []
     if (searchName.value) {
       res = items.value.filter(
-        (i) => i.unit.nama.toLocaleLowerCase().search(searchName.value.toLocaleLowerCase()) != -1
+        (i) => i.unit.name.toLocaleLowerCase().search(searchName.value.toLocaleLowerCase()) != -1
       )
     } else {
       res = items.value
@@ -29,8 +29,8 @@ export const useItemRequestStore = defineStore('item_request', () => {
   const totalFiltered = computed(() => filtered.value!.length)
   const headers = [
     {
-      title: 'Nama',
-      key: 'unit.nama'
+      title: 'name',
+      key: 'unit.name'
     },
     {
       title: 'Jumlah',
@@ -75,11 +75,11 @@ export const useItemRequestStore = defineStore('item_request', () => {
 
   function addItem(item: CreateItem) {
     const data = new FormData()
-    data.append('nama', item.nama)
+    data.append('name', item.name)
     data.append('gambar', item.gambar)
-    data.append('kategori_id', item.kategori_id.toString())
-    data.append('stok', item.stok.toString())
-    data.append('harga', item.harga.toString())
+    data.append('category_id', item.category_id.toString())
+    data.append('stock', item.stock.toString())
+    data.append('price', item.price.toString())
   }
 
   function updateRequest() {}

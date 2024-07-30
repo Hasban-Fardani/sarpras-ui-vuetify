@@ -8,7 +8,7 @@ const saveUser = () => {
         <template v-slot:default="{ isActive }">
         <v-card title="Tambah user" prepend-icon="mdi-plus">
             <v-card-text>
-                <v-text-field label="Nama"></v-text-field>
+                <v-text-field label="name"></v-text-field>
                 <div class="d-flex ga-3">
                     <v-text-field label="Unit"></v-text-field>
                     <v-text-field label="Role"></v-text-field>

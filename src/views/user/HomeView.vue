@@ -7,7 +7,7 @@ const user = useUserStore()
 </script>
 <template>
     <UserLayout>
-        <h2 class="text-center my-3">Halo {{ user.data.nama }} 👋</h2>
+        <h2 class="text-center my-3">Halo {{ user.data.name }} 👋</h2>
         <p>Bagaimana cara melakukan pengadaan / permintaan barang?</p>
         <div class="w-100 h-100 mt-2 d-flex justify-center ga-3" :class="$vuetify.display.mobile ? 'flex-column' : ''">
             <VCard title="Isi Form Pengadaan / Permintaan" color="primary" class="w-100 border"

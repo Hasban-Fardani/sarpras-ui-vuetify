@@ -1,5 +1,5 @@
-import { createRouter, createWebHistory } from 'vue-router'
 import { useUserStore } from '@/stores/user'
+import { createRouter, createWebHistory } from 'vue-router'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -48,8 +48,8 @@ const router = createRouter({
       }
     },
     {
-      path: '/admin/kategori',
-      name: 'admin-kategori',
+      path: '/admin/category',
+      name: 'admin-category',
       component: () => import('../views/admin/CategoryListView.vue'),
       meta: {
         auth: true,
@@ -258,11 +258,13 @@ router.beforeEach(async (to, _, next) => {
   const user = useUserStore()
   await user.load()
 
-  if (to.meta.auth && !user.isLogin) {
+  const isLogin = await user.checkLogin();
+
+  if (to.meta.auth && !isLogin) {
     return next({ path: '/auth/login' })
   }
 
-  if (to.name === 'login' && user.isLogin) {
+  if (to.name === 'login' && isLogin) {
     switch (user.data.role) {
       case 'admin':
           return next({ path: '/admin/dashboard' })

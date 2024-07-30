@@ -1,10 +1,10 @@
+import type { StockOpname } from '@/types/stock_opname'
+import type { UpdateTableArgs } from '@/types/table'
 import axios from 'axios'
 import { defineStore } from 'pinia'
 import { computed, ref } from 'vue'
-import { useUserStore } from './user'
 import { stockOpnames as fakeSO } from './fake/stock_opname'
-import type { StockOpname } from '@/types/stock_opname'
-import type { UpdateTableArgs } from '@/types/table'
+import { useUserStore } from './user'
 
 export const useStockOpnameStore = defineStore('stockOpname', () => {
   const stockOpnames = ref<StockOpname[]>([])
@@ -16,7 +16,7 @@ export const useStockOpnameStore = defineStore('stockOpname', () => {
     let res = []
     if (searchName.value) {
       res = stockOpnames.value.filter(
-        (i) => i.barang!.nama.toLocaleLowerCase().search(searchName.value.toLocaleLowerCase()) != -1
+        (i) => i.barang!.name.toLocaleLowerCase().search(searchName.value.toLocaleLowerCase()) != -1
       )
     } else {
       res = stockOpnames.value
@@ -29,11 +29,11 @@ export const useStockOpnameStore = defineStore('stockOpname', () => {
   const headers = [
     {
       title: 'barang',
-      key: 'barang.nama'
+      key: 'barang.name'
     },
     {
       title: 'petugas',
-      key: 'petugas.nama'
+      key: 'petugas.name'
     },
     {
       title: 'tanggal',
@@ -66,7 +66,7 @@ export const useStockOpnameStore = defineStore('stockOpname', () => {
 
   function addItem() {
     const data = new FormData()
-    // data.append('nama', item.nama)
+    // data.append('name', item.name)
   }
 
   function updateStockOpname() {}

@@ -4,301 +4,301 @@ export const items: Item[] = [
   {
     id: 0,
     gambar: 'https://picsum.photos/300',
-    nama: 'Spidol',
-    kategori_id: 1,
-    kategori: {
+    name: 'Spidol',
+    category_id: 1,
+    category: {
       id: 1,
-      nama: 'Alat Tulis'
+      name: 'Alat Tulis'
     },
-    stok: 20,
-    stok_minimum: 30,
-    satuan: 'unit',
-    harga: 10000,
+    stock: 20,
+    min_stock: 30,
+    unit: 'unit',
+    price: 10000,
     updated_at: new Date('2024-05-22T00:00:00Z')
   },
   {
     id: 1,
     gambar: 'https://picsum.photos/300',
-    nama: 'Pulpen',
-    kategori_id: 1,
-    kategori: {
+    name: 'Pulpen',
+    category_id: 1,
+    category: {
       id: 1,
-      nama: 'Alat Tulis'
+      name: 'Alat Tulis'
     },
-    stok: 20,
-    stok_minimum: 30,
-    satuan: 'unit',
-    harga: 2000,
+    stock: 20,
+    min_stock: 30,
+    unit: 'unit',
+    price: 2000,
     updated_at: new Date('2024-05-22T00:00:00Z')
   },
   {
     id: 2,
     gambar: 'https://picsum.photos/300',
-    nama: 'Penghapus',
-    kategori_id: 1,
-    kategori: {
+    name: 'Penghapus',
+    category_id: 1,
+    category: {
       id: 1,
-      nama: 'Alat Tulis'
+      name: 'Alat Tulis'
     },
-    stok: 30,
-    stok_minimum: 30,
-    satuan: 'unit',
-    harga: 1000,
+    stock: 30,
+    min_stock: 30,
+    unit: 'unit',
+    price: 1000,
     updated_at: new Date('2024-05-22T00:00:00Z')
   },
   {
     id: 3,
     gambar: 'https://picsum.photos/300',
-    nama: 'Pensil',
-    kategori_id: 1,
-    kategori: {
+    name: 'Pensil',
+    category_id: 1,
+    category: {
       id: 1,
-      nama: 'Alat Tulis'
+      name: 'Alat Tulis'
     },
-    stok: 50,
-    stok_minimum: 30,
-    satuan: 'unit',
-    harga: 1500,
+    stock: 50,
+    min_stock: 30,
+    unit: 'unit',
+    price: 1500,
     updated_at: new Date('2024-05-22T00:00:00Z')
   },
   {
     id: 4,
     gambar: 'https://picsum.photos/300',
-    nama: 'Kertas HVS',
-    kategori_id: 2,
-    kategori: {
+    name: 'Kertas HVS',
+    category_id: 2,
+    category: {
       id: 2,
-      nama: 'Kertas'
+      name: 'Kertas'
     },
-    stok: 500,
-    stok_minimum: 30,
-    satuan: 'unit',
-    harga: 5000,
+    stock: 500,
+    min_stock: 30,
+    unit: 'unit',
+    price: 5000,
     updated_at: new Date('2024-05-22T00:00:00Z')
   },
   {
     id: 5,
     gambar: 'https://picsum.photos/300',
-    nama: 'Buku Tulis',
-    kategori_id: 3,
-    kategori: {
+    name: 'Buku Tulis',
+    category_id: 3,
+    category: {
       id: 3,
-      nama: 'Buku'
+      name: 'Buku'
     },
-    stok: 100,
-    stok_minimum: 30,
-    satuan: 'buah',
-    harga: 3000,
+    stock: 100,
+    min_stock: 30,
+    unit: 'buah',
+    price: 3000,
     updated_at: new Date('2024-05-22T00:00:00Z')
   },
   {
     id: 6,
     gambar: 'https://picsum.photos/300',
-    nama: 'Map Plastik',
-    kategori_id: 4,
-    kategori: {
+    name: 'Map Plastik',
+    category_id: 4,
+    category: {
       id: 4,
-      nama: 'Organisasi File'
+      name: 'Organisasi File'
     },
-    stok: 75,
-    stok_minimum: 30,
-    satuan: 'unit',
-    harga: 2500,
+    stock: 75,
+    min_stock: 30,
+    unit: 'unit',
+    price: 2500,
     updated_at: new Date('2024-05-22T00:00:00Z')
   },
   {
     id: 7,
     gambar: 'https://picsum.photos/300',
-    nama: 'Stiker Label',
-    kategori_id: 5,
-    kategori: {
+    name: 'Stiker Label',
+    category_id: 5,
+    category: {
       id: 5,
-      nama: 'Label'
+      name: 'Label'
     },
-    stok: 200,
-    stok_minimum: 30,
-    satuan: 'unit',
-    harga: 3500,
+    stock: 200,
+    min_stock: 30,
+    unit: 'unit',
+    price: 3500,
     updated_at: new Date('2024-05-22T00:00:00Z')
   },
   {
     id: 8,
     gambar: 'https://picsum.photos/300',
-    nama: 'Tinta Printer',
-    kategori_id: 6,
-    kategori: {
+    name: 'Tinta Printer',
+    category_id: 6,
+    category: {
       id: 6,
-      nama: 'Aksesoris Printer'
+      name: 'Aksesoris Printer'
     },
-    stok: 10,
-    stok_minimum: 30,
-    satuan: 'unit',
-    harga: 12000,
+    stock: 10,
+    min_stock: 30,
+    unit: 'unit',
+    price: 12000,
     updated_at: new Date('2024-05-22T00:00:00Z')
   },
   {
     id: 9,
     gambar: 'https://picsum.photos/300',
-    nama: 'Staples',
-    kategori_id: 7,
-    kategori: {
+    name: 'Staples',
+    category_id: 7,
+    category: {
       id: 7,
-      nama: 'Pengikat Kertas'
+      name: 'Pengikat Kertas'
     },
-    stok: 150,
-    stok_minimum: 30,
-    satuan: 'unit',
-    harga: 4000,
+    stock: 150,
+    min_stock: 30,
+    unit: 'unit',
+    price: 4000,
     updated_at: new Date('2024-05-22T00:00:00Z')
   },
   {
     id: 10,
     gambar: 'https://picsum.photos/300',
-    nama: 'Penggaris',
-    kategori_id: 1,
-    kategori: {
+    name: 'Penggaris',
+    category_id: 1,
+    category: {
       id: 1,
-      nama: 'Alat Tulis'
+      name: 'Alat Tulis'
     },
-    stok: 80,
-    stok_minimum: 30,
-    satuan: 'unit',
-    harga: 6000,
+    stock: 80,
+    min_stock: 30,
+    unit: 'unit',
+    price: 6000,
     updated_at: new Date('2024-05-22T00:00:00Z')
   },
   {
     id: 11,
     gambar: 'https://picsum.photos/300',
-    nama: 'Correction Tape',
-    kategori_id: 8,
-    kategori: {
+    name: 'Correction Tape',
+    category_id: 8,
+    category: {
       id: 8,
-      nama: 'Alat Koreksi'
+      name: 'Alat Koreksi'
     },
-    stok: 60,
-    stok_minimum: 30,
-    satuan: 'unit',
-    harga: 2500,
+    stock: 60,
+    min_stock: 30,
+    unit: 'unit',
+    price: 2500,
     updated_at: new Date('2024-05-22T00:00:00Z')
   },
   {
     id: 12,
     gambar: 'https://picsum.photos/300',
-    nama: 'Paper Clip',
-    kategori_id: 7,
-    kategori: {
+    name: 'Paper Clip',
+    category_id: 7,
+    category: {
       id: 7,
-      nama: 'Pengikat Kertas'
+      name: 'Pengikat Kertas'
     },
-    stok: 300,
-    stok_minimum: 30,
-    satuan: 'unit',
-    harga: 4500,
+    stock: 300,
+    min_stock: 30,
+    unit: 'unit',
+    price: 4500,
     updated_at: new Date('2024-05-22T00:00:00Z')
   },
   {
     id: 13,
     gambar: 'https://picsum.photos/300',
-    nama: 'Amplop',
-    kategori_id: 2,
-    kategori: {
+    name: 'Amplop',
+    category_id: 2,
+    category: {
       id: 2,
-      nama: 'Kertas'
+      name: 'Kertas'
     },
-    stok: 100,
-    stok_minimum: 30,
-    satuan: 'unit',
-    harga: 7000,
+    stock: 100,
+    min_stock: 30,
+    unit: 'unit',
+    price: 7000,
     updated_at: new Date('2024-05-22T00:00:00Z')
   },
   {
     id: 14,
     gambar: 'https://picsum.photos/300',
-    nama: 'Kertas Foto',
-    kategori_id: 2,
-    kategori: {
+    name: 'Kertas Foto',
+    category_id: 2,
+    category: {
       id: 2,
-      nama: 'Kertas'
+      name: 'Kertas'
     },
-    stok: 50,
-    stok_minimum: 30,
-    satuan: 'unit',
-    harga: 20000,
+    stock: 50,
+    min_stock: 30,
+    unit: 'unit',
+    price: 20000,
     updated_at: new Date('2024-05-22T00:00:00Z')
   },
   {
     id: 15,
     gambar: 'https://picsum.photos/300',
-    nama: 'Memo Pad',
-    kategori_id: 2,
-    kategori: {
+    name: 'Memo Pad',
+    category_id: 2,
+    category: {
       id: 2,
-      nama: 'Kertas'
+      name: 'Kertas'
     },
-    stok: 150,
-    stok_minimum: 30,
-    satuan: 'unit',
-    harga: 8000,
+    stock: 150,
+    min_stock: 30,
+    unit: 'unit',
+    price: 8000,
     updated_at: new Date('2024-05-22T00:00:00Z')
   },
   {
     id: 16,
     gambar: 'https://picsum.photos/300',
-    nama: 'Post-it',
-    kategori_id: 2,
-    kategori: {
+    name: 'Post-it',
+    category_id: 2,
+    category: {
       id: 2,
-      nama: 'Kertas'
+      name: 'Kertas'
     },
-    stok: 250,
-    stok_minimum: 30,
-    satuan: 'unit',
-    harga: 500,
+    stock: 250,
+    min_stock: 30,
+    unit: 'unit',
+    price: 500,
     updated_at: new Date('2024-05-22T00:00:00Z')
   },
   {
     id: 17,
     gambar: 'https://picsum.photos/300',
-    nama: 'Tali Rafia',
-    kategori_id: 9,
-    kategori: {
+    name: 'Tali Rafia',
+    category_id: 9,
+    category: {
       id: 9,
-      nama: 'Alat Pengikat'
+      name: 'Alat Pengikat'
     },
-    stok: 200,
-    stok_minimum: 30,
-    satuan: 'unit',
-    harga: 3000,
+    stock: 200,
+    min_stock: 30,
+    unit: 'unit',
+    price: 3000,
     updated_at: new Date('2024-05-22T00:00:00Z')
   },
   {
     id: 18,
     gambar: 'https://picsum.photos/300',
-    nama: 'Lakban',
-    kategori_id: 9,
-    kategori: {
+    name: 'Lakban',
+    category_id: 9,
+    category: {
       id: 9,
-      nama: 'Alat Pengikat'
+      name: 'Alat Pengikat'
     },
-    stok: 100,
-    stok_minimum: 30,
-    satuan: 'unit',
-    harga: 4000,
+    stock: 100,
+    min_stock: 30,
+    unit: 'unit',
+    price: 4000,
     updated_at: new Date('2024-05-22T00:00:00Z')
   },
   {
     id: 19,
     gambar: 'https://picsum.photos/300',
-    nama: 'Kertas Lipat',
-    kategori_id: 2,
-    kategori: {
+    name: 'Kertas Lipat',
+    category_id: 2,
+    category: {
       id: 2,
-      nama: 'Kertas'
+      name: 'Kertas'
     },
-    stok: 500,
-    stok_minimum: 30,
-    satuan: 'unit',
-    harga: 15000,
+    stock: 500,
+    min_stock: 30,
+    unit: 'unit',
+    price: 15000,
     updated_at: new Date('2024-05-22T00:00:00Z')
   }
 ]

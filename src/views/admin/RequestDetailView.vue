@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import AdminLayout from '@/layouts/AdminLayout.vue';
 import ConfirmDialog from '@/components/dialogs/ConfirmDialog.vue';
+import AdminLayout from '@/layouts/AdminLayout.vue';
 import { itemRequestDetail } from '@/stores/fake/item_request';
 import { useItemRequestStore } from '@/stores/item_request';
 import { ref } from 'vue';
@@ -22,7 +22,7 @@ const headers = [
     },
     {
         title: 'Barang',
-        key: 'barang.nama'
+        key: 'barang.name'
     },
     {
         title: 'Jumlah',
@@ -42,16 +42,16 @@ const isDone = item?.status != 'diajukan'
 
 const isConfirm = ref(false)
 const selectedConfirmId = ref(0)
-const selectedNama = ref('')
-const confirm = (id: number, nama: string) => {
+const selectedname = ref('')
+const confirm = (id: number, name: string) => {
     isConfirm.value = true
     selectedConfirmId.value = id
-    selectedNama.value = nama
+    selectedname.value = name
 }
 </script>
 <template>
     <AdminLayout>
-        <ConfirmDialog :is-active="isConfirm" :id="selectedConfirmId" title="Hapus Barang" :confirm-message="`apakah anda yakin akan menghapus ${selectedNama} dari pengadaan?`" confirm-message-sub="" @close-dialog="isConfirm = false"/>
+        <ConfirmDialog :is-active="isConfirm" :id="selectedConfirmId" title="Hapus Barang" :confirm-message="`apakah anda yakin akan menghapus ${selectedname} dari pengadaan?`" confirm-message-sub="" @close-dialog="isConfirm = false"/>
 
         <div class="d-flex ga-2">
             <h2>Detail Permintaan #{{ id }}</h2>
@@ -61,10 +61,10 @@ const confirm = (id: number, nama: string) => {
         <div class="w-100 d-flex justify-space-between align-end my-3">
             <div class="d-flex ga-2 my-3">
                 <v-avatar color="brown">
-                    <span class="text-h5">{{ item?.unit.nama[0] }}</span>
+                    <span class="text-h5">{{ item?.unit.name[0] }}</span>
                 </v-avatar>
                 <div>
-                    <p>{{ item?.unit.nama }}</p>
+                    <p>{{ item?.unit.name }}</p>
                     <p class="font-weight-bold text-caption">{{ item?.tanggal }}</p>
                 </div>
             </div>
@@ -84,7 +84,7 @@ const confirm = (id: number, nama: string) => {
                             <v-number-input v-model="item.jumlah_acc" controlVariant="split" variant="outlined" :disabled="isDone"></v-number-input>
                         </template>
                         <template v-slot:item.id="{ item }">
-                            <v-btn icon="mdi-trash-can" color="red" @click="confirm(item.id, item.barang!.nama)"></v-btn>
+                            <v-btn icon="mdi-trash-can" color="red" @click="confirm(item.id, item.barang!.name)"></v-btn>
                         </template>
                     </VDataTable>
                 </VCardText>

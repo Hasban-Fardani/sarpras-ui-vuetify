@@ -5,12 +5,12 @@ type ItemIn = {
   id_unit: number
   unit?: {
     id?: number
-    nama: string
+    name: string
   }
   id_supplier: number
   supplier?: {
     id?: number
-    nama: string
+    name: string
   }
   deskripsi: string
   tanggal: string
@@ -23,7 +23,7 @@ type ItemInDetail = {
   id_unit: number
   unit: {
     id: number
-    nama: string
+    name: string
   }
   id_supplier: number
   sumber_dana: string

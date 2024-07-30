@@ -1,26 +1,26 @@
 type Item = {
   id: number
   gambar?: string
-  nama: string
-  kategori_id?: number
-  kategori?: {
+  name: string
+  category_id?: number
+  category?: {
     id: number
-    nama: string
+    name: string
   }
-  stok?: number
-  stok_minimum?: number
-  satuan?: 'buah' | 'unit' | 'box' | 'rim' | 'lusin'
-  harga?: number
+  stock?: number
+  min_stock?: number
+  unit?: string
+  price?: number
   jumlah?: number
-  updated_at?: Date
+  updated_at?: Date | string
 }
 
 type CreateItem = {
-  nama: string
-  kategori_id: number
-  stok: number
-  satuan: string
-  harga: number
+  name: string
+  category_id: number
+  stock: number
+  unit: string
+  price: number
   gambar: File
 }
 

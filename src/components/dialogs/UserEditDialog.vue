@@ -1,7 +1,7 @@
 <!-- eslint-disable vue/no-mutating-props -->
 <script setup lang="ts">
-import { ref,  watch } from 'vue';
 import type { User } from '@/types/user';
+import { ref,  watch } from 'vue';
 
 const props = defineProps<{
     userProp: User,
@@ -40,7 +40,7 @@ const saveUser = () => {
     <v-dialog v-model="props.isActive" max-width="400">
         <v-card title="Edit User" prepend-icon="mdi-pencil">
             <v-card-text>
-                <v-text-field label="Nama" v-model="data.nama"></v-text-field>
+                <v-text-field label="name" v-model="data.name"></v-text-field>
                 <v-text-field label="Unit" v-model="data.unit"></v-text-field>
                 <v-text-field label="Role" v-model="data.role"></v-text-field>
             </v-card-text>

@@ -8,7 +8,7 @@ import { onMounted } from 'vue';
 
 const item = useItemStore()
 onMounted(() => {
-    item.tmpData()
+    item.getAll()
 })
 </script>
 <template>

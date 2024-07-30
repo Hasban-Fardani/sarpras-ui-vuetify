@@ -14,7 +14,7 @@ const headers = [
     },
     {
         title: 'Barang',
-        key: 'barang.nama'
+        key: 'barang.name'
     },
     {
         title: 'Jumlah',
@@ -29,10 +29,10 @@ const headers = [
         </div>
         <div class="d-flex ga-2 my-3">
             <v-avatar color="brown">
-                <span class="text-h5">{{ item?.supplier?.nama[0] }}</span>
+                <span class="text-h5">{{ item?.supplier?.name[0] }}</span>
             </v-avatar>
             <div>
-                <p>{{ item?.supplier?.nama }}</p>
+                <p>{{ item?.supplier?.name }}</p>
                 <p class="font-weight-bold text-caption">{{ item?.tanggal }}</p>
             </div>
         </div>
@@ -40,7 +40,7 @@ const headers = [
             <VCardText>
                 <VDataTable :items="detailItemIn" :headers="headers">
                     <template v-slot:item.barang.gambar="{ item }">
-                        <img :src="item.barang.gambar ?? 'https://picsum.photos/200/200'" :alt="item.barang.nama" width="100px" height="100px">
+                        <img :src="item.barang.gambar ?? 'https://picsum.photos/200/200'" :alt="item.barang.name" width="100px" height="100px">
                     </template>
                 </VDataTable>
             </VCardText>

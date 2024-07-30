@@ -7,7 +7,7 @@ const itemRequests: ItemRequest[] = [
     id_unit: 1,
     unit: {
       id: 1,
-      nama: 'BK'
+      name: 'BK'
     },
     jumlah_permintaan: 5,
     tanggal: '2024-05-01'
@@ -18,7 +18,7 @@ const itemRequests: ItemRequest[] = [
     id_unit: 2,
     unit: {
       id: 2,
-      nama: 'Matematika'
+      name: 'Matematika'
     },
     jumlah_permintaan: 10,
     tanggal: '2024-05-02'
@@ -29,7 +29,7 @@ const itemRequests: ItemRequest[] = [
     id_unit: 3,
     unit: {
       id: 3,
-      nama: 'RPL'
+      name: 'RPL'
     },
     jumlah_permintaan: 7,
     tanggal: '2024-05-03'
@@ -40,7 +40,7 @@ const itemRequests: ItemRequest[] = [
     id_unit: 4,
     unit: {
       id: 4,
-      nama: 'PJOK'
+      name: 'PJOK'
     },
     jumlah_permintaan: 12,
     tanggal: '2024-05-04'
@@ -51,7 +51,7 @@ const itemRequests: ItemRequest[] = [
     id_unit: 5,
     unit: {
       id: 5,
-      nama: 'Bahasa Inggris'
+      name: 'Bahasa Inggris'
     },
     jumlah_permintaan: 9,
     tanggal: '2024-05-05'
@@ -62,7 +62,7 @@ const itemRequests: ItemRequest[] = [
     id_unit: 6,
     unit: {
       id: 6,
-      nama: 'Sarpras'
+      name: 'Sarpras'
     },
     jumlah_permintaan: 4,
     tanggal: '2024-05-06'
@@ -73,7 +73,7 @@ const itemRequests: ItemRequest[] = [
     id_unit: 7,
     unit: {
       id: 7,
-      nama: 'RPL'
+      name: 'RPL'
     },
     jumlah_permintaan: 15,
     tanggal: '2024-05-07'
@@ -84,7 +84,7 @@ const itemRequests: ItemRequest[] = [
     id_unit: 8,
     unit: {
       id: 8,
-      nama: 'DKV'
+      name: 'DKV'
     },
     jumlah_permintaan: 8,
     tanggal: '2024-05-08'
@@ -95,7 +95,7 @@ const itemRequests: ItemRequest[] = [
     id_unit: 9,
     unit: {
       id: 9,
-      nama: 'Sejarah'
+      name: 'Sejarah'
     },
     jumlah_permintaan: 11,
     tanggal: '2024-05-09'
@@ -106,7 +106,7 @@ const itemRequests: ItemRequest[] = [
     id_unit: 10,
     unit: {
       id: 10,
-      nama: 'MPLB'
+      name: 'MPLB'
     },
     jumlah_permintaan: 6,
     tanggal: '2024-05-10'
@@ -120,7 +120,7 @@ const itemRequestDetail: ItemRequestDetail[] = [
     barang: {
       id: 0,
       gambar: 'https://picsum.photos/200/200',
-      nama: 'Spidol'
+      name: 'Spidol'
     },
     jumlah: 2,
     jumlah_acc: 2
@@ -132,7 +132,7 @@ const itemRequestDetail: ItemRequestDetail[] = [
     barang: {
       id: 13,
       gambar: 'https://picsum.photos/200/200',
-      nama: 'Sticky Note'
+      name: 'Sticky Note'
     },
     jumlah: 1,
     jumlah_acc: 1
@@ -144,7 +144,7 @@ const itemRequestDetail: ItemRequestDetail[] = [
     barang: {
       id: 14,
       gambar: 'https://picsum.photos/200/200',
-      nama: 'Highlighter'
+      name: 'Highlighter'
     },
     jumlah: 2,
     jumlah_acc: 2
@@ -156,7 +156,7 @@ const itemRequestDetail: ItemRequestDetail[] = [
     barang: {
       id: 1,
       gambar: 'https://picsum.photos/200/200',
-      nama: 'Pulpen'
+      name: 'Pulpen'
     },
     jumlah: 5,
     jumlah_acc: 4
@@ -168,7 +168,7 @@ const itemRequestDetail: ItemRequestDetail[] = [
     barang: {
       id: 2,
       gambar: 'https://picsum.photos/200/200',
-      nama: 'Penghapus'
+      name: 'Penghapus'
     },
     jumlah: 3,
     jumlah_acc: 3
@@ -180,7 +180,7 @@ const itemRequestDetail: ItemRequestDetail[] = [
     barang: {
       id: 3,
       gambar: 'https://picsum.photos/200/200',
-      nama: 'Pensil'
+      name: 'Pensil'
     },
     jumlah: 4,
     jumlah_acc: 4
@@ -192,7 +192,7 @@ const itemRequestDetail: ItemRequestDetail[] = [
     barang: {
       id: 15,
       gambar: 'https://picsum.photos/200/200',
-      nama: 'Rautan'
+      name: 'Rautan'
     },
     jumlah: 1,
     jumlah_acc: 1
@@ -204,7 +204,7 @@ const itemRequestDetail: ItemRequestDetail[] = [
     barang: {
       id: 16,
       gambar: 'https://picsum.photos/200/200',
-      nama: 'Penghapus Kertas'
+      name: 'Penghapus Kertas'
     },
     jumlah: 2,
     jumlah_acc: 2
@@ -216,7 +216,7 @@ const itemRequestDetail: ItemRequestDetail[] = [
     barang: {
       id: 4,
       gambar: 'https://picsum.photos/200/200',
-      nama: 'Kertas HVS'
+      name: 'Kertas HVS'
     },
     jumlah: 7,
     jumlah_acc: 7
@@ -228,7 +228,7 @@ const itemRequestDetail: ItemRequestDetail[] = [
     barang: {
       id: 5,
       gambar: 'https://picsum.photos/200/200',
-      nama: 'Buku Tulis'
+      name: 'Buku Tulis'
     },
     jumlah: 5,
     jumlah_acc: 4
@@ -240,7 +240,7 @@ const itemRequestDetail: ItemRequestDetail[] = [
     barang: {
       id: 6,
       gambar: 'https://picsum.photos/200/200',
-      nama: 'Map Plastik'
+      name: 'Map Plastik'
     },
     jumlah: 3,
     jumlah_acc: 3
@@ -252,7 +252,7 @@ const itemRequestDetail: ItemRequestDetail[] = [
     barang: {
       id: 17,
       gambar: 'https://picsum.photos/200/200',
-      nama: 'Lem'
+      name: 'Lem'
     },
     jumlah: 2,
     jumlah_acc: 2
@@ -264,7 +264,7 @@ const itemRequestDetail: ItemRequestDetail[] = [
     barang: {
       id: 18,
       gambar: 'https://picsum.photos/200/200',
-      nama: 'Pita'
+      name: 'Pita'
     },
     jumlah: 1,
     jumlah_acc: 1
@@ -276,7 +276,7 @@ const itemRequestDetail: ItemRequestDetail[] = [
     barang: {
       id: 7,
       gambar: 'https://picsum.photos/200/200',
-      nama: 'Stiker Label'
+      name: 'Stiker Label'
     },
     jumlah: 2,
     jumlah_acc: 2
@@ -288,7 +288,7 @@ const itemRequestDetail: ItemRequestDetail[] = [
     barang: {
       id: 19,
       gambar: 'https://picsum.photos/200/200',
-      nama: 'Tali'
+      name: 'Tali'
     },
     jumlah: 1,
     jumlah_acc: 1
@@ -300,7 +300,7 @@ const itemRequestDetail: ItemRequestDetail[] = [
     barang: {
       id: 20,
       gambar: 'https://picsum.photos/200/200',
-      nama: 'Klip Kertas'
+      name: 'Klip Kertas'
     },
     jumlah: 2,
     jumlah_acc: 2
@@ -312,7 +312,7 @@ const itemRequestDetail: ItemRequestDetail[] = [
     barang: {
       id: 8,
       gambar: 'https://picsum.photos/200/200',
-      nama: 'Tinta Printer'
+      name: 'Tinta Printer'
     },
     jumlah: 6,
     jumlah_acc: 5
@@ -324,7 +324,7 @@ const itemRequestDetail: ItemRequestDetail[] = [
     barang: {
       id: 21,
       gambar: 'https://picsum.photos/200/200',
-      nama: 'Kabel USB'
+      name: 'Kabel USB'
     },
     jumlah: 1,
     jumlah_acc: 1
@@ -336,7 +336,7 @@ const itemRequestDetail: ItemRequestDetail[] = [
     barang: {
       id: 22,
       gambar: 'https://picsum.photos/200/200',
-      nama: 'Mouse Pad'
+      name: 'Mouse Pad'
     },
     jumlah: 2,
     jumlah_acc: 2
@@ -348,7 +348,7 @@ const itemRequestDetail: ItemRequestDetail[] = [
     barang: {
       id: 9,
       gambar: 'https://picsum.photos/200/200',
-      nama: 'Staples'
+      name: 'Staples'
     },
     jumlah: 3,
     jumlah_acc: 3
@@ -360,7 +360,7 @@ const itemRequestDetail: ItemRequestDetail[] = [
     barang: {
       id: 23,
       gambar: 'https://picsum.photos/200/200',
-      nama: 'Binder Clip'
+      name: 'Binder Clip'
     },
     jumlah: 2,
     jumlah_acc: 2
@@ -372,7 +372,7 @@ const itemRequestDetail: ItemRequestDetail[] = [
     barang: {
       id: 24,
       gambar: 'https://picsum.photos/200/200',
-      nama: 'Tape'
+      name: 'Tape'
     },
     jumlah: 1,
     jumlah_acc: 1
@@ -384,7 +384,7 @@ const itemRequestDetail: ItemRequestDetail[] = [
     barang: {
       id: 10,
       gambar: 'https://picsum.photos/200/200',
-      nama: 'Penggaris'
+      name: 'Penggaris'
     },
     jumlah: 5,
     jumlah_acc: 5
@@ -396,7 +396,7 @@ const itemRequestDetail: ItemRequestDetail[] = [
     barang: {
       id: 11,
       gambar: 'https://picsum.photos/200/200',
-      nama: 'Correction Tape'
+      name: 'Correction Tape'
     },
     jumlah: 4,
     jumlah_acc: 4
@@ -408,7 +408,7 @@ const itemRequestDetail: ItemRequestDetail[] = [
     barang: {
       id: 12,
       gambar: 'https://picsum.photos/200/200',
-      nama: 'Paper Clip'
+      name: 'Paper Clip'
     },
     jumlah: 6,
     jumlah_acc: 6
@@ -420,7 +420,7 @@ const itemRequestDetail: ItemRequestDetail[] = [
     barang: {
       id: 25,
       gambar: 'https://picsum.photos/200/200',
-      nama: 'Amplop'
+      name: 'Amplop'
     },
     jumlah: 1,
     jumlah_acc: 1
@@ -432,7 +432,7 @@ const itemRequestDetail: ItemRequestDetail[] = [
     barang: {
       id: 26,
       gambar: 'https://picsum.photos/200/200',
-      nama: 'Memo'
+      name: 'Memo'
     },
     jumlah: 2,
     jumlah_acc: 2

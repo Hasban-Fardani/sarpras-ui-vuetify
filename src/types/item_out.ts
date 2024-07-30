@@ -5,7 +5,7 @@ type ItemOut = {
   id_unit: number
   unit: {
     id?: number
-    nama: string
+    name: string
   }
   tanggal: string
 }

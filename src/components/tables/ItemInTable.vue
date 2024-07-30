@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import DeleteDialog from '@/components/dialogs/DeleteDialog.vue';
-import DateRangePicker from '../DateRangePicker.vue';
-import { onMounted, ref } from 'vue';
 import { useItemInStore } from '@/stores/item_in';
+import { onMounted, ref } from 'vue';
+import DateRangePicker from '../DateRangePicker.vue';
 
 const itemIn = useItemInStore()
 const loading = ref(false)
@@ -12,9 +12,9 @@ const confirmDeleteDialog = ref(false)
 const selectedDeleteName = ref('')
 const selectedDeleteId = ref(0)
 const suppliers = ref<string[]>()
-const confirmDelete = (id: number, nama: string) => {
+const confirmDelete = (id: number, name: string) => {
     confirmDeleteDialog.value = true
-    selectedDeleteName.value = nama
+    selectedDeleteName.value = name
     selectedDeleteId.value = id
 }
 
@@ -24,11 +24,11 @@ const deleteItemIn = () => {
 
 onMounted(() => {
     itemIn.tmpData()
-    suppliers.value = itemIn.items.map(i => i.supplier!.nama)
+    suppliers.value = itemIn.items.map(i => i.supplier!.name)
 })
 </script>
 <template>
-    <delete-dialog type="Kategori" :id="selectedDeleteId" :nama="selectedDeleteName" :is-active="confirmDeleteDialog"
+    <delete-dialog type="category" :id="selectedDeleteId" :name="selectedDeleteName" :is-active="confirmDeleteDialog"
         @close-dialog="confirmDeleteDialog = false" @delete="deleteItemIn" />
     <div class="d-flex flex-wrap w-100 justify-space-between align-center">
         <div class="w-50 w-md-25">

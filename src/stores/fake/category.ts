@@ -3,22 +3,22 @@ import type { Category } from '@/types/category'
 export const categories: Category[] = [
   {
     id: 1,
-    nama: 'Alat Tulis'
+    name: 'Alat Tulis'
   },
   {
     id: 2,
-    nama: 'Aksesoris Printer'
+    name: 'Aksesoris Printer'
   },
   {
     id: 3,
-    nama: 'Pengikat Kertas'
+    name: 'Pengikat Kertas'
   },
   {
     id: 4,
-    nama: 'Alat Pengikat'
+    name: 'Alat Pengikat'
   },
   {
     id: 5,
-    nama: 'Kertas'
+    name: 'Kertas'
   }
 ]

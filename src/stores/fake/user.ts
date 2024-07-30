@@ -3,7 +3,7 @@ import type { User } from '@/types/user'
 export const users: User[] = [
   {
     id: 1,
-    nama: 'admin',
+    name: 'admin',
     role: 'admin',
     token: 'random token',
     unit: 'sarpras',
@@ -12,7 +12,7 @@ export const users: User[] = [
   },
   {
     id: 2,
-    nama: 'user',
+    name: 'user',
     role: 'unit',
     token: 'random token',
     unit: 'RPL',

@@ -1,10 +1,10 @@
+import type { ItemIn } from '@/types/item_in'
+import type { UpdateTableArgs } from '@/types/table'
 import axios from 'axios'
 import { defineStore } from 'pinia'
 import { computed, ref } from 'vue'
-import { useUserStore } from './user'
-import type { UpdateTableArgs } from '@/types/table'
-import type { ItemIn } from '@/types/item_in'
 import { itemIn } from './fake/item_in'
+import { useUserStore } from './user'
 
 export const useItemInStore = defineStore('item_in', () => {
   const items = ref<ItemIn[]>([])
@@ -16,8 +16,8 @@ export const useItemInStore = defineStore('item_in', () => {
     let res = []
     if (searchName.value) {
       res = items.value.filter(
-        (i) => i.unit!.nama.toLocaleLowerCase().search(searchName.value.toLocaleLowerCase()) != -1 || 
-          i.supplier?.nama.toLocaleLowerCase().search(searchName.value.toLocaleLowerCase()) != -1
+        (i) => i.unit!.name.toLocaleLowerCase().search(searchName.value.toLocaleLowerCase()) != -1 || 
+          i.supplier?.name.toLocaleLowerCase().search(searchName.value.toLocaleLowerCase()) != -1
       )
     } else {
       res = items.value
@@ -34,7 +34,7 @@ export const useItemInStore = defineStore('item_in', () => {
     },
     {
       title: 'Supplier',
-      key: 'supplier.nama'
+      key: 'supplier.name'
     },
     {
       title: 'Tanggal',

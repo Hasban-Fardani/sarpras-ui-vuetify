@@ -32,7 +32,7 @@ const logout = async () => {
 
                     <v-list>
                         <v-list-item>
-                            Hello {{ user.data.nama }}
+                            Hello {{ user.data.name }}
                         </v-list-item>
                         <v-divider />
                         <v-list-item to="/profile">

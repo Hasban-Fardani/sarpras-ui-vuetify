@@ -1,19 +1,18 @@
-import axios from 'axios'
-import { computed, ref } from 'vue'
-import { defineStore } from 'pinia'
-import { Preferences } from '@capacitor/preferences'
 import type { Credentials } from '@/types/credential'
 import type { User } from '@/types/user'
+import { Preferences } from '@capacitor/preferences'
+import axios from 'axios'
+import { defineStore } from 'pinia'
+import { computed, ref } from 'vue'
 
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL
 export const useUserStore = defineStore('user', () => {
   const data = ref<User>({
-    nama: '',
+    name: '',
     role: undefined,
     token: '',
     unit: ''
   })
-  const isLogin = computed(() => data.value?.token !== '')
 
   async function load() {
     const ret = await Preferences.get({ key: 'user' })
@@ -21,7 +20,7 @@ export const useUserStore = defineStore('user', () => {
     if (ret.value == null) {
       return
     }
-
+    
     data.value = JSON.parse(ret.value)
   }
 
@@ -33,7 +32,7 @@ export const useUserStore = defineStore('user', () => {
       const unit = role
       data.value = {
         token,
-        nama: name,
+        name: name,
         role,
         unit
       }
@@ -48,9 +47,27 @@ export const useUserStore = defineStore('user', () => {
     }
   }
 
+  async function checkLogin() {
+    if (!data.value.token){
+      await load()
+    }
+
+    try {
+      await axios.get(`${BACKEND_URL}/auth/check`, {
+        headers: {
+          Authorization: `Bearer ${data.value.token}`
+        }
+      })
+      
+      return true
+    } catch (error) {
+      return false
+    }
+  }
+
   async function clear() {
     data.value = {
-      nama: '',
+      name: '',
       role: undefined,
       token: '',
       unit: ''
@@ -69,7 +86,7 @@ export const useUserStore = defineStore('user', () => {
     try {
       await axios.post('/auth/logout', null, {
         headers: {
-          Authorization: 'Bearer ' + data.value.token
+          Authorization: `Bearer ${data.value.token}`
         }
       })
     } finally {
@@ -77,5 +94,5 @@ export const useUserStore = defineStore('user', () => {
     }
   }
 
-  return { data, isLogin, load, login, logout, clear }
+  return { data, load, login, logout, clear, checkLogin }
 })

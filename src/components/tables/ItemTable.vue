@@ -1,11 +1,15 @@
 <!-- eslint-disable vue/valid-v-slot -->
 <script setup lang="ts">
-import ItemEditDialog from '@/components/dialogs/ItemEditDialog.vue';
 import DeleteDialog from '@/components/dialogs/DeleteDialog.vue';
-import { onMounted, ref } from 'vue';
-import { useItemStore } from '@/stores/item';
-import type { Item } from '@/types/item';
+import ItemEditDialog from '@/components/dialogs/ItemEditDialog.vue';
 import { categories } from '@/stores/fake/category';
+import { useItemStore } from '@/stores/item';
+import { useUserStore } from '@/stores/user';
+import type { Item } from '@/types/item';
+import axios from 'axios';
+import { inject, onMounted, ref } from 'vue';
+
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL
 
 const item = useItemStore()
 const loading = ref(false)
@@ -22,40 +26,84 @@ const editItem = (itemEdite: Item) => {
     selectedEditItem.value = itemEdite
 }
 
-const confirmDeleteITem = (id: number, nama: string) => {
+const confirmDeleteITem = (id: number, name: string) => {
     deleteItemDialog.value = true
-    selectedDeleteName.value = nama
+    selectedDeleteName.value = name
     selectedDeleteId.value = id
 }
 
-const deleteItem = (id: number) => {
-    console.log('Do delete item with id: ', id);
+const deleteItem = async (id: number) => {
+    loading.value = true
 
+    const user = useUserStore()
+    
+    await axios.delete(`${BACKEND_URL}/item/${id}`, {
+        headers: {
+            Authorization: `Bearer ${user.data.token}`
+        }
+    })
+
+    item.getAll()
+
+    deleteItemDialog.value = false
+
+    loading.value = false
 }
 
 const selectedCategory = ref()
 
 onMounted(() => {
-    item.tmpData()
+    item.getAll()
 })
 </script>
 <template>
-    <item-edit-dialog :item-prop="selectedEditItem" :is-active="editItemDialog"
-        @close-dialog="editItemDialog = false" />
+    <item-edit-dialog 
+        :item-prop="selectedEditItem" 
+        :is-active="editItemDialog"
+        @close-dialog="editItemDialog = false" 
+    />
 
-    <delete-dialog type="Barang" :id="selectedDeleteId" :nama="selectedDeleteName" :is-active="deleteItemDialog"
-        @close-dialog="deleteItemDialog = false" @delete="deleteItem" />
+    <delete-dialog 
+        type="Barang" 
+        :id="selectedDeleteId" 
+        :name="selectedDeleteName" 
+        :is-active="deleteItemDialog"
+        @close-dialog="deleteItemDialog = false" 
+        @delete="deleteItem" 
+    />
 
     <div class="d-flex flex-wrap w-100 justify-space-between">
         <div class="w-50 w-md-25">
-            <v-text-field v-model="item.searchName" class="ma-2" label="cari" variant="outlined" density="comfortable"
-                placeholder="Cari nama..." append-inner-icon="mdi-magnify" hide-details />
+            <v-text-field 
+                v-model="item.searchName" 
+                class="ma-2" 
+                label="cari"
+                variant="outlined" 
+                density="comfortable"
+                placeholder="Cari name..." 
+                append-inner-icon="mdi-magnify" 
+                hide-details 
+            />
         </div>
         <div>
-            <v-select variant="outlined" label="kategori" placeholder="select kategori" max-width="400" width="200" :items="categories" v-model="selectedCategory" item-title="nama" item-value="id" density="comfortable" class="mt-2" multiple clearable>
+            <v-select 
+                v-model="selectedCategory" 
+                :items="categories" 
+                variant="outlined" 
+                label="category" 
+                placeholder="select category" 
+                max-width="400" 
+                width="200" 
+                item-title="name" 
+                item-value="id" 
+                density="comfortable" 
+                class="mt-2" 
+                multiple 
+                clearable
+            >
                 <template v-slot:selection="{ item, index }">
                     <v-chip v-if="index < 2">
-                        <span>{{ item.raw.nama }}</span>
+                        <span>{{ item.raw.name }}</span>
                     </v-chip>
                     <span
                         v-if="index === 2"
@@ -67,35 +115,50 @@ onMounted(() => {
             </v-select>
         </div>
     </div>
-    <v-data-table-server v-model:items-per-page="item.perPage" :headers="item.headers" :items="item.filtered"
-        :items-length="item.total" :loading="loading" :search="item.searchName" item-value="name"
-        @update:options="item.updateTable">
+    <v-data-table-server 
+        v-model:items-per-page="item.perPage" 
+        :headers="item.headers" 
+        :items="item.filtered"
+        :items-length="item.total" 
+        :loading="loading" 
+        :search="item.searchName" 
+        item-value="name"
+        @update:options="item.updateTable"
+    >
         <template v-slot:item.gambar="{ item }">
             <div class="d-flex justify-center w-100">
-                <img :src="item.gambar?.toString()" alt="gambar" width="50">
+                <img :src="item.gambar?.toString() ?? 'https://picsum.photos/200'" alt="gambar" width="50">
             </div>
         </template>
-        <template v-slot:item.stok="{item}">
+        <template v-slot:item.stock="{item}">
             <p>
-               <span :class="{'text-red': item.stok! < item.stok_minimum!}">
-                   {{ item.stok }} / {{ item.stok_minimum }} 
+               <span :class="{'text-red': item.stock! < item.min_stock!}">
+                   {{ item.stock }} / {{ item.min_stock }} 
                </span>
-               <span class="ml-2">{{ item.satuan }}</span>
+               <span class="ml-2">{{ item.unit }}</span>
             </p>
         </template>
-        <template v-slot:item.kategori.nama="{item}">
-            <v-chip size="small">{{ item?.kategori?.nama }}</v-chip>
+        <template v-slot:item.category.name="{item}">
+            <v-chip size="small">{{ item?.category?.name }}</v-chip>
         </template>
-        <template v-slot:item.harga="{ item }">
-            <p>{{ toIDR(parseInt(item.harga!.toString())) }}</p>
+        <template v-slot:item.price="{ item }">
+            <p>{{ toIDR(parseInt(item.price!.toString())) }}</p>
         </template>
         <template v-slot:item.updated_at="{ item }">
-            {{ item.updated_at?.toLocaleDateString() }}
+            {{ (new Date(item.updated_at as string)).toLocaleDateString() }}
         </template>
         <template v-slot:item.id="{ item }">
             <div class="d-flex ga-2">
-                <v-btn icon="mdi-square-edit-outline" color="yellow" @click="editItem(item)" />
-                <v-btn icon="mdi-delete" color="red" @click="confirmDeleteITem(item.id, item.nama.toString())" />
+                <v-btn 
+                    icon="mdi-square-edit-outline" 
+                    color="yellow" 
+                    @click="editItem(item)" 
+                />
+                <v-btn 
+                    icon="mdi-delete" 
+                    color="red"
+                    @click="confirmDeleteITem(item.id, item.name)" 
+                />
             </div>
         </template>
     </v-data-table-server>

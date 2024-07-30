@@ -1,5 +1,5 @@
 export type Supplier = {
   id: number
-  nama: string
+  name: string
   alamat: string
 }

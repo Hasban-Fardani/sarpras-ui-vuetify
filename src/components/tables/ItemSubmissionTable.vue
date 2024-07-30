@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import DeleteDialog from '@/components/dialogs/DeleteDialog.vue';
-import DateRangePicker from '../DateRangePicker.vue';
-import { onMounted, ref } from 'vue';
 import { useItemSubmissionStore } from '@/stores/item_submission';
 import { useUserStore } from '@/stores/user';
+import { onMounted, ref } from 'vue';
+import DateRangePicker from '../DateRangePicker.vue';
 
 
 const user = useUserStore()
@@ -15,9 +15,9 @@ const loading = ref(false)
 const confirmDeleteDialog = ref(false)
 const selectedDeleteName = ref('')
 const selectedDeleteId = ref(0)
-const confirmDelete = (id: number, nama: string) => {
+const confirmDelete = (id: number, name: string) => {
     confirmDeleteDialog.value = true
-    selectedDeleteName.value = nama
+    selectedDeleteName.value = name
     selectedDeleteId.value = id
 }
 
@@ -40,7 +40,7 @@ onMounted(() => {
 })
 </script>
 <template>
-    <delete-dialog type="Pengadaan" :id="selectedDeleteId" :nama="selectedDeleteName" :is-active="confirmDeleteDialog"
+    <delete-dialog type="Pengadaan" :id="selectedDeleteId" :name="selectedDeleteName" :is-active="confirmDeleteDialog"
         @close-dialog="confirmDeleteDialog = false" @delete="deleteItemSubmission" />
     <div class="d-flex flex-wrap w-100 justify-space-between align-center">
         <div class="w-50 w-md-25">
