@@ -263,16 +263,17 @@ router.beforeEach(async (to, _, next) => {
   }
 
   if (to.name === 'login' && user.isLogin) {
-    const redirect = {
-      'admin': '/admin/dashboard',
-      'unit': '/user/home',
-      'pengawas': '/advisor/dashboard'
-    }
-    console.log(redirect[user.data!.role])
-    return next({ path: redirect[user.data.role] })
+    switch (user.data.role) {
+      case 'admin':
+          return next({ path: '/admin/dashboard' })
+      case 'unit':
+          return next({ path: '/user/home' })
+      case 'pengawas':
+          return next({ path: '/admin/dashboard' })
+      }
   }
 
-  if (to.meta.role && to.meta.role != user.data.role) {
+  if (to.meta.role && to.meta.role !== user.data.role) {
     return next({ name: 'forbidden' })
   }
 

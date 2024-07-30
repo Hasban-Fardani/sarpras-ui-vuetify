@@ -13,7 +13,7 @@ export const users: User[] = [
   {
     id: 2,
     nama: 'user',
-    role: 'user',
+    role: 'unit',
     token: 'random token',
     unit: 'RPL',
     password: 'password',

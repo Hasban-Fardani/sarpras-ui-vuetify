@@ -3,8 +3,7 @@ type User = {
   nama: string
   token?: string
   unit?: string
-  // role: 'admin' | 'user' | 'kepala sekolah'
-  role?: string
+  role?: 'admin' | 'unit' | 'pengawas'
   nip?: number
   password?: string
 }

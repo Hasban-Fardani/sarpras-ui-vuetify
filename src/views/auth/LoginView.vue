@@ -1,8 +1,8 @@
 <script lang="ts" setup>
-import router from '@/router';
 import { useUserStore } from '@/stores/user';
 import { ref } from 'vue';
 import type { Credentials } from '@/types/credential';
+import router from '@/router';
 
 const alertMessage = ref('')
 const showAlert = ref(false)
@@ -13,14 +13,14 @@ const data = ref<Credentials>({
 })
 const rules = {
     nip: [
-        (v: String) => {
+        (v: string) => {
             if (!(v.length < 4)) return true
 
             return 'NIP minimal 4 karakter'
         }
     ],
     password: [
-        (v: String) => {
+        (v: string) => {
             if (!(v.length < 6)) return true
 
             return 'Password minimal 6 karakter'
@@ -30,19 +30,26 @@ const rules = {
 
 const user = useUserStore()
 const login = async () => {
-    let message = await user.login(data.value)
-    if (message == 'login success') {
+    const message = await user.login(data.value)
+    if (message === 'login success') {
         console.log('sini', user.data);
 
-        const redirect = {
-            'admin': '/admin/dashboard',
-            'unit': '/user/home',
-            'pengawas': '/advisor/dashboard'
+        switch (user.data.role) {
+            case 'admin':
+                router.push('/admin/dashboard')
+                location.reload()
+                return
+            case 'unit':
+                router.push('/user/home')
+                location.reload()
+                return
+            case 'pengawas':
+                router.push('/admin/dashboard')
+                location.reload()
+                return
+            default:
+                return;
         }
-
-        console.log(redirect[user.data.role])
-        location.reload()
-        return
     }
     // show and hide alert
     showAlert.value = true
@@ -64,7 +71,7 @@ const login = async () => {
                 <v-card-text class="text-center">masukkan data untuk login ke akun anda</v-card-text>
                 <v-card-item>
                     <v-form v-model="valid" @submit.prevent="login">
-                        <v-text-field label="NIP" v-model="data.nip" :rules="rules.username" />
+                        <v-text-field label="NIP" v-model="data.nip" :rules="rules.nip" />
                         <v-text-field label="Password" v-model="data.password" :rules="rules.password"
                             type="password" />
                         <v-btn type="submit" color="primary" class="mt-2">Login</v-btn>

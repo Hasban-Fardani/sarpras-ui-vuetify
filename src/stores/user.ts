@@ -9,11 +9,11 @@ const BACKEND_URL = import.meta.env.VITE_BACKEND_URL
 export const useUserStore = defineStore('user', () => {
   const data = ref<User>({
     nama: '',
-    role: '',
+    role: undefined,
     token: '',
     unit: ''
   })
-  const isLogin = computed(() => data.value?.token != '')
+  const isLogin = computed(() => data.value?.token !== '')
 
   async function load() {
     const ret = await Preferences.get({ key: 'user' })
@@ -51,7 +51,7 @@ export const useUserStore = defineStore('user', () => {
   async function clear() {
     data.value = {
       nama: '',
-      role: '',
+      role: undefined,
       token: '',
       unit: ''
     }
