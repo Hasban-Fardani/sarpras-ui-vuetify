@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import ItemInAddDialog from '@/components/itemIn/ItemInAddDialog.vue'
+import ItemInTable from '@/components/itemIn/ItemInTable.vue';
 import AdminLayout from '@/layouts/AdminLayout.vue';
-import ItemInTable from '@/components/tables/ItemInTable.vue';
-import ItemInAddDialog from '@/components/dialogs/ItemInAddDialog.vue'
 
 </script>
 <template>

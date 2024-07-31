@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import DeleteDialog from '@/components/dialogs/DeleteDialog.vue';
-import UserEditDialog from '@/components/dialogs/UserEditDialog.vue';
+import UserEditDialog from '@/components/user/UserEditDialog.vue';
 import { useUserTableStore } from '@/stores/user_table';
 import type { User } from '@/types/user';
 import { onMounted, ref } from 'vue';

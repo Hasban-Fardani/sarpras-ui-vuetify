@@ -1,10 +1,11 @@
-import type { ItemIn } from '@/types/item_in'
+import type { ItemIn, ItemInDetail } from '@/types/item_in'
 import type { UpdateTableArgs } from '@/types/table'
-import axios from 'axios'
+import axios, { type AxiosRequestConfig } from 'axios'
 import { defineStore } from 'pinia'
 import { computed, ref } from 'vue'
-import { itemIn } from './fake/item_in'
 import { useUserStore } from './user'
+
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL
 
 export const useItemInStore = defineStore('item_in', () => {
   const items = ref<ItemIn[]>([])
@@ -12,21 +13,8 @@ export const useItemInStore = defineStore('item_in', () => {
   const perPage = ref(5)
   const page = ref(1)
   const searchName = ref('')
-  const filtered = computed(() => {
-    let res = []
-    if (searchName.value) {
-      res = items.value.filter(
-        (i) => i.unit!.name.toLocaleLowerCase().search(searchName.value.toLocaleLowerCase()) != -1 || 
-          i.supplier?.name.toLocaleLowerCase().search(searchName.value.toLocaleLowerCase()) != -1
-      )
-    } else {
-      res = items.value
-    }
-    const start = page.value - 1 > 0 ? (page.value - 1) * perPage.value : 0
-    const end = start + perPage.value
-    return res.slice(start, end)
-  })
-  const totalFiltered = computed(() => filtered.value!.length)
+  const shortBy = ref(null)
+  const onUpdate = ref(false)
   const headers = [
     {
       title: 'Deskripsi',
@@ -49,19 +37,11 @@ export const useItemInStore = defineStore('item_in', () => {
 
   function getAll() {
     const user = useUserStore()
-    return axios.get('/items', {
+    return axios.get(`${BACKEND_URL}/item-in`, {
       headers: {
-        Authorization: 'Bearer ' + user.data.token
+        Authorization: `Bearer ${user.data.token}`
       }
     })
-  }
-
-  function get(id: number) {
-    return items.value.find((i) => i.id === id)
-  }
-
-  function tmpData() {
-    items.value = itemIn
   }
 
   function updateTable(args: UpdateTableArgs) {
@@ -69,8 +49,34 @@ export const useItemInStore = defineStore('item_in', () => {
     perPage.value = args.itemsPerPage
   }
 
-  function addItem() {
-    // const data = new FormData()
+  async function refresh() {
+    const args: UpdateTableArgs = {
+      page: page.value,
+      itemsPerPage: perPage.value,
+      shortBy: shortBy.value
+    }
+    
+    updateTable(args)
+  }
+
+  async function addItem(itemIn: ItemIn) {
+    onUpdate.value = true
+    const data = new FormData()
+    
+    data.append('supplier_id', itemIn.supplier_id.toString())
+    data.append('note', itemIn.note)
+
+    const config: AxiosRequestConfig = {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+        Authorization: `Bearer ${useUserStore().data.token}`
+      }
+    }
+
+    await axios.post(`${BACKEND_URL}/item-in`, data, config)
+
+    onUpdate.value = false
+    refresh()
   }
 
   function updateItem() {}
@@ -79,19 +85,16 @@ export const useItemInStore = defineStore('item_in', () => {
 
   return {
     items,
-    filtered,
     total,
-    totalFiltered,
     headers,
     perPage,
     page,
     searchName,
-    get,
+    onUpdate,
     getAll,
-    tmpData,
     updateTable,
     deleteItem,
     updateItem,
-    addItem
+    addItem,
   }
 })

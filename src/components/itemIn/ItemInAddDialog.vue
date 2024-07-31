@@ -1,8 +1,7 @@
 <script setup lang="ts">
-import { items as fakeItem } from '@/stores/fake/item'
+import ItemAddDialog from '@/components/item/ItemAddDialog.vue';
 import type { Item } from '@/types/item';
 import { ref } from 'vue';
-import ItemAddDialog from './ItemAddDialog.vue';
 
 const items = ref(fakeItem)
 const suppliers = ['supplier 1', 'supplier 2', 'supplier 3', 'supplier 4']
@@ -28,9 +27,9 @@ const saveItemIn = () => {
 }
 
 const addItem = () => {
-    if (selected.value == null || selected.value == undefined) return
+    if (selected.value == null || selected.value === undefined) return
 
-    let i = items.value.filter((i) => i.id === selected?.value)[0]
+    const i = items.value.filter((i) => i.id === selected?.value)[0]
 
     // check if selected item is not already in the list
     if (!selectedItems.value.includes(i)) {

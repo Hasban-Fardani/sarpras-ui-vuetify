@@ -2,32 +2,27 @@ import type { Item } from "./item"
 
 type ItemIn = {
   id: number
-  id_unit: number
-  unit?: {
+  user_id: number
+  user?: {
     id?: number
     name: string
   }
-  id_supplier: number
+  supplier_id: number
   supplier?: {
     id?: number
     name: string
   }
-  deskripsi: string
-  tanggal: string
+  note: string
+  created_at: string | Date
+  updated_at: string | Date
 }
 
 type ItemInDetail = {
-  id_barang_masuk: number
-  id_barang: number
-  barang: Item
-  id_unit: number
-  unit: {
-    id: number
-    name: string
-  }
-  id_supplier: number
+  item_in_id: number
+  item_id: number
+  item: Item
   sumber_dana: string
-  jumlah: number
+  qty: number
 }
 
 export type { ItemIn, ItemInDetail }

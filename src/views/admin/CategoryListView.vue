@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import CategoryAddDialog from '@/components/dialogs/CategoryAddDialog.vue';
-import CategoryTable from '@/components/tables/CategoryTable.vue';
+import CategoryAddDialog from '@/components/category/CategoryAddDialog.vue';
+import CategoryTable from '@/components/category/CategoryTable.vue';
 import AdminLayout from '@/layouts/AdminLayout.vue';
 </script>
 <template>

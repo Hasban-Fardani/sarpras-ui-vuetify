@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { Category } from "@/types/category";
 
-import CategoryEditDialog from "@/components/dialogs/CategoryEditDialog.vue";
+import CategoryEditDialog from "@/components/category/CategoryEditDialog.vue";
 import DeleteDialog from "@/components/dialogs/DeleteDialog.vue";
 
 import { useCategoryStore } from "@/stores/category";

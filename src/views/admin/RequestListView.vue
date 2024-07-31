@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import AdminLayout from '@/layouts/AdminLayout.vue';
-import ItemRequestTable from '@/components/tables/ItemRequestTable.vue';
 import RequestForm from '@/components/RequestForm.vue';
+import ItemRequestTable from '@/components/requestItem/ItemRequestTable.vue';
+import AdminLayout from '@/layouts/AdminLayout.vue';
 </script>
 <template>
     <AdminLayout>

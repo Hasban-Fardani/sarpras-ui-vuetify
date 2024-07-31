@@ -1,8 +1,8 @@
 <script lang="ts" setup>
+import ItemAddDialog from '@/components/item/ItemAddDialog.vue'
+import ItemImportDialog from '@/components/item/ItemImportDialog.vue'
+import ItemTable from '@/components/item/ItemTable.vue'
 import AdminLayout from '@/layouts/AdminLayout.vue';
-import ItemTable from '@/components/tables/ItemTable.vue'
-import ItemAddDialog from '@/components/dialogs/ItemAddDialog.vue'
-import ItemImportDialog from '@/components/dialogs/ItemImportDialog.vue'
 import { useItemStore } from '@/stores/item';
 import { onMounted } from 'vue';
 

@@ -3,7 +3,7 @@
 import type { Item } from '@/types/item';
 
 import DeleteDialog from '@/components/dialogs/DeleteDialog.vue';
-import ItemEditDialog from '@/components/dialogs/ItemEditDialog.vue';
+import ItemEditDialog from '@/components/item/ItemEditDialog.vue';
 import { useCategoryStore } from '@/stores/category';
 import { useItemStore } from '@/stores/item';
 import { onMounted, ref } from 'vue';
