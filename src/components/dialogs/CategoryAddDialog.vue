@@ -1,9 +1,11 @@
 <script setup lang="ts">
+import { useCategoryStore } from '@/stores/category';
 import { ref } from 'vue';
 
 const name = ref('')
 const saveCategory = () => {
-    // Todo: save category
+    const category = useCategoryStore();
+    category.addCategory({ name: name.value });
 }
 </script>
 <template>
@@ -14,7 +16,7 @@ const saveCategory = () => {
                     <v-text-field label="Name" v-model="name"></v-text-field>
                 </v-card-text>
                 <template v-slot:actions>
-                    <v-btn class="ml-auto" text="Save" @click="saveCategory" color="primary"></v-btn>
+                    <v-btn class="ml-auto" text="Save" @click="saveCategory(); isActive.value = false" color="primary"></v-btn>
                     <v-btn text="Close" @click="isActive.value = false;" color="error"></v-btn>
                 </template>
             </v-card>

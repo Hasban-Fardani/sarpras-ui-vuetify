@@ -1,18 +1,15 @@
 <!-- eslint-disable vue/valid-v-slot -->
 <script setup lang="ts">
+import type { Item } from '@/types/item';
+
 import DeleteDialog from '@/components/dialogs/DeleteDialog.vue';
 import ItemEditDialog from '@/components/dialogs/ItemEditDialog.vue';
-import { categories } from '@/stores/fake/category';
+import { useCategoryStore } from '@/stores/category';
 import { useItemStore } from '@/stores/item';
-import { useUserStore } from '@/stores/user';
-import type { Item } from '@/types/item';
-import axios from 'axios';
-import { inject, onMounted, ref } from 'vue';
-
-const BACKEND_URL = import.meta.env.VITE_BACKEND_URL
+import { onMounted, ref } from 'vue';
 
 const item = useItemStore()
-const loading = ref(false)
+const categories = useCategoryStore()
 const toIDR = (num: number) => new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format(num)
 
 const editItemDialog = ref(false)
@@ -25,6 +22,10 @@ const editItem = (itemEdite: Item) => {
     editItemDialog.value = true
     selectedEditItem.value = itemEdite
 }
+const closeEditDialog = () => {
+  editItemDialog.value = false;
+  selectedEditItem.value = {} as Item;
+};
 
 const confirmDeleteITem = (id: number, name: string) => {
     deleteItemDialog.value = true
@@ -32,35 +33,18 @@ const confirmDeleteITem = (id: number, name: string) => {
     selectedDeleteId.value = id
 }
 
-const deleteItem = async (id: number) => {
-    loading.value = true
-
-    const user = useUserStore()
-    
-    await axios.delete(`${BACKEND_URL}/item/${id}`, {
-        headers: {
-            Authorization: `Bearer ${user.data.token}`
-        }
-    })
-
-    item.getAll()
-
-    deleteItemDialog.value = false
-
-    loading.value = false
-}
-
 const selectedCategory = ref()
-
 onMounted(() => {
-    item.getAll()
+    if (categories.categories.length === 0) {
+        categories.getAll()
+    }
 })
 </script>
 <template>
     <item-edit-dialog 
         :item-prop="selectedEditItem" 
         :is-active="editItemDialog"
-        @close-dialog="editItemDialog = false" 
+        @close-dialog="closeEditDialog" 
     />
 
     <delete-dialog 
@@ -69,7 +53,7 @@ onMounted(() => {
         :name="selectedDeleteName" 
         :is-active="deleteItemDialog"
         @close-dialog="deleteItemDialog = false" 
-        @delete="deleteItem" 
+        @delete="item.deleteItem" 
     />
 
     <div class="d-flex flex-wrap w-100 justify-space-between">
@@ -88,16 +72,16 @@ onMounted(() => {
         <div>
             <v-select 
                 v-model="selectedCategory" 
-                :items="categories" 
+                :items="categories.categories" 
                 variant="outlined" 
                 label="category" 
                 placeholder="select category" 
                 max-width="400" 
-                width="200" 
+                width="300" 
                 item-title="name" 
                 item-value="id" 
                 density="comfortable" 
-                class="mt-2" 
+                class="mt-2 ml-2" 
                 multiple 
                 clearable
             >
@@ -118,9 +102,9 @@ onMounted(() => {
     <v-data-table-server 
         v-model:items-per-page="item.perPage" 
         :headers="item.headers" 
-        :items="item.filtered"
+        :items="item.items"
         :items-length="item.total" 
-        :loading="loading" 
+        :loading="item.onUpdate" 
         :search="item.searchName" 
         item-value="name"
         @update:options="item.updateTable"

@@ -6,7 +6,7 @@ import AdminLayout from '@/layouts/AdminLayout.vue';
 <template>
     <AdminLayout>
         <div class="d-flex ga-2">
-            <h2>category</h2>
+            <h2>Category</h2>
             <VChip color="primary" variant="flat" append-icon="mdi-plus" @click="null">
                 Tambah
                 <CategoryAddDialog />

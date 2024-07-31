@@ -50,14 +50,12 @@ const logout = async () => {
                             to="/admin/laporan" />
                     -->
                 <v-divider/>
-                <v-list-item prepend-icon="mdi-tag-multiple" title="category" value="category" to="/admin/category" />
+                <v-list-item prepend-icon="mdi-tag-multiple" title="Kategori" value="Kategori" to="/admin/category" />
                 <v-list-item to="/admin/items" prepend-icon="mdi-view-list" title="Barang" value="items" />
                 <v-list-item to="/admin/barang-masuk" prepend-icon="mdi-arrow-down-bold-hexagon-outline"
                     title="Barang Masuk" value="item-in" />
                 <v-list-item to="/admin/barang-keluar" prepend-icon="mdi-logout" title="Barang Keluar"
                     value="item-out" />
-                <v-list-item to="/admin/items/so" prepend-icon="mdi-format-list-bulleted-square" title="Stock Opname"
-                    value="stock-opname" />
                 <v-list-item prepend-icon="mdi-file-document-edit-outline" title="Pengadaan" value="pengadaan"
                     to="/admin/pengadaan" />
                 <v-list-item prepend-icon="mdi-clipboard-text-outline" title="Permintaan" value="permintaan" to="/admin/permintaan" />

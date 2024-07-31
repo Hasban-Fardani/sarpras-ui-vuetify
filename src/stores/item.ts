@@ -1,20 +1,19 @@
 import type { CreateItem, Item } from '@/types/item'
 import type { UpdateTableArgs } from '@/types/table'
-import axios from 'axios'
+import axios, { type AxiosRequestConfig } from 'axios'
 import { defineStore } from 'pinia'
-import { computed, ref } from 'vue'
-import { items as fakeItem } from './fake/item'
+import { ref } from 'vue'
 import { useUserStore } from './user'
 
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL
 export const useItemStore = defineStore('item', () => {
   const items = ref<Item[]>([])
-  const total = computed(() => items.value?.length)
+  const total = ref(0)
   const perPage = ref(5)
   const page = ref(1)
+  const shortBy = ref(null)
   const searchName = ref('')
-  const filtered = computed(() => items.value)
-  const totalFiltered = computed(() => filtered.value!.length)
+  const onUpdate = ref(false)
   const headers = [
     {
       title: 'Gambar',
@@ -38,7 +37,7 @@ export const useItemStore = defineStore('item', () => {
       key: 'stock'
     },
     {
-      title: 'SO terakhir',
+      title: 'update',
       key: 'updated_at'
     },
     {
@@ -50,57 +49,120 @@ export const useItemStore = defineStore('item', () => {
 
   async function getAll() {
     const user = useUserStore()
-    const {data} = await axios.get(`${BACKEND_URL}/item`, {
+    const {data} = await axios.get(`${BACKEND_URL}/item?page=${page.value}&per_page=${perPage.value}&search=${searchName.value}`, {
       headers: {
         Authorization: `Bearer ${user.data.token}`
       }
     })
-    console.log("Dataa:: ",data.data)
 
     items.value = data.data
-
-
-    return items.value
+    total.value = data.total
   }
 
-  function get(id: number) {
-    return items.value.find((i) => i.id === id)
-  }
-
-  function tmpData() {
-    items.value = fakeItem
-  }
-
-  function updateTable(args: UpdateTableArgs) {
+  async function updateTable(args: UpdateTableArgs) {
     page.value = args.page
     perPage.value = args.itemsPerPage
+
+    if (!onUpdate.value) {
+      onUpdate.value = true
+      setTimeout(async () => {
+        await getAll()
+        onUpdate.value = false
+      }, 1000)
+    }
   }
 
-  function addItem(item: CreateItem) {
+
+  async function refresh() {
+    const args: UpdateTableArgs = {
+      page: page.value,
+      itemsPerPage: perPage.value,
+      shortBy: shortBy.value
+    }
+    
+    updateTable(args)
+  }
+
+  async function addItem(item: CreateItem) {
     const data = new FormData()
     data.append('name', item.name)
-    data.append('gambar', item.gambar)
+    // data.append('gambar', item.gambar)
     data.append('category_id', item.category_id.toString())
     data.append('stock', item.stock.toString())
+    data.append('min_stock', item.min_stock.toString())
     data.append('price', item.price.toString())
+    data.append('unit', item.unit)
+    data.append('merk', item.merk)
+
+    const config: AxiosRequestConfig = {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+        Authorization: `Bearer ${useUserStore().data.token}`
+      }
+    }
+
+    await axios.post(`${BACKEND_URL}/item`, data, config)
   }
 
-  function updateItem() {}
+  async function updateItem(itemToUpdate: Item) {
+    if (!itemToUpdate) {
+      console.log('no item')
+      return
+    }
 
-  function deleteItem() {}
+    onUpdate.value = true
+
+    const data = new FormData()
+    data.append('_method', "PUT")
+
+    // Check if properties exist before appending
+    if (itemToUpdate.name) data.append('name', itemToUpdate.name)
+    if (itemToUpdate.category_id) data.append('category_id', itemToUpdate.category_id.toString())
+    if (itemToUpdate.merk) data.append('merk', itemToUpdate.merk)
+    if (itemToUpdate.price) data.append('price', itemToUpdate.price.toString())
+    if (itemToUpdate.stock) data.append('stock', itemToUpdate.stock.toString())
+    if (itemToUpdate.min_stock) data.append('min_stock', itemToUpdate.min_stock.toString())
+    if (itemToUpdate.unit) data.append('unit', itemToUpdate.unit)
+
+    console.log("value ketika passing: ",data, itemToUpdate)
+
+    const config: AxiosRequestConfig = {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+        Authorization: `Bearer ${useUserStore().data.token}`
+      }
+    }
+
+    await axios.post(`${BACKEND_URL}/item/${itemToUpdate.id}`, data, config)
+    onUpdate.value = false
+
+    refresh()
+  }
+
+  async function deleteItem(itemId: number) {
+    onUpdate.value = true
+
+    const config: AxiosRequestConfig = {
+      headers: {
+        Authorization: `Bearer ${useUserStore().data.token}`
+      }
+    }
+
+    await axios.delete(`${BACKEND_URL}/item/${itemId}`, config)
+
+    onUpdate.value = false
+    refresh()
+  }
 
   return {
     items,
-    filtered,
     total,
-    totalFiltered,
     headers,
     perPage,
     page,
     searchName,
-    get,
+    onUpdate,
     getAll,
-    tmpData,
     updateTable,
     deleteItem,
     updateItem,
